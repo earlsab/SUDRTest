@@ -1,0 +1,692 @@
+/* NAVIGATION BAR START */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+ height: 100%;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: Montserrat;
+  height: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #2b2b2b;
+
+}
+
+.nav-links a {
+  color: #ccab45;
+}
+
+.logoimg {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  gap: 2em;
+  font-size: 18px;
+}
+
+.menu li:hover {
+  font-size: 20px;
+  padding: 4px 25px;
+  transition: 0.3s ease;
+}
+
+.menu li {
+  padding: 5px 14px;
+  list-style: none;
+}
+
+.faq {
+  position: relative; 
+}
+
+.dropdown {
+  background-color: #2b2b2b;
+  box-shadow: 4px 4px #ccab45;
+  border-radius: 10px;
+  padding: 1em 0;
+  z-index: 2;
+  position: absolute; 
+  display: none;
+  border-radius: 5px;
+  top: 30px;
+}
+
+.dropdown li + li {
+  margin-top: 10px;
+}
+
+.dropdown li {
+  padding: 0.5em 1em;
+  width: 10em;
+  font-size: 18px;
+  text-align: center;
+}
+
+.dropdown li:hover {
+  padding: 0.5em 1em;
+  width: 10em;
+  font-size: 21px;
+}
+
+.faq:hover .dropdown {
+  display: block;
+}
+
+input[type=checkbox]{
+  display: none;
+} 
+
+.hamburger {
+  display: none;
+  font-size: 18px;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .menu { 
+    display:none;
+    position: absolute;
+    background-color: #2b2b2b;
+    margin-top: 20px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 30px 0;
+    z-index: 2;
+
+  }
+
+  .menu li:hover {
+    display: inline-block;
+    transition: all ease-in-out 250ms;
+  }
+
+  .menu li + li {
+    margin-top: 30px;
+  }
+
+  #checkbox_toggle:checked ~ .menu{
+    display: block;
+  }
+
+  .hamburger {
+    color: #ccab45;
+    display: block;
+  }
+
+  .dropdown {
+    left: 50%;
+    top: 50px;
+    box-shadow: 4px 4px #ccab45;
+    border-radius: 10px;
+    transform: translateX(-30%);
+  }
+
+  .dropdown li:hover {
+    padding: 0.5em 1em;
+    width: 10em;
+    font-size: 21px;
+  }
+}
+
+/* NAVIGATION BAR END */
+
+/* RESPONSIVE SIDE BAR START */
+
+.container {  
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 20vw 80vw;
+  grid-template-rows: 90% 10%;
+  grid-template-areas:
+    "sidebar main"
+    "footer footer";
+}
+
+.sidebar { 
+  grid-area: sidebar; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main { 
+  grid-area: main; 
+  
+}
+
+.togglebar {
+  color: #ccab45;
+  background-color: #2b2b2b;
+  box-shadow: 5px 5px #ccab45;
+  height: 75vh;
+  width: 6.3rem;
+  float: left;
+  border-radius: 25px;
+  display: block;
+  overflow: hidden;
+  transition: .1s ;
+}
+
+.togglebar a, .togglebar a:visited, 
+.togglebar a:hover, .togglebar a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.togglebar .navtext, .usertxt {
+  display: none;
+}
+
+.togglebar:hover span {
+  display: inline-block;
+}
+
+.togglebar:hover {
+  width: 15.3rem;
+}
+
+.togglebar:hover .line {
+  width: 12.7rem;
+}
+
+.togglebar ul {
+  list-style: none;
+}
+
+.userinfo {
+  display: inline-flex;
+  width: 250px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  padding-left: 1.3rem;
+}
+
+.navtext:hover {
+  font-size: 22px;
+  transition: 0.3s ease;
+}
+
+.sidelinks {
+  display: inline-flex;
+  align-content: center;
+  width: 250px;
+  padding-top: 3.5rem;
+  padding-left: 2rem;
+
+}
+
+.line {
+  border: 1px solid #ccab45;
+  margin: 1.3rem;
+  height: 1px;
+  width: 4rem;
+  transition: .1s
+}
+
+.usertxt {
+  padding-left: 1rem;
+}
+
+
+.fa {
+  width: 2.5vw;
+  height: 5vh;
+  font-size: 28px;
+  text-align: center;
+  align-content: center;
+}
+
+.navtext {
+  color: white;
+  font-size: 20px;
+  height: 5vh;
+  text-align: center;
+  padding-left: 25px;
+}
+
+.navtext:hover {
+  font-size: 22px;
+  transition: .1s ease;
+}
+
+.footer { 
+  grid-area: footer; 
+  background-color: #ccab45;
+}
+
+
+
+@media (max-width: 768px) {
+.container{
+  grid-template-columns: 100%;
+  grid-template-areas:"main"
+                      "sidebar"
+                      "footer";
+}
+.sidebar { 
+  position:sticky;
+  bottom:0; 
+  padding: 0;
+}
+
+.togglebar {
+  display: flex;
+  position: fixed;
+  padding: 0;
+  bottom:0; 
+  height: 5rem;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.togglebar ul {
+  display: inline-flex;
+  width: 100%; 
+  align-items: center;
+}
+
+.togglebar .sidelinks{
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.togglebar li {
+  width: 100%;
+  height: 100%;
+}
+
+.togglebar:hover{
+  height: 5rem;
+  width: 100%;
+}
+
+.togglebar:hover .navtext {
+  display: none;
+}
+
+.fa{
+  display: inline-flex;
+  padding-top: 8px;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+.userinfo{
+  display: none; 
+}
+
+.line{
+  display: none;
+}
+
+.footer {
+  display: none;
+}
+
+}
+
+/* RESPONSIVE SIDE BAR END */
+
+/* MAIN LAYOUTS START */
+
+/* 1. HOME LAYOUT START */
+
+.searchcont{
+  width: 100%;
+  height: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchcard{
+  width: 50%;
+  padding: 30px;
+  background: #2b2b2b;
+  border-radius: 25px;
+  box-shadow: 5px 5px #ccab45;
+}
+
+.advsearch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  color: #ccab45;
+}
+
+.searchbar {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.searchinput{
+  width: 300px;
+  height: 30px;
+  border: 1px solid #ccab45;
+  font-family: montserrat;
+}
+
+form.searchbar button{
+  width: 30px;
+  height: 30px;
+  background: #2b2b2b;
+  border: 1px solid #ccab45;
+}
+.categories {
+  width: 100%;
+  height: 50%;
+}
+
+.catlinks span{
+  display: block;
+}
+
+.catlinks{
+  cursor: pointer;
+  width: 15%;
+  height: 55%;
+  margin: 40px;
+  font-family: montserrat;
+  background: #2b2b2b;
+  color: white;
+  border-radius: 25px;
+  box-shadow: 5px 5px #ccab45;
+}
+
+.categories .catlinks:hover{
+  font-size: 21px;
+  transition: 0.3s ease;
+
+}
+
+.catlinks{
+  font-size: 18px;
+}
+
+.catbtn{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  bottom: 5px;
+}
+
+.fac{
+  font-size: 50px;
+  padding: 10px;
+}
+
+.fas, .fac{
+  color: #ccab45;
+}
+.fas {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  .searchinput{
+    width: 260px;
+  }
+
+  .searchcard{
+    width: 100%;
+    background: #2b2b2b;
+    border: 1px solid #ccab45;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .searchcont {
+    margin-top: 0px;
+    height: 25%;
+  }
+
+  .advsearch {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccab45;
+}
+
+
+  .categories {
+    margin: 0;
+  }
+
+  .catbtn{
+    display: block;
+  }
+
+  .catlinks{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 70px;
+  }
+
+  .catlinks span{
+    display: inline-block;
+  }
+
+  .fac{
+    font-size: 20px;
+  }
+
+}
+/* HOME LAYOUT END */
+
+/* PROFILE START */
+
+.profileblock {
+  margin: 50px;
+  height: 39%;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.profileinfo {
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+
+  .profileblock {
+    margin: 15px;
+  }
+
+  .profileinfo {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+}
+
+/* PROFILE END */
+
+/* MY PAPERS START */
+
+.mypapersblock {
+  margin: 50px;
+  height: 85%;
+}
+
+.fau {
+  margin: 15px;
+  font-size: 20px;
+}
+
+.papersheading {
+  margin-bottom: 20px;
+}
+
+.uploadlink {
+  background: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.buttonstyle1{
+width: 7rem;
+font-family: Montserrat;
+font-weight: bolder;
+color: white;
+background-color: #2b2b2b;
+box-shadow: 5px 5px#ccab45;
+line-height: 30px;
+border-style: none;
+border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+
+  .mypapersblock {
+    margin: 0px;
+  }
+
+  .papersheading {
+    background-color: #2b2b2b;
+    color: #ccab45;
+    height: 100px;
+    margin: 0;
+    box-shadow: 5px 5px#ccab45;
+  }
+
+  .modline {
+    display: none;
+  }
+}
+
+/* MY PAPERS END */
+
+/* UPLOAD PAPER START */
+
+.uploadblock {
+  margin: 50px;
+  height: 85%;
+}
+
+.uploaditem {
+  width: 100%;
+  height: 15%
+}
+
+.uploadheading {
+  margin-bottom: 20px;
+}
+
+.uploadinfo {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.uploadinput {
+  width: 80%;
+  border-radius: 5px;
+  border-style: thin;
+  line-height: 24px;
+  padding-left: 10px;
+}
+
+select {
+  padding: 3px 12px;
+  outline: none;
+  width: 250px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-family: montserrat;
+}
+
+select.papertype::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+.faup {
+  margin: 15px;
+  font-size: 20px;
+}
+
+.uploadbutton {
+  background: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.buttoncont{
+  height: 40%;
+}
+
+.buttonstyle2 {
+  float: right;
+  cursor: pointer;
+  margin-top: 100px;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  font-family: montserrat;
+  font-weight: bold;
+  color: #ccab45;
+  background-color: #2b2b2b;
+  box-shadow: 5px 5px#ccab45;
+
+}
+
+/* UPLOAD PAPER END */
+
+/*MAIN LAYOUTS END */
