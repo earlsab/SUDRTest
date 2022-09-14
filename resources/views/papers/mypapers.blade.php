@@ -7,7 +7,7 @@
 			<hr class="modline">
 
 			<button class="uploadlink">
-            <a href = "{{ route('UploadPapers') }}">
+            <a href = "{{ route('UploadPaperPage') }}">
 				<i class="fau fa-solid fa-plus"></i>
             </a>
 			</button>

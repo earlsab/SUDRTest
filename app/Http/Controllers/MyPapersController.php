@@ -12,7 +12,7 @@ class MyPapersController extends Controller
 
     }
 
-    public function create()
+    public function showpage()
     {
         return view('papers.uploadpaper');
 

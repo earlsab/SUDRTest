@@ -5,7 +5,7 @@
 
 <div class="searchcont">
 			<div class="searchcard">
-				<h1 class="advsearch">IMONG MAMA</h1>
+				<h1 class="advsearch">Advanced Search</h1>
 				<form class="searchbar">
 					<input class="searchinput" type="text" placeholder="Search.." name="search">
 					<button><i class="fas fa-solid fa-filter"></i></button>
