@@ -29,6 +29,9 @@ Route::get('/MyProfile', [App\Http\Controllers\MyProfileController::class, 'inde
 /* My Papers Route */
 Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'index'])->name('MyPapers');
 Route::get('/UploadPaper', [App\Http\Controllers\MyPapersController::class, 'showpage'])->name('UploadPaperPage');
+Route::post('/UploadFile', [App\Http\Controllers\MyPapersController::class, 'store'])->name('UploadFile');
+Route::get('/viewPDF/{is}', [App\Http\Controllers\MyPapersController::class, 'view'])->name('viewPDF');
+
 
 /* Admin Login Route */
 Route::get('/admin/login', [App\Http\Controllers\HomeController::class, 'adminlogin'])->name('AdminLogin');
