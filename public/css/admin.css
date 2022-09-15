@@ -178,7 +178,7 @@
   
   .main { 
     grid-area: main; 
-    background-color: aquamarine;
+    
   }
   
   .togglebar {
@@ -523,6 +523,9 @@
   }
   /* HOME LAYOUT END */
   
-
+  a {
+    color: #fdfdfd;
+    text-decoration: none;
+  }
   
   /*MAIN LAYOUTS END */

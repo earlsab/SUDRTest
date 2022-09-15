@@ -44,4 +44,18 @@ class MyPapersController extends Controller
         $data=Papers::find($id);
         return view('papers.viewPDF',compact('data'));
     }
+
+    public function indexAdmin()
+    {
+        $data=Papers::all();
+        return view('papers.mypapersadmin',compact('data'));
+
+    }
+
+    public function maintainshow()
+    {
+        $data=Papers::all();
+        return view('papers.mpm',compact('data'));
+
+    }
 }

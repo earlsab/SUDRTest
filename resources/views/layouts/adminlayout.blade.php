@@ -17,7 +17,7 @@
 <header>
 <nav class="navbar">
 	<!-- LOGO -->
-	<div><a href="index.html" title="Silliman University Digital Repository"><img class="logoimg" src="/img/SUDRLogoTP.png"></a></div>
+	<div><a href="{{ url('admin/home') }}" title="Silliman University Digital Repository"><img class="logoimg" src="/img/SUDRLogoTP.png"></a></div>
 	<!-- NAVIGATION MENU -->
 	<ul class="nav-links">
 	    <!-- HAMBURGER MENU -->
@@ -27,7 +27,7 @@
 
 	    <!-- NAVIGATION MENUS -->
 	    <div class="menu">
-	        <li><a href="SUDRLogin.html">HOME</a></li>
+	        <li><a href="{{ url('admin/home') }}">HOME</a></li>
 	        <li class="faq">
 	           <a>FAQ</a>
 	           <!-- DROPDOWN MENU -->
@@ -62,7 +62,6 @@
 			<div class="userinfo">
 				<span class="usinfo fa-regular fa-circle-user fa-4x"></span>
 				<span class="usertxt">
-				<div>TO BE FIXED</div>
 				<div><i class="fa-solid fa-star"></i> Admin</div>
 				</span>
 			</div>
@@ -73,7 +72,7 @@
 			<ul>
 
 				<li>
-					<a  class="sidelinks" href="#">
+					<a  class="sidelinks" href="{{ route('MyPapersMaintain') }}">
 						<span class="fa fa-solid fa-book-open"></span>
 						<span class="navtext">Maintenance</span>
 					</a>
@@ -90,43 +89,9 @@
 		</nav>
 
 	</div>
-	<div class="main">
-       
-		<div class="searchcont">
-			<div class="searchcard">
-				<h1 class="advsearch">Advanced Search</h1>
-				<form class="searchbar">
-					<input class="searchinput" type="text" placeholder="Search.." name="search">
-					<button><i class="fas fa-solid fa-filter"></i></button>
-					<button type="submit"><i class="fas fa-solid fa-magnifying-glass"></i></button>
-				</form>
-			</div>
-		</div>
-
-		<div class="categories">
-
-			<div class="catbtn">
-				<button class="catlinks">
-					<i class="fac fa-solid fa-school"></i>
-					<span>Colleges</span>
-				</button>
-				<button class="catlinks">
-					<i class="fac fa-solid fa-image-portrait"></i>
-					<span>Authors</span>
-				</button>
-				<!--
-				<button class="catlinks">
-					<i class="fac fa-solid fa-school"></i>
-					<span>SUSG</span>
-				</button>-->
-				<button class="catlinks">
-					<i class="fac fa-solid fa-scroll"></i>
-					<span>All Papers</span>
-				</button>
-			</div>
-		</div>
-		
-	</div>
+	<main>
+		@yield('content')
+	</main>
 
 	<div class="footer">foot</div>
 </div>

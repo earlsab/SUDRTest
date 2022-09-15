@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>SU Digital Repository</title>
-	<link rel="stylesheet" type="text/css" href="css/mainlayout.css">
+	<link rel="stylesheet" type="text/css" href="/css/mainlayout.css">
 	<script src="https://kit.fontawesome.com/6299020e6b.js" crossorigin="anonymous"></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
@@ -17,7 +17,7 @@
 <header>
 <nav class="navbar">
 	<!-- LOGO -->
-	<div><a href="{{ route('home') }}" title="Silliman University Digital Repository"><img class="logoimg" src="img/SUDRLogoTP.png"></a></div>
+	<div><a href="{{ route('home') }}" title="Silliman University Digital Repository"><img class="logoimg" src="/img/SUDRLogoTP.png"></a></div>
 	<!-- NAVIGATION MENU -->
 	<ul class="nav-links">
 	    <!-- HAMBURGER MENU -->
