@@ -45,6 +45,7 @@ class MyPapersController extends Controller
         return view('papers.viewPDF',compact('data'));
     }
 
+    /* ADMIN SIDE OF MY PAPERS */
     public function indexAdmin()
     {
         $data=Papers::all();
@@ -57,5 +58,17 @@ class MyPapersController extends Controller
         $data=Papers::all();
         return view('papers.mpm',compact('data'));
 
+    }
+
+    public function viewAdmin($id)
+    {
+        $data=Papers::find($id);
+        return view('papers.viewPDFAdmin',compact('data'));
+    }
+
+    public function destroy($id)
+    {
+        $data=Papers::destroy($id);
+        return redirect()->back();
     }
 }

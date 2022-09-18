@@ -17,7 +17,7 @@
 <header>
 <nav class="navbar">
 	<!-- LOGO -->
-	<div><a href="{{ url('admin/home') }}" title="Silliman University Digital Repository"><img class="logoimg" src="/img/SUDRLogoTP.png"></a></div>
+	<div><a href="{{ route('AdminPage') }}" title="Silliman University Digital Repository"><img class="logoimg" src="/img/SUDRLogoTP.png"></a></div>
 	<!-- NAVIGATION MENU -->
 	<ul class="nav-links">
 	    <!-- HAMBURGER MENU -->
@@ -27,7 +27,7 @@
 
 	    <!-- NAVIGATION MENUS -->
 	    <div class="menu">
-	        <li><a href="{{ url('admin/home') }}">HOME</a></li>
+	        <li><a href="{{ route('AdminPage') }}">HOME</a></li>
 	        <li class="faq">
 	           <a>FAQ</a>
 	           <!-- DROPDOWN MENU -->

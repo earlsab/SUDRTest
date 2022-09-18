@@ -42,7 +42,7 @@
                         <div class="reginput">
                             <i class="fa-solid fa-graduation-cap"></i>
 
-                            <select class="college style">
+                            <select class="college style" name="college">
 								<option value="blank">Select College</option>
                                 <option value="College of Arts and Sciences">College of Arts and Sciences</option>
 								<option value="College of Business Administration">College of Business Administration</option>

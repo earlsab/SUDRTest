@@ -20,7 +20,7 @@
 				<td>{{$data->title}}</td>
 				<td>{{$data->papertype}}</td>
 				<td>{{$data->file}}</td>
-				<td><a href="{{route('viewPDF',$data->id)}}">View</a></td>
+				<td><a href="{{route('viewPDFAdmin',$data->id)}}">View</a></td>
 			</tr>
 
 			@endforeach
