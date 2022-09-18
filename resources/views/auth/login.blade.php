@@ -13,7 +13,7 @@
                             <div class="reginput">
                                 <i class="fa-solid fa-envelope"></i>
                                 <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required autocomplete="email" 
-                                placeholder = "Email Adress" autofocus>
+                                placeholder = "Email Address" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -66,10 +66,11 @@
                             <button type="submit" class="buttonstyle1">
                                     {{ __('Login') }}
                             </button>
+                            <button class="buttonstyle1"><a href = "{{ route('register') }}">Register</a></button>
                         </div>
 
                         <div class="buttoncont">
-                            <button class="buttonstyle1">
+                            <button class="buttonstyle3">
                             <a href="{{ route('AdminLogin') }}">
                                         {{ __('Admin Login') }}
                                     </a>

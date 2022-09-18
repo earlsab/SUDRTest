@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>SU Digital Repository Login Page deez nuts</title>
+	<title>SU Digital Repository Login Page</title>
 	<link rel="stylesheet" type="text/css" href="/css/auth.css">
 	<script src="https://kit.fontawesome.com/6299020e6b.js" crossorigin="anonymous"></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
@@ -51,32 +51,18 @@
 	
 	<div class="tabs">
 	
-		<input type="radio" name="tabs" id="tabone" checked="checked">
-		<label class="logregtab" for="tabone"><a href = "{{ route('login') }}">Login</a></label>
-		<div class="tab">
 
-	@if (Route::has('login'))
-		<!-- CONTENT -->
-		<main>
-    	@yield ('content')
-		</main>
-		</div>
+			<div class="tab">
 
-	@endif
+				@if (Route::has('login'))
+					<!-- CONTENT -->
+					<main>
+					@yield ('content')
+					</main>
+			
+			</div>
 
-	<input type="radio" name="tabs" id="tabtwo">
-		<label class="logregtab" for="tabtwo"><a href = "{{ route('register') }}">Register</a></label>
-		<div class="tab">
-
-	@if (Route::has('register'))
-		<!-- CONTENT -->
-		<main>
-    	@yield ('content')
-		</main>
-		</div>
-
-	@endif
-
+				@endif
 
 	</div>
 

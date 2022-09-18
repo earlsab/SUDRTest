@@ -50,9 +50,6 @@
 	<div class="bgimage"></div>
 	
 	<div class="tabs">
-	
-		<input type="radio" name="tabs" id="tabone" checked="checked">
-		<label class="logregtab" for="tabone"><a href = "{{ route('login') }}">Login</a></label>
 		<div class="tab">
 
 	@if (Route::has('login'))

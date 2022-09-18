@@ -13,7 +13,7 @@
                             <div class="reginput">
                                 <i class="fa-solid fa-pen-nib"></i>
                                 <input id="name" type="text" class="input" name="name" value="{{ old('name') }}" required autocomplete="name" 
-                                placeholder = "Name" autofocus>
+                                placeholder = "Full Name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                         <div class="reginput">
                             <i class="fa-solid fa-graduation-cap"></i>
 
-                            <select class="input" id="college" name="college">
+                            <select class="college style">
 								<option value="blank">Select College</option>
                                 <option value="College of Arts and Sciences">College of Arts and Sciences</option>
 								<option value="College of Business Administration">College of Business Administration</option>
@@ -110,9 +110,13 @@
 
                     <!-- REGISTER -->
                         <div class="buttoncont">
-                                <button type="submit" class="buttonstyle1">
-                                    {{ __('Register') }}
-                                </button>
+                            <button class="buttonstyle1">
+                                <a href = "{{ route('login') }}">Login</a>
+                            </button>
+
+                            <button type="submit" class="buttonstyle1">
+                                {{ __('Register') }}
+                            </button>
                         </div>
                     </form>
 
