@@ -101,7 +101,7 @@
         @yield('content')
     </main>
 
-	<div class="footer">Silliman University Digital Repository</div>
+
 </div>
 
 </body>

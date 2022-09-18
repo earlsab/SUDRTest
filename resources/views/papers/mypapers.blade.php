@@ -6,30 +6,35 @@
 			<h1 class="papersheading">My Papers</h1>
 			<hr class="modline">
 
-			<table border="1px">
-			<tr>
-				<th>Title</th>
-				<th>Paper Type</th>
-				<th>File</th>
-				<th>View</th>
-			</tr>
+			<div class="tablewrapper">
 
-			@foreach($data as $data)
+				<table class="papertable" border="1px">
+					<tr>
+						<th>Title</th>
+						<th>Paper Type</th>
+						<th>File</th>
+						<th>View</th>
+					</tr>
 
-			<tr>
-				<td>{{$data->title}}</td>
-				<td>{{$data->papertype}}</td>
-				<td>{{$data->file}}</td>
-				<td><a href="{{route('viewPDF',$data->id)}}">View</a></td>
-			</tr>
+					@foreach($data as $data)
 
-			@endforeach
-			</table>
-			<button class="uploadlink">
-            <a href = "{{ route('UploadPaperPage') }}">
-				<i class="fau fa-solid fa-plus"></i>
-            </a>
-			</button>
+					<tr>
+						<td>{{$data->title}}</td>
+						<td>{{$data->papertype}}</td>
+						<td>{{$data->file}}</td>
+						<td><a class="viewlink" href="{{route('viewPDF',$data->id)}}">View</a></td>
+					</tr>
+
+					@endforeach
+				</table>
+
+				<button class="uploadlink buttonstyle3">
+				<a href = "{{ route('UploadPaperPage') }}">
+					ADD A PAPER
+				</a>
+				</button>
+
+			</div>
 </div>
 
 
