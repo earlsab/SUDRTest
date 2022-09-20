@@ -436,6 +436,12 @@
     box-shadow: 5px 5px #ccab45;
   }
   
+.catlinks a {
+
+  text-decoration: none;
+  color: white;
+}
+
   .categories .catlinks:hover{
     font-size: 21px;
     transition: 0.3s ease;
@@ -705,9 +711,18 @@
 .pdfviewer {
   width: 70vw;
   height: 130vh;
-  margin-top: 70px;
+  margin-top: 50px;
   margin-bottom: 70px;
 
+}
+
+.paperinfoblock {
+  margin-top: 20px;
+}
+
+.paperinfo {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
