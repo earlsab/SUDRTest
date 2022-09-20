@@ -4,7 +4,7 @@
 
 <div class="mypapersblock">
         <h1 class="papersheading">View PDF</h1>
-			<hr class="modline">
+	        <hr class="modline">
 
                 <iframe  class="pdfviewer" src="/assets/{{$data->file}}"></iframe>
 
