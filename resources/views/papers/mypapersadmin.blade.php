@@ -6,25 +6,29 @@
 			<h1 class="papersheading">All Papers</h1>
 			<hr class="modline">
 
-			<table border="1px">
-			<tr>
-				<th>Title</th>
-				<th>Paper Type</th>
-				<th>File</th>
-				<th>View</th>
-			</tr>
+			<div class="tablewrapper">
 
-			@foreach($data as $data)
+				<table class="papertable" border="1px">
+					<tr>
+						<th>Title</th>
+						<th>Paper Type</th>
+						<th>File</th>
+						<th>View</th>
+					</tr>
 
-			<tr>
-				<td>{{$data->title}}</td>
-				<td>{{$data->papertype}}</td>
-				<td>{{$data->file}}</td>
-				<td><a href="{{route('viewPDFAdmin',$data->id)}}">View</a></td>
-			</tr>
+					@foreach($data as $data)
 
-			@endforeach
-			</table>
+					<tr>
+						<td>{{$data->title}}</td>
+						<td>{{$data->papertype}}</td>
+						<td>{{$data->file}}</td>
+						<td><a href="{{route('viewPDFAdmin',$data->id)}}">View</a></td>
+					</tr>
+
+					@endforeach
+				</table>
+
+			</div>
 			
 </div>
 

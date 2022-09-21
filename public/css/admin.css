@@ -436,6 +436,12 @@
     box-shadow: 5px 5px #ccab45;
   }
   
+.catlinks a {
+
+  text-decoration: none;
+  color: white;
+}
+
   .categories .catlinks:hover{
     font-size: 21px;
     transition: 0.3s ease;
@@ -522,15 +528,217 @@
   
   }
   /* HOME LAYOUT END */
-  
-  a {
-    color: #fdfdfd;
-    text-decoration: none;
+
+/* MY PAPERS START */
+
+.mypapersblock {
+  margin: 50px;
+  height: 85%;
+}
+
+.fau {
+  margin: 15px;
+  font-size: 20px;
+}
+
+.papersheading {
+  margin-bottom: 20px;
+}
+
+.uploadlink {
+  background: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.buttonstyle1{
+  width: 7rem;
+  font-family: Montserrat;
+  font-weight: bolder;
+  color: white;
+  background-color: #2b2b2b;
+  box-shadow: 5px 5px#ccab45;
+  line-height: 30px;
+  border-style: none;
+  border-radius: 10px;
+}
+
+.buttonstyle3{
+  width: 7rem;
+  font-family: Montserrat;
+  font-weight: bolder;
+  color: white;
+  background-color: #ccab45;
+  line-height: 30px;
+  border-style: none;
+  border-radius: 10px;
+}
+
+.papertable {
+ background-color: #2b2b2b;
+ color: #ccab45;
+ border: 1px solid #ccab45;
+ width: 100%
+}
+
+.uploadlink a,.viewlink {
+  color: white;
+}
+
+.tablewrapper {
+  background-color: #2b2b2b;
+  padding: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+
+  .mypapersblock {
+    margin: 0px;
   }
 
-  .view {
-    color: #81e05b;
-    text-decoration: none;
+  .papersheading {
+    background-color: #2b2b2b;
+    color: #ccab45;
+    height: 100px;
+    margin: 0;
+    box-shadow: 5px 5px#ccab45;
   }
+
+  .modline {
+    display: none;
+  }
+}
+
+/* MY PAPERS END */
+
+/* ADMIN MAINTENANCE PAPER START */
+
+.mypapersblock {
+  margin: 50px;
+  height: 85%;
+}
+
+.fau {
+  margin: 15px;
+  font-size: 20px;
+}
+
+.papersheading {
+  margin-bottom: 20px;
+}
+
+.uploadlink {
+  background: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.buttonstyle1{
+  width: 7rem;
+  font-family: Montserrat;
+  font-weight: bolder;
+  color: white;
+  background-color: #2b2b2b;
+  box-shadow: 5px 5px#ccab45;
+  line-height: 30px;
+  border-style: none;
+  border-radius: 10px;
+}
+
+.buttonstyle3{
+  width: 7rem;
+  font-family: Montserrat;
+  font-weight: bolder;
+  color: white;
+  background-color: #ccab45;
+  line-height: 30px;
+  border-style: none;
+  border-radius: 10px;
+}
+
+.papertable {
+ background-color: #2b2b2b;
+ color: #ccab45;
+ border: 1px solid #ccab45;
+ width: 100%
+}
+
+.uploadlink a,.viewlink {
+  color: white;
+}
+
+.tablewrapper {
+  background-color: #2b2b2b;
+  padding: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+
+.deletecol {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+
+  .mypapersblock {
+    margin: 0px;
+  }
+
+  .papersheading {
+    background-color: #2b2b2b;
+    color: #ccab45;
+    height: 100px;
+    margin: 0;
+    box-shadow: 5px 5px#ccab45;
+  }
+
+  .modline {
+    display: none;
+  }
+}
+
+/* ADMIN MAINTENANCE PAPERS END */
+  
+/* PDF VIEWER START */
+
+.pdfviewer {
+  width: 70vw;
+  height: 130vh;
+  margin-top: 50px;
+  margin-bottom: 70px;
+
+}
+
+.paperinfoblock {
+  margin-top: 20px;
+}
+
+.paperinfo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+
+  .pdfviewer {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 5px;
+    margin-bottom: 0;
+  
+  }
+
+}
+
+/* PDF VIEWER END */
+
+  
   
   /*MAIN LAYOUTS END */
