@@ -28,6 +28,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/MyProfile', [App\Http\Controllers\MyProfileController::class, 'index'])->name('MyProfile');
 Route::get('/ChangePass', [App\Http\Controllers\MyProfileController::class, 'changepass'])->name('ChangePass');
 
+Route::post('/ChangePassword', [App\Http\Controllers\MyProfileController::class, 'updatepassword'])->name('passupdate');
+
 /* My Papers Route */
 Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'index'])->name('MyPapers');
 Route::get('/viewPDF/{is}', [App\Http\Controllers\MyPapersController::class, 'view'])->name('viewPDF');
