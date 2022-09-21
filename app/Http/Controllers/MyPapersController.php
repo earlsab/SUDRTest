@@ -23,6 +23,16 @@ class MyPapersController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'papertype' => 'required',
+            'file' => [
+                'required',
+                File::types('pdf')
+                    ->max(12 * 1024),
+            ],
+        ]);
+        
         $data=new Papers();
 
         $file=$request->file;
@@ -71,4 +81,22 @@ class MyPapersController extends Controller
         $data=Papers::destroy($id);
         return redirect()->back();
     }
+
+    public function edit($id)
+    {
+        
+        return view('papers.updatepaper');
+
+    }
+
+    public function update(Request $request,$id )
+    {
+        $data=Papers::find($id);
+
+        $papers->update($request->all());
+            
+            return redirect()->back();
+    }
+
+    
 }

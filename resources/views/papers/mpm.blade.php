@@ -13,6 +13,7 @@
 				<th>File</th>
 				<th>View</th>
 				<th>Delete</th>
+				<th>Update</th>
 			</tr>
 
 			@foreach($data as $data)
@@ -29,6 +30,8 @@
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Papers" onclick="return confirm("Confirm delete?")"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
 				</td>
+				<td><a class="view" href="{{route('UpdatePaper',$data->id)}}">Edit</a></td>
+				
 			</tr>
 
 			@endforeach
