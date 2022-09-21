@@ -26,6 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /* My Profiles Route */
 Route::get('/MyProfile', [App\Http\Controllers\MyProfileController::class, 'index'])->name('MyProfile');
+Route::get('/ChangePass', [App\Http\Controllers\MyProfileController::class, 'changepass'])->name('ChangePass');
 
 /* My Papers Route */
 Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'index'])->name('MyPapers');

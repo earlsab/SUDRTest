@@ -494,6 +494,30 @@ form.searchbar button{
   font-size: 20px;
 }
 
+.changepassblock {
+  margin: 50px;
+  height: 85%;
+}
+
+.passitem {
+  width: 40%;
+  height: 15%
+}
+
+.passinfo {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.passinput {
+  width: 80%;
+  border-radius: 5px;
+  border-style: thin;
+  line-height: 24px;
+  padding-left: 10px;
+}
+
 @media (max-width: 768px) {
 
   .profileblock {
@@ -537,7 +561,7 @@ form.searchbar button{
   width: 7rem;
   font-family: Montserrat;
   font-weight: bolder;
-  color: white;
+  color: #ccab45;
   background-color: #2b2b2b;
   box-shadow: 5px 5px#ccab45;
   line-height: 30px;

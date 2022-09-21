@@ -30,8 +30,7 @@
 
 			<div class="profileinfo">
 				<span>Password:</span>
-				<span class="dispass"><b>s*******01</b></span>
-				<button class="buttonstyle1">CHANGE</button>
+				<button class="buttonstyle1"><a href="{{ route('ChangePass') }}">CHANGE</a></button>
 			</div>
 		</div>
 

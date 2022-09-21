@@ -10,4 +10,9 @@ class MyProfileController extends Controller
     {
         return view('profile.myprofile');
     }
+
+    public function changepass()
+    {
+        return view('profile.changepassword');
+    }
 }
