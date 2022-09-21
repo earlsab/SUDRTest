@@ -64,39 +64,6 @@
     position: relative; 
   }
   
-  .dropdown {
-    background-color: #2b2b2b;
-    box-shadow: 4px 4px #ccab45;
-    border-radius: 10px;
-    padding: 1em 0;
-    z-index: 2;
-    position: absolute; 
-    display: none;
-    border-radius: 5px;
-    top: 30px;
-  }
-  
-  .dropdown li + li {
-    margin-top: 10px;
-  }
-  
-  .dropdown li {
-    padding: 0.5em 1em;
-    width: 10em;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  .dropdown li:hover {
-    padding: 0.5em 1em;
-    width: 10em;
-    font-size: 21px;
-  }
-  
-  .faq:hover .dropdown {
-    display: block;
-  }
-  
   input[type=checkbox]{
     display: none;
   } 
@@ -139,19 +106,6 @@
       display: block;
     }
   
-    .dropdown {
-      left: 50%;
-      top: 50px;
-      box-shadow: 4px 4px #ccab45;
-      border-radius: 10px;
-      transform: translateX(-30%);
-    }
-  
-    .dropdown li:hover {
-      padding: 0.5em 1em;
-      width: 10em;
-      font-size: 21px;
-    }
   }
   
   /* NAVIGATION BAR END */
@@ -171,9 +125,8 @@
   
   .sidebar { 
     grid-area: sidebar; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-left: 80px;
+    margin-top: 50px;
   }
   
   .main { 
@@ -210,11 +163,11 @@
   }
   
   .togglebar:hover {
-    width: 15.3rem;
+    width: 17vw;
   }
   
   .togglebar:hover .line {
-    width: 12.7rem;
+    width: 14vw;
   }
   
   .togglebar ul {
@@ -237,9 +190,9 @@
   .sidelinks {
     display: inline-flex;
     align-content: center;
-    width: 250px;
-    padding-top: 3.5rem;
-    padding-left: 2rem;
+    width: 100%;
+    margin-top: 3.5em;
+    margin-left: 2em;
   
   }
   
@@ -661,6 +614,21 @@
   border-radius: 10px;
 }
 
+.buttonstyle2 {
+  float: right;
+  cursor: pointer;
+  margin-top: 100px;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  font-family: montserrat;
+  font-weight: bold;
+  color: #ccab45;
+  background-color: #2b2b2b;
+  box-shadow: 5px 5px#ccab45;
+
+}
+
 .papertable {
  background-color: #2b2b2b;
  color: #ccab45;
@@ -684,6 +652,35 @@
   display: flex;
   justify-content: center;
 }
+
+.uploadblock {
+  margin: 50px;
+  height: 85%;
+}
+
+.uploaditem {
+  width: 100%;
+  height: 15%
+}
+
+.uploadheading {
+  margin-bottom: 20px;
+}
+
+.uploadinfo {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.uploadinput {
+  width: 80%;
+  border-radius: 5px;
+  border-style: thin;
+  line-height: 24px;
+  padding-left: 10px;
+}
+
 
 @media (max-width: 768px) {
 

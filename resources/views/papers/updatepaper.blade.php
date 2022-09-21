@@ -38,7 +38,7 @@
 				<input class="buttonstyle2" type="submit">
 			</div>
         </form>
-		</div>
+</div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 

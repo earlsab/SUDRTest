@@ -28,17 +28,7 @@
 	    <!-- NAVIGATION MENUS -->
 	    <div class="menu">
 	        <li><a href="{{ route('AdminPage') }}">HOME</a></li>
-	        <li class="faq">
-	           <a>FAQ</a>
-	           <!-- DROPDOWN MENU -->
-	           <ul class="dropdown">
-	             <li><a href="/">Dropdown 1 </a></li>
-	             <li><a href="/">Dropdown 2</a></li>
-	             <li><a href="/">Dropdown 2</a></li>
-	             <li><a href="/">Dropdown 3</a></li>
-	             <li><a href="/">Dropdown 4</a></li>
-	           </ul>
-	        </li>	        
+	        <li class="faq"><a>FAQ</a></li>	        
 			    <li><a href="#">ABOUT</a></li>
           <li><a href="{{ route('logout') }}"  
                 onclick="event.preventDefault();
