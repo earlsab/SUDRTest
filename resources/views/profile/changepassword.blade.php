@@ -7,12 +7,12 @@
 
         <div class="passitem">
 			<p class="passinfo">Enter new password:</p>
-			<input class="passinput" type="text"  name="title">
+			<input class="passinput" type="password"  name="title">
 		</div>
 
         <div class="passitem">
 			<p class="passinfo">Confirm new password:</p>
-			<input class="passinput" type="text"  name="title">
+			<input class="passinput" type="password"  name="title">
 		</div>
 
         
