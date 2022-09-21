@@ -12,7 +12,6 @@
 					<tr>
 						<th>Title</th>
 						<th>Paper Type</th>
-						<th>File</th>
 						<th>View</th>
 					</tr>
 
@@ -21,7 +20,6 @@
 					<tr>
 						<td>{{$papers->title}}</td>
 						<td>{{$papers->papertype}}</td>
-						<td>{{$papers->file}}</td>
 						<td><a class="viewlink" href="{{route('viewPDF',$papers->id)}}">View</a></td>
 					</tr>
 
