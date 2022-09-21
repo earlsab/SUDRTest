@@ -24,7 +24,7 @@
         </div>
 
 
-                <iframe  class="pdfviewer" src="/assets/{{$data->file}}"></iframe>
+                <iframe  class="pdfviewer" src="/assets/{{$papers->file}}"></iframe>
 
 </div>
 

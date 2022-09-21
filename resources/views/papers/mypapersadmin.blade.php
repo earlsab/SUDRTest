@@ -16,13 +16,13 @@
 						<th>View</th>
 					</tr>
 
-					@foreach($data as $data)
+					@foreach($papers as $papers)
 
 					<tr>
-						<td>{{$data->title}}</td>
-						<td>{{$data->papertype}}</td>
-						<td>{{$data->file}}</td>
-						<td><a href="{{route('viewPDFAdmin',$data->id)}}">View</a></td>
+						<td>{{$papers->title}}</td>
+						<td>{{$papers->papertype}}</td>
+						<td>{{$papers->file}}</td>
+						<td><a href="{{route('viewPDFAdmin',$papers->id)}}">View</a></td>
 					</tr>
 
 					@endforeach

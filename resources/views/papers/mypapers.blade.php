@@ -16,20 +16,20 @@
 						<th>View</th>
 					</tr>
 
-					@foreach($data as $data)
+					@foreach($papers as $papers)
 
 					<tr>
-						<td>{{$data->title}}</td>
-						<td>{{$data->papertype}}</td>
-						<td>{{$data->file}}</td>
-						<td><a class="viewlink" href="{{route('viewPDF',$data->id)}}">View</a></td>
+						<td>{{$papers->title}}</td>
+						<td>{{$papers->papertype}}</td>
+						<td>{{$papers->file}}</td>
+						<td><a class="viewlink" href="{{route('viewPDF',$papers->id)}}">View</a></td>
 					</tr>
 
 					@endforeach
 				</table>
 
 				<button class="uploadlink buttonstyle3">
-				<a href = "{{ route('UploadPaperPage') }}">
+				<a href = "{{ route('papers.create') }}">
 					ADD A PAPER
 				</a>
 				</button>

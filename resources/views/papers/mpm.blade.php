@@ -1,5 +1,5 @@
 @extends('layouts.adminlayout')
-
+<!-- INDEX OF THE PAPERS -->
 @section('content')
 
 <div class="mypapersblock">
@@ -12,25 +12,25 @@
 				<tr>
 					<th>Title</th>
 					<th>Paper Type</th>
-					<th>File</th>
 					<th>View</th>
 					<th>Delete</th>
+					<th>Update</th>
 				</tr>
 
-				@foreach($data as $data)
+				@foreach($papers as $papers)
 
 				<tr>
-					<td>{{$data->title}}</td>
-					<td>{{$data->papertype}}</td>
-					<td>{{$data->file}}</td>
-					<td><a class="viewlink" href="{{route('viewPDFAdmin',$data->id)}}">View</a></td>
+					<td>{{$papers->title}}</td>
+					<td>{{$papers->papertype}}</td>
+					<td><a class="viewlink" href="{{route('papers.show', $papers->id) }}">View</a></td>
 					<td class="deletecol">
-					<form method="POST" action="{{route('MyPapersDelete', $data->id) }}" accept-charset="UTF-8" style="display:inline">
-														@csrf
-													{{ method_field('DELETE') }}
-													<button type="submit" class="btn btn-danger btn-sm buttonstyle3" title="Delete Papers" onclick="return confirm("Confirm delete?")">Delete</button>
-												</form>
+					<form method="POST" action="{{route('papers.destroy', $papers->id) }}">
+							@csrf
+							@method('DELETE')
+								<button type="submit" class="buttonstyle3" >Delete</button>
+					</form>
 					</td>
+					<td><a class="viewlink" href="{{route('papers.edit', $papers->id)}}">Update</a></td>
 				</tr>
 
 				@endforeach

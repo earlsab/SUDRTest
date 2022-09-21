@@ -35,10 +35,8 @@ Route::get('/viewPDF/{is}', [App\Http\Controllers\MyPapersController::class, 'vi
 
 Route::get('Admin/MyPapers', [App\Http\Controllers\MyPapersController::class, 'indexAdmin'])->name('MyPapersAdmin');
 Route::get('Admin/MyPapersMaintain', [App\Http\Controllers\MyPapersController::class, 'maintainshow'])->name('MyPapersMaintain');
-Route::get('Admin/viewPDF/{is}', [App\Http\Controllers\MyPapersController::class, 'viewAdmin'])->name('viewPDFAdmin');
-Route::get('Admin/UpdatePaper/{is}', [App\Http\Controllers\MyPapersController::class, 'edit'])->name('UpdatePaper');
-Route::post('/UpdateFile/{is}', [App\Http\Controllers\MyPapersController::class, 'update'])->name('UpdateFile');
-Route::delete('Admin/MyPapersMaintain/{is}', [App\Http\Controllers\MyPapersController::class, 'destroy'])->name('MyPapersDelete');
+Route::resource('papers', MyPapersController::class);
+
 
 /* Admin Login Route */
 Route::get('/admin/login', [App\Http\Controllers\HomeController::class, 'adminlogin'])->name('AdminLogin');

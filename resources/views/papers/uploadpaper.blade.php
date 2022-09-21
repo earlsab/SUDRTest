@@ -1,12 +1,12 @@
 @extends ('layouts.main')
-
+<!-- CREATE OF THE PAPERS -->
 @section ('content')
 
 <div class="uploadblock">
 			<h1 class="uploadheading">Upload a Paper</h1>
 			<hr class="modline">
 
-        <form action="{{ url('UploadFile') }} " method="post" enctype="multipart/form-data">
+        <form action="{{ route('papers.store') }} " method="post" enctype="multipart/form-data">
 
 			<div class="uploaditem">
 				<p class="uploadinfo">Title:</p>
