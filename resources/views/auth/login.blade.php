@@ -54,7 +54,7 @@
                         <!-- FORGOT PASWORD -->
                         <div class = "fpcont">
                                 @if (Route::has('password.request'))
-                                    <a class="fpasslink" href="{{ route('password.request') }}">
+                                    <a class="fpasslink" href="#">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
