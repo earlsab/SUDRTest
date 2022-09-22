@@ -56,6 +56,14 @@
 				</span>
 			</div>
 
+			<div class="showadmin">
+                <button class="buttonstyle3">
+                	 <a href="#">
+                             {{ __('User View') }}
+                    </a>
+            	</button>
+            </div>
+
             <hr class="line">
 			
 			<!-- NAVIGATION LINKS-->

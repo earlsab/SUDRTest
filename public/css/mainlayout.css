@@ -126,8 +126,9 @@ input[type=checkbox]{
 
 .sidebar { 
   grid-area: sidebar; 
-  margin-left: 80px;
-  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main { 
@@ -159,12 +160,23 @@ input[type=checkbox]{
   display: none;
 }
 
+.showadmin {
+  display: none;
+}
+
 .togglebar:hover span {
   display: inline-block;
 }
 
 .togglebar:hover {
   width: 17vw;
+}
+
+.togglebar:hover .showadmin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 5px;
 }
 
 .togglebar:hover .line {
@@ -179,7 +191,7 @@ input[type=checkbox]{
   display: inline-flex;
   width: 250px;
   padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   padding-left: 1.3rem;
 }
 
@@ -584,6 +596,8 @@ form.searchbar button{
   border-style: none;
   border-radius: 10px;
 }
+
+
 
 .papertable {
  background-color: #2b2b2b;
