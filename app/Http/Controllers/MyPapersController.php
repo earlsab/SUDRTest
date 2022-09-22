@@ -52,7 +52,7 @@ class MyPapersController extends Controller
             $papers->papertype=$request->papertype;
 
             $papers->save();
-            return redirect()->back();
+            return redirect()->back()->with('success','File has been uploaded.');
 
     }
 

@@ -56,6 +56,7 @@
 				</span>
 			</div>
 
+			<!-- USER BUTTON
 			<div class="showadmin">
                 <button class="buttonstyle3">
                 	 <a href="#">
@@ -63,6 +64,7 @@
                     </a>
             	</button>
             </div>
+			-->
 
             <hr class="line">
 			

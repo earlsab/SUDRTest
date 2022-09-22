@@ -26,10 +26,7 @@ class AdminController extends Controller
 
     public function authenticate(Request $request)
     {
-        $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required']
-        ]);
+       
 
        return view ('admin.adminpage');
     }

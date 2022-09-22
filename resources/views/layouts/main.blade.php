@@ -55,7 +55,7 @@
 				<div>ID: {{ Auth::user()->studid }}</div>
 				</span>
 			</div>
-
+			<!-- ADMIN BUTTON
 			<div class="showadmin">
                 <button class="buttonstyle3">
                 	 <a href="#">
@@ -63,7 +63,7 @@
                     </a>
             	</button>
             </div>
-
+				-->
             <hr class="line">
 			
 			<!-- NAVIGATION LINKS-->

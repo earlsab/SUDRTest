@@ -14,13 +14,14 @@
                                 <span class="dispfullname"><b>{{ $papers->title }}</b></span> 
                         </h2>
                 </div>
-
+                
+                <!-- AUTHORS
                 <div class="paperinfo">
                         <span>Author(s): </span>
-                        <!-- is it possible make this into the author of the paper? -->
+                        
                         <span class="dispemail"></span>
                 </div>
-
+                -->
         </div>
 
 
