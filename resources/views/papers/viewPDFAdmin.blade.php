@@ -11,14 +11,14 @@
                 <div class="paperinfo">
                     <h2>
                         <!-- is it possible make this into the paper title? -->
-                        <span class="dispfullname"></span> 
+                         <span class="disptitle"><b>{{ $papers->title }}</b></span> 
                     </h2>
                 </div>
 
                 <div class="paperinfo">
-                    <span>Author(s): </span>
-                    <!-- is it possible make this into the author of the paper? -->
-                    <span class="dispemail"></span>
+                        <span>Author(s): </span>
+                        <!-- is it possible make this into the author of the paper? -->
+                        <span class="dispauthor"></span>
                 </div>
                 
             </div>
