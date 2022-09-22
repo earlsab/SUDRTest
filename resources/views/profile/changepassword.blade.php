@@ -7,6 +7,16 @@
 
 	<form action ="{{ route('passupdate') }}" method ="POST">
 		@csrf 
+		<div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @elseif (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
 		<div class="passitem">
 			<p class="passinfo">Enter old password:</p>
 			<input class="passinput" type="password"  name="oldpassword" id="OldPasswordInput">
