@@ -8,18 +8,18 @@
 
         <div class="paperinfoblock">
 
-                <div class="paperinfo">
-                        <h2>
-                                <!-- is it possible make this into the paper title? -->
-                                <span class="dispfullname"><b>{{ $papers->title }}</b></span> 
-                        </h2>
+        <div class="paperinfo">
+                    <h2>
+                        <!-- is it possible make this into the paper title? -->
+                         <span class="disptitle"><b>{{ $papers->title }}</b></span> 
+                    </h2>
                 </div>
                 
                 <!-- AUTHORS
                 <div class="paperinfo">
                         <span>Author(s): </span>
                         
-                        <span class="dispemail"></span>
+                        <span class="dispauthor"></span>
                 </div>
                 -->
         </div>

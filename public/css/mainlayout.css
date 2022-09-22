@@ -285,6 +285,7 @@ input[type=checkbox]{
   width: 100%;
   height: 100%;
   padding: 0;
+  margin: 0;
   list-style-type: none;
   align-items: center;
   justify-content: center;
@@ -298,6 +299,14 @@ input[type=checkbox]{
 .togglebar:hover{
   height: 5rem;
   width: 100%;
+}
+
+.showadmin{
+  display: none;
+}
+
+.togglebar:hover .showadmin {
+  display: none;
 }
 
 .togglebar:hover .navtext {
@@ -325,6 +334,8 @@ input[type=checkbox]{
 .footer {
   display: none;
 }
+
+
 
 }
 
@@ -730,7 +741,7 @@ select.papertype::-webkit-scrollbar {
 /* PDF VIEWER START */
 
 .pdfviewer {
-  width: 70vw;
+  width: 60vw;
   height: 130vh;
   margin-top: 50px;
   margin-bottom: 70px;
