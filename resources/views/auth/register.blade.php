@@ -28,7 +28,7 @@
                         <div class="reginput">
                                 <i class="fa-solid fa-id-card"></i>
                                 <input id="studid" type="text" class="input" name="studid" value="{{ old('studid') }}" required autocomplete="studid" 
-                                placeholder = "Student ID" autofocus>
+                                placeholder = "Silliman ID (No Hyphen)" autofocus>
 
                                 @error('studid')
                                     <span class="invalid-feedback" role="alert">
