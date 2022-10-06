@@ -43,55 +43,55 @@
 </header>
 
 <div class="container">
-	<div class="sidebar">
+<div class="sidebar">
 		<!-- SIDE BAR-->
-		<nav class="togglebar">
+		<nav class="main-nav">
 
-			<!-- USER INFORMATION-->
-			<div class="userinfo">
-				<span class="usinfo fa-regular fa-circle-user fa-4x"></span>
-				<span class="usertxt">
-				<div>{{ Auth::user()->name }}</div>
-				<div>ID: {{ Auth::user()->studid }}</div>
-				</span>
-			</div>
-			<!-- ADMIN BUTTON
-			<div class="showadmin">
-                <button class="buttonstyle3">
-                	 <a href="#">
-                             {{ __('Admin View') }}
-                    </a>
-            	</button>
-            </div>
-				-->
-            <hr class="line">
-			
-			<!-- NAVIGATION LINKS-->
 			<ul>
-				<li>
-					<a class="sidelinks" href ="{{ route('MyProfile') }}">
-						<span class="fa fa-solid fa-id-card"></span>
-						<span class="navtext">Profile</span>
-					</a>
+				<li class="userblock">
+					<div class="userinfo">
+						<i class="fa-regular fa-circle-user fa-4x"></i>
+						<span class="user-text">
+							<div>{{ Auth::user()->name }}</div>
+							<div>ID: {{ Auth::user()->studid }}</div>
+						</span>
+					</div>
+
+					<!-- ADMIN BUTTON
+					<div class="showadmin">
+						<button class="buttonstyle3">
+							<a href="#">
+									{{ __('Admin View') }}
+							</a>
+						</button>
+					</div>
+					-->
 				</li>
 
-				<li>
-					<a  class="sidelinks" href="{{ route('MyPapers') }}">
-						<span class="fa fa-solid fa-book-open"></span>
-						<span class="navtext">My Papers</span>
+				<hr class="line">
+
+				<li class="navlinks">
+					<a href="{{ route('MyProfile') }}">
+						<i class="fa-solid fa-address-card fa-2x"></i>
+						<span class="nav-text"> Profile</span>
 					</a>
 				</li>
-
-				<li>
-					<a  class="sidelinks" href="#">
-						<span class=" fa fa-solid fa-bookmark"></span>
-						<span class="navtext">Bookmarks</span>
+	  
+				<li class="navlinks">
+					<a href="{{ route('MyPapers') }}">
+					<i class="fa-solid fa-book-open fa-2x"></i>
+					<span class="nav-text">My Papers</span>
+					</a>
+				</li>
+	  
+				<li class="navlinks">
+					<a href="#">
+					<i class="fa-solid fa-bookmark fa-2x"></i>
+					<span class="nav-text">Bookmarks</span>
 					</a>
 				</li>
 			</ul>
-            
 		</nav>
-
 	</div>
     
     <!-- MAIN CONTENT -->
