@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id('AdminID');
-            $table->unsignedBigInteger('user_ID')->unsigned();
-            $table->rememberToken();
+        Schema::create('paper_types', function (Blueprint $table) {
+            $table->id('PaperTypeID');
+            $table->string('PaperTypeName');
             $table->timestamps();
-        });
-
-        Schema::table('admins', function (Blueprint $table){
-            $table->foreign('user_ID')->references('UserID')->on('users');
         });
     }
 
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('paper_types');
     }
 };

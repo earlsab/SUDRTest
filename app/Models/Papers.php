@@ -10,9 +10,14 @@ class Papers extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'papertype',
+        'PaperTitle',
+        'PaperType',
+        'College',
         'file',
+        'DateUploaded',
+        'DatePublished',
+        'DateLastModified',
+        'UploaderUserID',
     ];
 
 }

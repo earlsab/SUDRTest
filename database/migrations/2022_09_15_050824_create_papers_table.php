@@ -14,10 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('papers', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('papertype');
+            $table->id('PaperID');
+            $table->string('PaperTitle');
+            $table->string('PaperType');
+            $table->string('College');
             $table->string('file');
+            $table->date('DateUploaded');
+            $table->date('DatePublished');
+            $table->date('DateLastModified');
+            $table->integer('UploaderUserID');
             $table->timestamps();
         });
     }
