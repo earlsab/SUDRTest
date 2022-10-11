@@ -261,6 +261,7 @@ input[type=checkbox]{
   line-height: 80px;
   left: 0;
 }
+
 .main-nav {
   background: #2b2b2b;
   border-radius: 0;
@@ -413,6 +414,13 @@ form.searchbar button{
 
 @media (max-width: 768px) {
 
+  .container{
+    grid-template-columns: 100%;
+    grid-template-areas:"main"
+                        "sidebar"
+                        "footer";
+  }
+
   .searchinput{
     width: 260px;
   }
@@ -461,6 +469,15 @@ form.searchbar button{
 
   .fac{
     font-size: 20px;
+  }
+
+  .fas{
+    height: auto;
+    max-height: 25px;
+  }
+
+  .fas::before, .fac::before{
+    line-height: 1px;
   }
 
 }
