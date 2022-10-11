@@ -69,13 +69,6 @@
                             <button class="buttonstyle1"><a href = "{{ route('register') }}">Register</a></button>
                         </div>
 
-                        <div class="buttoncont">
-                            <button class="buttonstyle3">
-                            <a href="{{ route('AdminLogin') }}">
-                                        {{ __('Admin Login') }}
-                                    </a>
-                            </button>
-                        </div>
                 </form>
 
 @endsection
