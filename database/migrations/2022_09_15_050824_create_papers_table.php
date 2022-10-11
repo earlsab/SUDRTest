@@ -22,8 +22,12 @@ return new class extends Migration
             $table->date('DateUploaded');
             $table->date('DatePublished');
             $table->date('DateLastModified');
-            $table->integer('UploaderUserID');
+            $table->unsignedBigInteger('UploaderUserID')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('papers', function (Blueprint $table){
+            $table->foreign('UploaderUserID')->references('UserID')->on('users');
         });
     }
 
