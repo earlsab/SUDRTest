@@ -17,14 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $primaryKey = 'UserID';
+
     protected $fillable = [
         'email',
         'password',
-        'DisplayName',
-        'FirstName',
-        'MiddleName',
-        'LastName',
-        'OrganizationName',
+        'college',
+        'name',
+        'studid',
     ];
 
     /**
@@ -50,4 +51,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class);
     }
+
 }
+
+

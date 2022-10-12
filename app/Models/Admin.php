@@ -17,6 +17,8 @@ class Admin extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'AdminID';
+
     protected $fillable = [
         
     ];
@@ -45,3 +47,4 @@ class Admin extends Authenticatable
         return $this->hasMany(admins::class);
     }
 }
+

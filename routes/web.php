@@ -33,12 +33,15 @@ Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'index'
 Route::get('/viewPDF/{is}', [App\Http\Controllers\MyPapersController::class, 'view'])->name('viewPDF');
 
 /* My Papers Admin Route */
-Route::get('Admin/MyPapers', [App\Http\Controllers\MyPapersController::class, 'indexAdmin'])->name('MyPapersAdmin');
-Route::get('Admin/MyPapersMaintain', [App\Http\Controllers\MyPapersController::class, 'maintainshow'])->name('MyPapersMaintain');
-Route::resource('papers', MyPapersController::class);
+Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
+    Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'indexAdmin'])->name('MyPapersAdmin');
+    Route::get('/MyPapersMaintain', [App\Http\Controllers\MyPapersController::class, 'maintainshow'])->name('MyPapersMaintain');
+    Route::get('/page', [App\Http\Controllers\AdminController::class, 'index'])->name('AdminPage');
+    Route::resource('papers', MyPapersController::class);
+});
 
-/* Admin Login Route */
+/* Admin Login Route 
 Route::get('/admin/login', [App\Http\Controllers\HomeController::class, 'adminlogin'])->name('AdminLogin');
 Route::get('/admin/login', [App\Http\Controllers\AdminController::class, 'login'])->name('AdminLogin');
 Route::post('/admin/login', [App\Http\Controllers\AdminController::class, 'authenticate'])->name('AdminAuthenticate');
-Route::get('Admin/home', [App\Http\Controllers\AdminController::class, 'index'])->name('AdminPage');
+*/
