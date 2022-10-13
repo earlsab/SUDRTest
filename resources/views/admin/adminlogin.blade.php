@@ -69,14 +69,6 @@
                             </button>
                         </div>
 
-                        <div class="buttoncont">
-                            <button class="buttonstyle3">
-                            <a  href="{{ route('login') }}">
-                                    {{ __('User Login') }}
-                            </a>
-                            </button>
-                        </div>
-
                 </form>
 
 @endsection
