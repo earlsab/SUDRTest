@@ -195,7 +195,7 @@ input#checkbox_toggle[type=checkbox]{
 }
 
 .tabs {
-  width: 700px;
+  width: 280px;
 	display: flex;
 	flex-wrap: wrap;
   min-height: 50px;
@@ -241,6 +241,10 @@ input#checkbox_toggle[type=checkbox]{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.formcontainerlogin {
+  padding: 10px;
 }
 
 .input, select.style {
@@ -370,6 +374,15 @@ input:focus::placeholder {
 
 .invalid-feedback {
   font-size: 12px;
+}
+
+.uitab {
+  margin-top: -16px;
+  padding-left: 20px;
+}
+
+.uiradio {
+  margin-top: 10px;
 }
 
 section {
