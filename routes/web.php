@@ -22,17 +22,16 @@ Auth::routes();
 /* Home Page Route */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-/* My Profiles Route */
+/* My Profiles Route */ /* Handles the Profile View for the users */
 Route::get('/MyProfile', [App\Http\Controllers\MyProfileController::class, 'index'])->name('MyProfile');
 Route::get('/ChangePass', [App\Http\Controllers\MyProfileController::class, 'changepass'])->name('ChangePass');
-
 Route::post('/ChangePassword', [App\Http\Controllers\MyProfileController::class, 'updatepassword'])->name('passupdate');
 
-/* My Papers Route */
+/* My Papers Route */ /* Handles the Add Papers on the user side */
 Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'index'])->name('MyPapers');
 Route::get('/viewPDF/{is}', [App\Http\Controllers\MyPapersController::class, 'view'])->name('viewPDF');
 
-/* My Papers Admin Route */
+/* My Papers Admin Route */ /* Handles the Edit, Delete and View of Papers on the admin side */
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'indexAdmin'])->name('MyPapersAdmin');
     Route::get('/MyPapersMaintain', [App\Http\Controllers\MyPapersController::class, 'maintainshow'])->name('MyPapersMaintain');
@@ -40,7 +39,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::resource('papers', MyPapersController::class);
 });
 
-/* Admin Login Route 
+/* Admin Login Route Not In Use
 Route::get('/admin/login', [App\Http\Controllers\HomeController::class, 'adminlogin'])->name('AdminLogin');
 Route::get('/admin/login', [App\Http\Controllers\AdminController::class, 'login'])->name('AdminLogin');
 Route::post('/admin/login', [App\Http\Controllers\AdminController::class, 'authenticate'])->name('AdminAuthenticate');

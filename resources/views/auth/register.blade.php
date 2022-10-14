@@ -31,10 +31,10 @@
                                 <!-- FIRST NAME -->
                                 <div class="reginput">
                                     <i class="fa-solid fa-1"></i>
-                                    <input id="Fname" type="text" class="input" name="fname" value="{{ old('FirstName') }}" required autocomplete="name" 
+                                    <input id="Fname" type="text" class="input" name="FirstName" value="{{ old('FirstName') }}" required autocomplete="Fname" 
                                     placeholder = "First Name" autofocus>   
                                 </div>
-                                    @error('name')
+                                    @error('Fname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -43,10 +43,10 @@
                                 <!-- MIDDLE NAME -->
                                 <div class="reginput">
                                     <i class="fa-solid fa-1"></i>
-                                    <input id="Mname" type="text" class="input" name="fname" value="{{ old('MiddleName') }}" required autocomplete="name" 
+                                    <input id="Mname" type="text" class="input" name="MiddleName" value="{{ old('MiddleName') }}" required autocomplete="Mname" 
                                     placeholder = "Middle Name" autofocus>   
                                 </div>
-                                    @error('name')
+                                    @error('Mname')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -55,15 +55,15 @@
                                 <!-- LAST NAME -->
                                 <div class="reginput">
                                         <i class="fa-solid fa-2"></i>
-                                        <input id="Lname" type="text" class="input" name="lname" value="{{ old('LastName') }}" required autocomplete="studid" 
+                                        <input id="Lname" type="text" class="input" name="LastName" value="{{ old('LastName') }}" required autocomplete="Lname" 
                                         placeholder = "Last Name" autofocus>
                                 </div>
-
+                                <!--
                                     @error('studid')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
+                                    @enderror-->
 
                                 <!-- COLLEGE -->
                                 <div class="reginput">
@@ -98,19 +98,19 @@
                                         </span>
                                     @enderror
                             </section>    
-
+                        
                             <section class="org" id="category2">
                                 <div class="reginput">
                                     <i class="fa-solid fa-school"></i>
-                                    <input id="Orgname" type="text" class="input" name="oname" value="{{ old('FirstName') }}" required autocomplete="name" 
-                                    placeholder = "Organization Name" autofocus>   
+                                    <input id="Orgname" type="text" class="input" name="OrganizationName" value="{{ old('OrganizationName') }}"  
+                                    placeholder = "Organization Name">   
                                 </div>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                            </section>
+                            </section> 
                         </div>
 
                         
@@ -151,8 +151,7 @@
                             </div>
 
                         </div>
-
-                </form>                    
+                  
                     <!-- REGISTER -->
                         <div class="buttoncont">
                             <button class="buttonstyle1">
@@ -163,5 +162,5 @@
                                 {{ __('Register') }}
                             </button>
                         </div>
-
+                </form>
 @endsection
