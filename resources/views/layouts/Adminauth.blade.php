@@ -49,19 +49,11 @@
 	
 	<div class="bgimage"></div>
 	
-	<div class="tabs">
-		<div class="tab">
 
-	@if (Route::has('login'))
 		<!-- CONTENT -->
 		<main>
     	@yield ('content')
 		</main>
-		</div>
-
-	@endif
-
-	</div>
 
 </div>
 

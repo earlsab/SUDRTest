@@ -1,3 +1,6 @@
+@extends('layouts.Adminauth')
+@section('content')
+
 <div class="ctrlpanel">
 		<input id="tab1" type="radio" name="tabs" checked>
 		<label class="uitab" for="tab1">Add Admin</label>
@@ -56,3 +59,5 @@
 		</section>
 		  
 	</div>
+
+	@endsection
