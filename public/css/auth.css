@@ -98,7 +98,7 @@ li {
   display: block;
 }
 
-input[type=checkbox]{
+input#checkbox_toggle[type=checkbox]{
   display: none;
 } 
 
@@ -188,8 +188,14 @@ input[type=checkbox]{
   padding-top: 20px;
 }
 
+.usertype {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .tabs {
-  width: 280px;
+  width: 700px;
 	display: flex;
 	flex-wrap: wrap;
   min-height: 50px;
@@ -232,6 +238,9 @@ input[type=checkbox]{
 
 .formcontainer {
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .input, select.style {
@@ -361,6 +370,16 @@ input:focus::placeholder {
 
 .invalid-feedback {
   font-size: 12px;
+}
+
+section {
+  display: none;
+}
+
+#facultytab:checked ~ #category1,
+#studenttab:checked ~ #category1,
+#orgtab:checked ~ #category2 {
+  display: block;
 }
 
 /* LOGIN FORM END */
