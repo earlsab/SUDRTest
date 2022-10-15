@@ -15,16 +15,14 @@
                             <h4>Please select a user type:</h4>
 
 
-                                <input id="facultytab" type="radio" name="usercheck">
+                                <input id="facultytab" type="radio" name="usercheck" value="2">
                                 <label class="uitab" for="facultytab">Faculty</label>
- 
-                                <input id="studenttab" type="radio" name="usercheck">
-                                <label class="uitab" for="studenttab">Student</label>
 
-                                <input id="orgtab" type="radio" name="usercheck">
+                                <input id="orgtab" type="radio" name="usercheck" value="1">
                                 <label class="uitab" for="orgtab">Organization</label>
 
-
+                                <input id="studenttab" type="radio" name="usercheck" value="0">
+                                <label class="uitab" for="studenttab">Student</label>
 
 
                             <section class="faculstud" id="category1">

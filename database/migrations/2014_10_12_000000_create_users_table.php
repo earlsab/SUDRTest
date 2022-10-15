@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('name')->nullable();
+            $table->string('UserName')->nullable();
             $table->string('FirstName')->nullable();
             $table->string('MiddleName')->nullable();
             $table->string('LastName')->nullable();
             $table->string('college')->nullable();
             $table->integer('isAdmin')->default('0');
-            $table->integer('isOrganization')->default('0');
+            $table->integer('UserType')->default('0');
             $table->string('OrganizationName')->nullable();
             $table->rememberToken();
             $table->timestamps();
