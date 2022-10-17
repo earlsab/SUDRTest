@@ -52,8 +52,8 @@
 					<div class="userinfo">
 						<i class="fa-regular fa-circle-user fa-4x"></i>
 						<span class="user-text">
-							<div>{{ Auth::user()->name }}</div>
-							<div>ID: {{ Auth::user()->studid }}</div>
+							<div>{{ Auth::user()->UserName }}</div>
+							<div>Type: {{ Auth::user()->UserType }}</div>
 						</span>
 					</div>
 

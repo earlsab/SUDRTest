@@ -28,6 +28,7 @@ class User extends Authenticatable
         'FirstName',
         'MiddleName',
         'LastName',
+        'UserType',
         'OrganizationName',
     ];
 

@@ -9,25 +9,31 @@
                 <form class="formcontainer" method="POST" action="{{ route('register') }}">
                     @csrf
 
-
                         <div class="usertype">
 
                             <h4>Please select a user type:</h4>
 
 
-                                <input id="facultytab" type="radio" name="usercheck" value="2">
+                                <input id="facultytab" type="radio" name="UserType" value="Faculty" onclick="text(3)"/>
                                 <label class="uitab" for="facultytab">Faculty</label>
 
-                                <input id="orgtab" type="radio" name="usercheck" value="1">
+                                <input id="orgtab" type="radio" name="UserType" value="Organization" onclick="text(2)"/>
                                 <label class="uitab" for="orgtab">Organization</label>
 
-                                <input id="studenttab" type="radio" name="usercheck" value="0">
+                                <input id="studenttab" type="radio" name="UserType"  value="Student" onclick="text(1)" />
                                 <label class="uitab" for="studenttab">Student</label>
 
 
-                            <section class="faculstud" id="category1">
+                            <section class="faculstud" id="student">
+                                 <!-- USER NAME -->
+                                 <div class="reginput" >
+                                    <i class="fa-solid fa-1"></i>
+                                    <input id="name" type="text" class="input" name="UserName" value="{{ old('UserName') }}" required autocomplete="name" 
+                                    placeholder = "User Name" autofocus>   
+                                </div>
+
                                 <!-- FIRST NAME -->
-                                <div class="reginput">
+                                <div class="reginput" >
                                     <i class="fa-solid fa-1"></i>
                                     <input id="Fname" type="text" class="input" name="FirstName" value="{{ old('FirstName') }}" required autocomplete="Fname" 
                                     placeholder = "First Name" autofocus>   
@@ -39,8 +45,8 @@
                                     @enderror
                                 
                                 <!-- MIDDLE NAME -->
-                                <div class="reginput">
-                                    <i class="fa-solid fa-1"></i>
+                                <div class="reginput" >
+                                    <i class="fa-solid fa-2"></i>
                                     <input id="Mname" type="text" class="input" name="MiddleName" value="{{ old('MiddleName') }}" required autocomplete="Mname" 
                                     placeholder = "Middle Name" autofocus>   
                                 </div>
@@ -51,8 +57,8 @@
                                     @enderror
 
                                 <!-- LAST NAME -->
-                                <div class="reginput">
-                                        <i class="fa-solid fa-2"></i>
+                                <div class="reginput" >
+                                        <i class="fa-solid fa-3"></i>
                                         <input id="Lname" type="text" class="input" name="LastName" value="{{ old('LastName') }}" required autocomplete="Lname" 
                                         placeholder = "Last Name" autofocus>
                                 </div>
@@ -97,8 +103,8 @@
                                     @enderror
                             </section>    
                         
-                            <section class="org" id="category2">
-                                <div class="reginput">
+                            <section class="org" id="organization">
+                                <div class="reginput" >
                                     <i class="fa-solid fa-school"></i>
                                     <input id="Orgname" type="text" class="input" name="OrganizationName" value="{{ old('OrganizationName') }}"  
                                     placeholder = "Organization Name">   
@@ -116,7 +122,7 @@
 
                         <div class="regrequired">
                             <!-- EMAIL -->
-                            <div class="reginput">
+                            <div class="reginput" >
                                     <i class="fa-solid fa-envelope"></i>
                                     <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required autocomplete="email"
                                     placeholder = "Email Address">
@@ -160,5 +166,24 @@
                                 {{ __('Register') }}
                             </button>
                         </div>
+                        <script >
+                        function text(x){
+                            if ( x == 1){
+                                document.getElementById('student').style.display = "block";
+                                document.getElementById("organization").style.display = "none";
+                            }
+                            else if ( x == 2){
+                                document.getElementById("student").style.display = "none";
+                                document.getElementById("organization").style.display = "block";
+                            }
+                            else if ( x == 3){
+                                document.getElementById("student").style.display = "none";
+                                document.getElementById("organization").style.display = "none";
+                                document.getElementById("faculty").style.display = "block";
+                            }
+                            return; 
+                        }
+                    </script>
                 </form>
+
 @endsection

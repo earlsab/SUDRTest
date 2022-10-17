@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -73,11 +74,12 @@ class RegisterController extends Controller
             'FirstName' => $data['FirstName'],
             'MiddleName' => $data['MiddleName'],
             'LastName' => $data['LastName'],
-            'usercheck' => $data['usercheck'],
             'college' => $data['college'],
+            'UserType' => $data['UserType'],
             'OrganizationName' => $data['OrganizationName'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            
         ]);
     }
 }

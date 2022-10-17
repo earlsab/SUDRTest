@@ -389,11 +389,7 @@ section {
   display: none;
 }
 
-#facultytab:checked ~ #category1,
-#studenttab:checked ~ #category1,
-#orgtab:checked ~ #category2 {
-  display: block;
-}
+
 
 /* LOGIN FORM END */
 
