@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('UserName');
             $table->string('FirstName');
-            $table->string('MiddleName');
+            $table->string('MiddleName')->nullable();
             $table->string('LastName');
             $table->string('college');
             $table->integer('isAdmin')->default('0');

@@ -47,7 +47,7 @@
                                 <!-- MIDDLE NAME -->
                                 <div class="reginput" >
                                     <i class="fa-solid fa-2"></i>
-                                    <input id="Mname" type="text" class="input" name="MiddleName" value="{{ old('MiddleName') }}" required autocomplete="Mname" 
+                                    <input id="Mname" type="text" class="input" name="MiddleName" value="{{ old('MiddleName') }}" 
                                     placeholder = "Middle Name" autofocus>   
                                 </div>
                                     @error('Mname')
