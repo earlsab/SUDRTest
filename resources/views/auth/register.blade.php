@@ -71,7 +71,7 @@
                                         @enderror-->
 
                                     <!-- COLLEGE -->
-                                    <div class="reginput">
+                                    <div class="reginput" id="collegeinput">
                                         <i class="fa-solid fa-graduation-cap"></i>
 
                                         <select class="college style" name="college">
@@ -106,61 +106,61 @@
                             
                                 
 
-                            <div class="regrequired">
+                                <div class="regrequired">
 
-                                <section class="org" id="organization">
+                                    <section class="org" id="organization">
+                                        <div class="reginput" >
+                                            <i class="fa-solid fa-school"></i>
+                                            <input id="Orgname" type="text" class="input" name="OrganizationName" value="{{ old('OrganizationName') }}"  
+                                            placeholder = "Organization Name">   
+                                        </div>
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </section> 
+
+                                    <!-- EMAIL -->
                                     <div class="reginput" >
-                                        <i class="fa-solid fa-school"></i>
-                                        <input id="Orgname" type="text" class="input" name="OrganizationName" value="{{ old('OrganizationName') }}"  
-                                        placeholder = "Organization Name">   
+                                            <i class="fa-solid fa-envelope"></i>
+                                            <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required autocomplete="email"
+                                            placeholder = "Email Address">
                                     </div>
-                                        @error('name')
+                                        @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
-                                </section> 
 
-                                <!-- EMAIL -->
-                                <div class="reginput" >
-                                        <i class="fa-solid fa-envelope"></i>
-                                        <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required autocomplete="email"
-                                        placeholder = "Email Address">
+                                    <!-- PASSWORD -->
+                                    <div class="reginput">
+                                            <i class="fa-solid fa-lock"></i>
+                                            <input id="password" type="password" class="input" name="password" required autocomplete="new-password"
+                                            placeholder = "Password">
+                                    </div>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                    
+
+                                    <!-- CONFIRM PASSWORD -->
+                                    <div class="reginput">
+                                            <i class="fa-solid fa-square-check"></i>
+                                            <input id="password-confirm" type="password" class="input" name="password_confirmation" required autocomplete="new-password"
+                                            placeholder = "Confirm Password">
+                                    </div>
+
                                 </div>
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-
-                                <!-- PASSWORD -->
-                                <div class="reginput">
-                                        <i class="fa-solid fa-lock"></i>
-                                        <input id="password" type="password" class="input" name="password" required autocomplete="new-password"
-                                        placeholder = "Password">
-                                </div>
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-
-                                
-
-                                <!-- CONFIRM PASSWORD -->
-                                <div class="reginput">
-                                        <i class="fa-solid fa-square-check"></i>
-                                        <input id="password-confirm" type="password" class="input" name="password_confirmation" required autocomplete="new-password"
-                                        placeholder = "Confirm Password">
-                                </div>
-
-                            </div>
 
                         </div>
 
                         
                   
-                    <!-- REGISTER -->
+                        <!-- REGISTER -->
                         <div class="buttoncont">
                             <button class="buttonstyle1">
                                 <a href = "{{ route('login') }}">Back</a>
@@ -175,6 +175,7 @@
                             function text(x){
                                 if ( x == 1){
                                     document.getElementById('student').style.display = "block";
+                                    document.getElementById("collegeinput").style.display = "block";
                                     document.getElementById("organization").style.display = "none";
                                     /*
                                     document.getElementById("typeheader").style.display = "none";
@@ -201,6 +202,7 @@
                                 }
                                 else if ( x == 3){
                                     document.getElementById("student").style.display = "block";
+                                    document.getElementById("collegeinput").style.display = "none";
                                     document.getElementById("organization").style.display = "none";
                                     /*
                                     document.getElementById("typeheader").style.display = "none";
@@ -214,7 +216,7 @@
                                 }
                                 return; 
                             }
-                    </script>
+                        </script>
 
                 </form>
 

@@ -16,28 +16,28 @@
 			</form>
 
 			<div style="overflow-x:auto;">
-			<table id="userstable" class="stripedtable">
-				<thead>
-					<tr>
-						<th>Add</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Email</th>
-						<th>College</th>
-						<th>Role</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><button class="addbtn"><i class="fa-regular fa-square-plus"></i></button></td>
-						<td>Juan</td>
-						<td>Dela Cruz</td>
-						<td>juandelacruz@su.edu.ph</td>
-						<td>College of Computer Studies</td>
-						<td>Admin</td>
-					</tr>
-			</table>
-		</div>
+				<table id="userstable" class="stripedtable">
+					<thead>
+						<tr>
+							<th>Add</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email</th>
+							<th>College</th>
+							<th>Role</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><button class="addbtn"><i class="fa-regular fa-square-plus"></i></button></td>
+							<td>Juan</td>
+							<td>Dela Cruz</td>
+							<td>juandelacruz@su.edu.ph</td>
+							<td>College of Computer Studies</td>
+							<td>Admin</td>
+						</tr>
+				</table>
+			</div>
 		</section>
 		  
 		<section id="content2">

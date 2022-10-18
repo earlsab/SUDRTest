@@ -79,15 +79,15 @@
 	  
 				<li class="navlinks">
 					<a href="{{ route('MyPapers') }}">
-					<i class="fa-solid fa-book-open fa-2x"></i>
-					<span class="nav-text">My Papers</span>
+						<i class="fa-solid fa-book-open fa-2x"></i>
+						<span class="nav-text">My Papers</span>
 					</a>
 				</li>
 	  
 				<li class="navlinks">
 					<a href="#">
-					<i class="fa-solid fa-bookmark fa-2x"></i>
-					<span class="nav-text">Bookmarks</span>
+						<i class="fa-solid fa-bookmark fa-2x"></i>
+						<span class="nav-text">Bookmarks</span>
 					</a>
 				</li>
 			</ul>

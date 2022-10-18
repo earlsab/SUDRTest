@@ -388,7 +388,7 @@ input:focus::placeholder {
   padding-bottom: 10px;
 }
 
-section {
+section, #collegeinput {
   display: none;
 }
 

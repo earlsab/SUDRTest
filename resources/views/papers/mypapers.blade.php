@@ -8,23 +8,27 @@
 
 			<div class="tablewrapper">
 
-				<table class="papertable" border="1px">
-					<tr>
-						<th>Title</th>
-						<th>Paper Type</th>
-						<th>View</th>
-					</tr>
+				<div style="overflow-x:auto;">
+					<table class="stripedtable">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Paper Type</th>
+								<th>View</th>
+							</tr>
+						</thead>
+						<tbody>
+						@foreach($papers as $papers)
 
-					@foreach($papers as $papers)
+						<tr>
+							<td>{{$papers->title}}</td>
+							<td>{{$papers->papertype}}</td>
+							<td><a class="viewlink" href="{{route('viewPDF',$papers->id)}}">View</a></td>
+						</tr>
 
-					<tr>
-						<td>{{$papers->title}}</td>
-						<td>{{$papers->papertype}}</td>
-						<td><a class="viewlink" href="{{route('viewPDF',$papers->id)}}">View</a></td>
-					</tr>
-
-					@endforeach
-				</table>
+						@endforeach
+					</table>
+				</div>
 
 				<button class="uploadlink buttonstyle3">
 				<a href = "{{ route('papers.create') }}">
