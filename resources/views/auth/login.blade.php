@@ -6,7 +6,7 @@
     <img class="smalllogoimg" src="img/SUDRSmallLogoTP.png">
 
             <!-- FORM HANDLER -->
-                <form class="formcontainer" method="POST" action="{{ route('login') }}" >
+                <form class="formcontainerlogin" method="POST" action="{{ route('login') }}" >
                     @csrf
                         <div class="inputcontent">
                             <!-- EMAIL INPUT -->

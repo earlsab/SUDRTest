@@ -192,6 +192,8 @@ input#checkbox_toggle[type=checkbox]{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 .tabs {
@@ -227,7 +229,6 @@ input#checkbox_toggle[type=checkbox]{
   box-shadow: 5px 5px #ccab45;
 }
 
-
 .logincard {
   padding: 25px;
   color: #ccab45;
@@ -236,11 +237,8 @@ input#checkbox_toggle[type=checkbox]{
   box-shadow: 5px 5px #ccab45;
 }
 
-.formcontainer {
+.formcontainerreg {
   padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 }
 
 .formcontainerlogin {
@@ -354,7 +352,6 @@ input:focus::placeholder {
 
 .buttonstyle3, .buttonstyle3 a {
   width: 150px;
-
   font-family: Montserrat;
   font-weight: bolder;
   color: white;
@@ -379,17 +376,16 @@ input:focus::placeholder {
 .uitab {
   margin-top: -16px;
   padding-left: 20px;
+  float: left;
 }
 
-.uiradio {
-  margin-top: 10px;
+#typeheader{
+  padding-bottom: 10px;
 }
 
 section {
   display: none;
 }
-
-
 
 /* LOGIN FORM END */
 
