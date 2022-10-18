@@ -176,7 +176,7 @@
                                 if ( x == 1){
                                     document.getElementById('student').style.display = "block";
                                     document.getElementById("organization").style.display = "none";
-                                    
+                                    /*
                                     document.getElementById("typeheader").style.display = "none";
                                     document.getElementById("facultytab").style.display = "none";
                                     document.getElementById("orgtab").style.display = "none";
@@ -184,12 +184,12 @@
                                     
                                     document.getElementById("facultylabel").style.display = "none";
                                     document.getElementById("orglabel").style.display = "none";
-                                    document.getElementById("studentlabel").style.display = "none";
+                                    document.getElementById("studentlabel").style.display = "none"; */
                                 }
                                 else if ( x == 2){
                                     document.getElementById("student").style.display = "none";
                                     document.getElementById("organization").style.display = "block";
-                                    
+                                    /*
                                     document.getElementById("typeheader").style.display = "none";
                                     document.getElementById("facultytab").style.display = "none";
                                     document.getElementById("orgtab").style.display = "none";
@@ -197,12 +197,12 @@
                                     
                                     document.getElementById("facultylabel").style.display = "none";
                                     document.getElementById("orglabel").style.display = "none";
-                                    document.getElementById("studentlabel").style.display = "none";
+                                    document.getElementById("studentlabel").style.display = "none"; */
                                 }
                                 else if ( x == 3){
                                     document.getElementById("student").style.display = "block";
                                     document.getElementById("organization").style.display = "none";
-
+                                    /*
                                     document.getElementById("typeheader").style.display = "none";
                                     document.getElementById("facultytab").style.display = "none";
                                     document.getElementById("orgtab").style.display = "none";
@@ -210,7 +210,7 @@
                                     
                                     document.getElementById("facultylabel").style.display = "none";
                                     document.getElementById("orglabel").style.display = "none";
-                                    document.getElementById("studentlabel").style.display = "none";
+                                    document.getElementById("studentlabel").style.display = "none";*/
                                 }
                                 return; 
                             }
