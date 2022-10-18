@@ -16,17 +16,64 @@ class AdminController extends Controller
     }
     
 
-    public function login()
-    {
-        return view('admin.adminlogin');
-    }
+   public function showAll()
+   {
+        $papers=Papers::all();
+        return view('admin.mypapersadmin',compact('papers'));
+   }
 
-    public function authenticate(Request $request)
-    {
+   public function maintenance()
+   {
+        $papers=Papers::all();
+        return view('admin.mpm',compact('papers'));
+   }
+
+   public function view()
+   {
+        $papers=Papers::find($id);
+        return view('admin.viewPDFAdmin',compact('papers'));
+   }
+
+   public function destroy(Papers $papers, $id)
+   {
+       $papers=Papers::find($id);
+       $papers->delete();
+       return redirect()->back();
+   }
+
+   public function edit(Papers $papers, $id)
+   {
+       $papers=Papers::find($id);
+       return view('papers.updatepaper',compact('papers'));
+   }
+
+   public function update(Request $request,Papers $papers, $id )
+   {
+       $request->validate([
+           'title' => 'required',
+           'papertype' => 'required',
+           'file' => [
+               'required',
+               File::types('pdf')
+                   ->max(12 * 1024),
+           ],
+       ]);
+
+
+       $papers=Papers::find($id);
        
+       $file=$request->file;
 
-       return view ('admin.adminpage');
-    }
+       $filename=time().'.'.$file->getClientOriginalExtension();
+               $request->file->move('assets', $filename);
+               $papers->file=$filename;
+
+           $papers->title=$request->title;
+           $papers->papertype=$request->papertype;
+
+           $papers->update();
+           return redirect()->back();
+   }
     
    
 }

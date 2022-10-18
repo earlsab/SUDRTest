@@ -25,7 +25,7 @@ class AdminMiddleware
             }
             
         } else {
-            return redirect('/login')->with('message', 'Login in to Access');
+            return redirect('/login')->with('message', 'Login to Access');
         }
         return $next($request);
     }

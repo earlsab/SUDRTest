@@ -71,25 +71,19 @@
 				<hr class="line">
 
 				<li class="navlinks">
-					<a href="{{ route('MyProfile') }}">
+					<a href="">
 						<i class="fa-solid fa-address-card fa-2x"></i>
-						<span class="nav-text"> Profile</span>
+						<span class="nav-text"> Statistics </span>
 					</a>
 				</li>
 	  
 				<li class="navlinks">
-					<a href="{{ route('MyPapers') }}">
+					<a href="{{ route('MyPapersMaintain') }}">
 					<i class="fa-solid fa-book-open fa-2x"></i>
-					<span class="nav-text">My Papers</span>
+					<span class="nav-text">Maintenance</span>
 					</a>
 				</li>
-	  
-				<li class="navlinks">
-					<a href="#">
-					<i class="fa-solid fa-bookmark fa-2x"></i>
-					<span class="nav-text">Bookmarks</span>
-					</a>
-				</li>
+	
 			</ul>
 		</nav>
 	</div>

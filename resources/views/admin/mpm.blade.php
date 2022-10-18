@@ -22,7 +22,7 @@
 				<tr>
 					<td>{{$papers->title}}</td>
 					<td>{{$papers->papertype}}</td>
-					<td><a class="viewlink" href="{{route('papers.show', $papers->id) }}">View</a></td>
+					<td><a class="viewlink" href="{{route('papers.view', $papers->id) }}">View</a></td>
 					<td class="deletecol">
 					<form method="POST" action="{{route('papers.destroy', $papers->id) }}">
 							@csrf
