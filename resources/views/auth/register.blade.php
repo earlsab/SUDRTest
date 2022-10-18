@@ -104,6 +104,10 @@
                                         @enderror
                                 </section>    
                             
+                                
+
+                            <div class="regrequired">
+
                                 <section class="org" id="organization">
                                     <div class="reginput" >
                                         <i class="fa-solid fa-school"></i>
@@ -116,43 +120,45 @@
                                             </span>
                                         @enderror
                                 </section> 
-                            </div>
 
-                        <div class="regrequired">
-                            <!-- EMAIL -->
-                            <div class="reginput" >
-                                    <i class="fa-solid fa-envelope"></i>
-                                    <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required autocomplete="email"
-                                    placeholder = "Email Address">
-                            </div>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <!-- EMAIL -->
+                                <div class="reginput" >
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required autocomplete="email"
+                                        placeholder = "Email Address">
+                                </div>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
 
-                            <!-- PASSWORD -->
-                            <div class="reginput">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <input id="password" type="password" class="input" name="password" required autocomplete="new-password"
-                                    placeholder = "Password">
-                            </div>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <!-- PASSWORD -->
+                                <div class="reginput">
+                                        <i class="fa-solid fa-lock"></i>
+                                        <input id="password" type="password" class="input" name="password" required autocomplete="new-password"
+                                        placeholder = "Password">
+                                </div>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
 
-                            
+                                
 
-                            <!-- CONFIRM PASSWORD -->
-                            <div class="reginput">
-                                    <i class="fa-solid fa-square-check"></i>
-                                    <input id="password-confirm" type="password" class="input" name="password_confirmation" required autocomplete="new-password"
-                                    placeholder = "Confirm Password">
+                                <!-- CONFIRM PASSWORD -->
+                                <div class="reginput">
+                                        <i class="fa-solid fa-square-check"></i>
+                                        <input id="password-confirm" type="password" class="input" name="password_confirmation" required autocomplete="new-password"
+                                        placeholder = "Confirm Password">
+                                </div>
+
                             </div>
 
                         </div>
+
+                        
                   
                     <!-- REGISTER -->
                         <div class="buttoncont">

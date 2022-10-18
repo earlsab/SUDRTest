@@ -197,7 +197,7 @@ input#checkbox_toggle[type=checkbox]{
 }
 
 .tabs {
-  width: 280px;
+  width: fit-content;
 	display: flex;
 	flex-wrap: wrap;
   min-height: 50px;
@@ -336,7 +336,7 @@ input:focus::placeholder {
 }
 
 .buttonstyle1, .buttonstyle1 a {
-  width: 150px;
+  width: 100px;
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
@@ -377,6 +377,11 @@ input:focus::placeholder {
   margin-top: -16px;
   padding-left: 20px;
   float: left;
+}
+
+.typelayout{
+  display: flex;
+  justify-content: center;
 }
 
 #typeheader{
