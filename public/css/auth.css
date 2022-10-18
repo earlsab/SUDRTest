@@ -392,6 +392,18 @@ section, #collegeinput {
   display: none;
 }
 
+@media (max-width: 768px) {
+  .typelayout{
+    display: flex;
+    justify-content: space-between;
+    max-height: 150px;
+    overflow-x: auto;
+    flex-direction: column;
+  }
+
+
+}
+
 /* LOGIN FORM END */
 
 /* FOOTER START */
