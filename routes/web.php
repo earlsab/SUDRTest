@@ -34,7 +34,7 @@ Route::prefix('Admin')->middleware(['auth','isAdmin'])->group(function() {
 });
 
 /* Users Route Handles Adding and Viewing the Paper */
-Route::prefix('User')->middleware(['auth','isAdmin'])->group(function(){
+Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/MyProfile', [App\Http\Controllers\MyProfileController::class, 'index'])->name('MyProfile');
     Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'index'])->name('MyPapers');
     Route::get('/viewPDF/{id}', [App\Http\Controllers\MyPapersController::class, 'view'])->name('viewPDF');
