@@ -6,18 +6,18 @@
 			<h1 class="uploadheading">Update a Paper</h1>
 			<hr class="modline">
 
-        <form action="{{ route('papers.update', $papers->id) }} " method="post" enctype="multipart/form-data">
+        <form action="{{ route('papers.update', $papers->PaperID) }} " method="post" enctype="multipart/form-data">
 			@csrf
 			@method('PUT')
 			<div class="uploaditem">
 				<p class="uploadinfo">Title:</p>
-				<input class="uploadinput" type="text"  name="title"  value="{{$papers->title}}">
+				<input class="uploadinput" type="text"  name="PaperTitle"  value="{{$papers->PaperTitle}}">
 			</div>
 
 			<div class="uploaditem">
 				<p class="uploadinfo">Paper Type:</p>
-				<select class="papertype style" name="papertype" >
-					<option value="blank">Choose Paper Type</option>
+				<select class="papertype style" name="PaperType" >
+					<option value="blank">{{$papers->PaperType}}</option>
 					<option>CAPSTONE</option>
 					<option>Thesis</option>
 					<option>Dessertation</option>
@@ -31,7 +31,7 @@
                         <label for="file" class="uploadbutton">
                             <i class="fa fa-plus"></i>
                         </label>
-                             <input id="file" name='file' type="file" style="display:none;">
+                             <input id="file" name='file' type="file" accept="application/pdf" style="display:none;">
 			</div>
 
 			<div class="buttoncont">

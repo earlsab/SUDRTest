@@ -17,17 +17,14 @@ return new class extends Migration
             $table->id('PaperID');
             $table->string('PaperTitle');
             $table->string('PaperType');
-            $table->string('College');
+            $table->string('College')->nullable();
             $table->string('file');
-            $table->date('DateUploaded');
-            $table->date('DatePublished');
-            $table->date('DateLastModified');
-            $table->unsignedBigInteger('UploaderUserID')->unsigned();
+            $table->date('DateUploaded')->nullable();
+            $table->date('DatePublished')->nullable();
+            $table->date('DateLastModified')->nullable();
+            //$table->unsignedBigInteger('UploaderUserID')->unsigned();
+            //$table->foreign('UploaderUserID')->references('UserID')->on('users');
             $table->timestamps();
-        });
-
-        Schema::table('papers', function (Blueprint $table){
-            $table->foreign('UploaderUserID')->references('UserID')->on('users');
         });
     }
 

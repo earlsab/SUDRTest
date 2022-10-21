@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Papers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 
 class AdminController extends Controller
@@ -28,51 +30,51 @@ class AdminController extends Controller
         return view('admin.mpm',compact('papers'));
    }
 
-   public function view()
+   public function view($PaperID)
    {
-        $papers=Papers::find($id);
+        $papers=Papers::find($PaperID);
         return view('admin.viewPDFAdmin',compact('papers'));
    }
 
-   public function destroy(Papers $papers, $id)
+   public function destroy(Papers $papers, $PaperID)
    {
-       $papers=Papers::find($id);
+       $papers=Papers::find($PaperID);
        $papers->delete();
        return redirect()->back();
    }
 
-   public function edit(Papers $papers, $id)
+   public function edit(Papers $papers, $PaperID)
    {
-       $papers=Papers::find($id);
-       return view('papers.updatepaper',compact('papers'));
+       $papers=Papers::find($PaperID);
+       return view('admin.updatepaper',compact('papers'));
    }
 
-   public function update(Request $request,Papers $papers, $id )
+   public function update(Request $request,Papers $papers, $PaperID )
    {
-       $request->validate([
-           'title' => 'required',
-           'papertype' => 'required',
-           'file' => [
-               'required',
-               File::types('pdf')
-                   ->max(12 * 1024),
-           ],
-       ]);
+        $request->validate([
+            'PaperTitle' => 'required',
+            'PaperType' => 'required',
+            'file' => [
+                'required',
+                File::types('pdf')
+                    ->max(12 * 1024),
+        ],
+    ]);
+    
+        $papers=new Papers();
+
+        $file=$request->file;
+
+        $filename=time().'.'.$file->getClientOriginalExtension();
+                $request->file->move('assets', $filename);
+                $papers->file=$filename;
+
+            $papers->PaperTitle=$request->PaperTitle;
+            $papers->PaperType=$request->PaperType;
 
 
-       $papers=Papers::find($id);
-       
-       $file=$request->file;
-
-       $filename=time().'.'.$file->getClientOriginalExtension();
-               $request->file->move('assets', $filename);
-               $papers->file=$filename;
-
-           $papers->title=$request->title;
-           $papers->papertype=$request->papertype;
-
-           $papers->update();
-           return redirect()->back();
+            $papers->update();
+            return redirect()->back();
    }
     
    

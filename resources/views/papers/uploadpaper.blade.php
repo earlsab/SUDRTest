@@ -10,12 +10,12 @@
 
 			<div class="uploaditem">
 				<p class="uploadinfo">Title:</p>
-				<input class="uploadinput" type="text"  name="title" placeholder="Enter Paper Title">
+				<input class="uploadinput" type="text"  name="PaperTitle" placeholder="Enter Paper Title">
 			</div>
 
 			<div class="uploaditem">
 				<p class="uploadinfo">Paper Type:</p>
-				<select class="papertype style" name="papertype">
+				<select class="papertype style" name="PaperType">
 					<option value="blank">Choose Paper Type</option>
 					<option>CAPSTONE</option>
 					<option>Thesis</option>
@@ -30,7 +30,7 @@
                         <label for="file" class="uploadbutton">
                             <i class="fa fa-plus"></i>
                         </label>
-                             <input id="file" name='file' type="file" style="display:none;">
+                             <input id="file" name='file' type="file" accept="application/pdf" style="display:none;">
 			</div>
 
 			<div class="buttoncont">

@@ -20,17 +20,17 @@
 				@foreach($papers as $papers)
 
 				<tr>
-					<td>{{$papers->title}}</td>
-					<td>{{$papers->papertype}}</td>
-					<td><a class="viewlink" href="{{route('papers.view', $papers->id) }}">View</a></td>
+					<td>{{$papers->PaperTitle}}</td>
+					<td>{{$papers->PaperType}}</td>
+					<td><a class="viewlink" href="{{route('AdminView', $papers->PaperID) }}">View</a></td>
 					<td class="deletecol">
-					<form method="POST" action="{{route('papers.destroy', $papers->id) }}">
+					<form method="POST" action="{{route('papers.destroy', $papers->PaperID) }}">
 							@csrf
 							@method('DELETE')
 								<button type="submit" class="buttonstyle3" >Delete</button>
 					</form>
 					</td>
-					<td><a class="viewlink" href="{{route('papers.edit', $papers->id)}}">Update</a></td>
+					<td><a class="viewlink" href="{{route('papers.edit', $papers->PaperID)}}">Update</a></td>
 				</tr>
 
 				@endforeach

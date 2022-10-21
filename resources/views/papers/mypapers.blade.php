@@ -21,9 +21,9 @@
 						@foreach($papers as $papers)
 
 						<tr>
-							<td>{{$papers->title}}</td>
-							<td>{{$papers->papertype}}</td>
-							<td><a class="viewlink" href="{{route('viewPDF',$papers->id)}}">View</a></td>
+							<td>{{$papers->PaperTitle}}</td>
+							<td>{{$papers->PpaerType}}</td>
+							<td><a class="viewlink" href="{{route('viewPDF',$papers->PaperID)}}">View</a></td>
 						</tr>
 
 						@endforeach

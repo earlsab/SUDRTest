@@ -11,7 +11,7 @@
                 <div class="paperinfo">
                     <h2>
                         <!-- is it possible make this into the paper title? -->
-                         <span class="disptitle"><b>{{ $papers->title }}</b></span> 
+                         <span class="disptitle"><b>{{ $papers->PaperTitle }}</b></span> 
                     </h2>
                 </div>
 

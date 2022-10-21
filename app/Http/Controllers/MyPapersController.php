@@ -31,8 +31,8 @@ class MyPapersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'papertype' => 'required',
+            'PaperTitle' => 'required',
+            'PaperType' => 'required',
             'file' => [
                 'required',
                 File::types('pdf')
@@ -48,17 +48,17 @@ class MyPapersController extends Controller
                 $request->file->move('assets', $filename);
                 $papers->file=$filename;
 
-            $papers->title=$request->title;
-            $papers->papertype=$request->papertype;
+            $papers->PaperTitle=$request->PaperTitle;
+            $papers->PaperType=$request->PaperType;
 
             $papers->save();
             return redirect()->back()->with('success','File has been uploaded.');
 
     }
 
-    public function view($id)
+    public function view($PaperID)
     {
-        $papers=Papers::find($id);
+        $papers=Papers::find($PaperID);
         return view('papers.viewPDF',compact('papers'));
     }
 

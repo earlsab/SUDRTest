@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="mypapersblock">
-        <h1 class="papersheading"><b>{{ $papers->title }}</b></h1>	        
+        <h1 class="papersheading"><b>{{ $papers->PaperTitle }}</b></h1>	        
         <hr class="modline">
 
         <div class="paperinfoblock">

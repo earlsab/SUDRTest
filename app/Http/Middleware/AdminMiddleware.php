@@ -20,6 +20,8 @@ class AdminMiddleware
         if(Auth::check()){
             if(Auth::user()->isAdmin == '1'){
                 return $next($request);
+            } else if(Auth::user()->isAdmin == '0'){
+                return $next($request);
             } else {
                 return redirect('/home')->with('message', 'Access Denied');
             }
