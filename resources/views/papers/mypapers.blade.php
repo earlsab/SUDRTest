@@ -22,7 +22,7 @@
 
 						<tr>
 							<td>{{$papers->PaperTitle}}</td>
-							<td>{{$papers->PpaerType}}</td>
+							<td>{{$papers->PaperType}}</td>
 							<td><a class="viewlink" href="{{route('viewPDF',$papers->PaperID)}}">View</a></td>
 						</tr>
 
