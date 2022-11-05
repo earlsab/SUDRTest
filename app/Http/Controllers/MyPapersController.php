@@ -10,10 +10,22 @@ use Illuminate\Validation\Rules\File;
 
 class MyPapersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $papers=Papers::all();
-        return view('papers.mypapers',compact('papers'));
+       $paper = Papers::where([
+        ['PaperTitle', '!=', Null],
+        [function($query) use ($request) {
+            if (($term = $request->term)) {
+                $query->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
+                    ->orWhere('PaperType', 'LIKE','%'. $term . '%')->get();
+            }
+        }]
+       ])
+            ->orderBy("PaperID", "desc")
+            ->paginate(5);
+        
+        return view('papers.mypapers', compact('paper'))
+            ->with('i', (request()->input('page', 1) -1) *5);
 
     }
 
@@ -40,26 +52,26 @@ class MyPapersController extends Controller
             ],
         ]);
         
-        $papers=new Papers();
+        $paper=new Papers();
 
         $file=$request->file;
 
         $filename=time().'.'.$file->getClientOriginalExtension();
                 $request->file->move('assets', $filename);
-                $papers->file=$filename;
+                $paper->file=$filename;
 
-            $papers->PaperTitle=$request->PaperTitle;
-            $papers->PaperType=$request->PaperType;
+            $paper->PaperTitle=$request->PaperTitle;
+            $paper->PaperType=$request->PaperType;
 
-            $papers->save();
+            $paper->save();
             return redirect()->back()->with('success','File has been uploaded.');
 
     }
 
     public function view($PaperID)
     {
-        $papers=Papers::find($PaperID);
-        return view('papers.viewPDF',compact('papers'));
+        $paper=Papers::find($PaperID);
+        return view('papers.viewPDF',compact('paper'));
     }
 
     

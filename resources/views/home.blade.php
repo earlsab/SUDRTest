@@ -6,8 +6,8 @@
 <div class="searchcont">
 			<div class="searchcard">
 				<h1 class="advsearch">Advanced Search</h1>
-				<form class="searchbar">
-					<input class="searchinput" type="text" placeholder="Search.." name="search">
+				<form class="searchbar" action="{{ route('MyPapers') }}" method="GET" role="search">
+					<input class="searchinput" type="text" placeholder="Search.." name="term">
 					<button><i class="fas fa-solid fa-filter"></i></button>
 					<button type="submit"><i class="fas fa-solid fa-magnifying-glass"></i></button>
 				</form>
