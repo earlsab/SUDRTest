@@ -32,7 +32,6 @@ class MyPapersController extends Controller
     public function showpage()
     {
         return view('papers.uploadpaper');
-
     }
 
     public function create()
@@ -73,6 +72,5 @@ class MyPapersController extends Controller
         $paper=Papers::find($PaperID);
         return view('papers.viewPDF',compact('paper'));
     }
-
     
 }

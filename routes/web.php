@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MyPapersController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,7 @@ Route::prefix('Admin')->middleware(['auth','isAdmin'])->group(function() {
 Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/MyProfile', [App\Http\Controllers\MyProfileController::class, 'index'])->name('MyProfile');
     Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'index'])->name('MyPapers');
+    Route::get('/MyBookmarks', [App\Http\Controllers\BookmarkController::class, 'index'])->name('MyBookmarks');
     Route::get('/viewPDF/{id}', [App\Http\Controllers\MyPapersController::class, 'view'])->name('viewPDF');
     Route::resource('papers', MyPapersController::class)->only(['create', 'store']);
 });
@@ -44,4 +46,5 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
 /* Profiles Route for Viewing and Changing Passwords */
 Route::get('/ChangePass', [App\Http\Controllers\MyProfileController::class, 'changepass'])->name('ChangePass');
 Route::post('/ChangePassword', [App\Http\Controllers\MyProfileController::class, 'updatepassword'])->name('passupdate');
+Route::post('/Bookmarked', [App\Http\Controllers\BookmarkController::class, 'store'])->name('Bookmarks');
 

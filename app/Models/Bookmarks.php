@@ -5,7 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bookmark extends Model
+class Bookmarks extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'BookmarkID';
+
+    protected $fillable = [
+        'BookmarkName',
+    ];
 }
