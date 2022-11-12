@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Bookmarks;
+use DB;
 
 
 class BookmarkController extends Controller
 {
     public function index()
     {
-        return view('bookmarks.bookmarks');
+        $bm = Bookmarks::all();
+        return view('bookmarks.bookmarks', compact('bm'));
     }
 
     public function store(Request $request)
@@ -20,9 +22,13 @@ class BookmarkController extends Controller
             'BookmarkName' => 'required',
         ]);
 
+        $paper = DB::table('papers')
+            ->where('PaperID', '=', $request->paper_id)
+            ->value('PaperID');
+
         $bm = new Bookmarks();
         $bm->BookmarkName=$request->BookmarkName;
-        //$bookmark->user_id = auth()->user()->UserID;
+        $bm->paper_id = $paper;
 
         $bm->save();
         return redirect()->back()->with('success','Bookmark Added');

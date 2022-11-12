@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('BookmarkName');
             //$table->unsignedBigInteger('user_id');
             //$table->foreign('user_id')->references('UserID')->on('users');
-            //$table->unsignedBigInteger('paper_id');
-            //$table->foreign('paper_id')->references('PaperID')->on('papers');
+            $table->unsignedBigInteger('paper_id');
+            $table->foreign('paper_id')->references('PaperID')->on('papers');
             $table->timestamps();
         });
 

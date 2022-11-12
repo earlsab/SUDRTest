@@ -5,10 +5,17 @@
 
 <tbody>
 						
+	<table class="stripedtable">
+		<tbody>
+			@foreach($bm as $bookmarks)
 
-<tr>
-							<td>{{ $bm->BookmarkName }}</td>
-						</tr>
+				<tr>
+					<td>{{$bookmarks->BookmarkName}}</td>
+					<td>{{$bookmarks->paper_id}}</td>
+				</tr>
+
+			@endforeach
+	</table>
 
 						
 

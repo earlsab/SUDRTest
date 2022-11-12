@@ -26,9 +26,10 @@
                 <div class="form-group">
                         <label>Bookmark Name</label>
                         <input type="text" class="form-control" name="BookmarkName">
+                        <input type="hidden" class="form-control" name="paper_id" value="{{ $paper->PaperID}}">
                 </div>
                 <br/>
-                <input type="submit" name="submit" value="Submit" class="btn btn-success">
+                <button type="submit"  class="btn btn-success">Submit</button>
         </form>
       </div>
     </div>
@@ -46,7 +47,7 @@
         </div>
 
 
-                <iframe  class="pdfviewer" src="/assets/{{$paper->file}}"></iframe>
+                <iframe  class="pdfviewer" src="/assets/{{$paper->file}}#toolbar=0 "></iframe>
 
 </div>
 
