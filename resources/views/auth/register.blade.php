@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- SMALL LOGO --> 
-		<img class="smalllogoimg" src="Img/SUDRSmallLogoTP.png">
+		<img class="smalllogoimg" src="Img/SUDRSmallLogo.png">
    
             <!-- FORM HANDLER -->
                 <form class="formcontainerreg" method="POST" action="{{ route('register') }}">

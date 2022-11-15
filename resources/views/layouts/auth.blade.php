@@ -17,7 +17,7 @@
 <header>
 <nav class="navbar">
 	<!-- LOGO -->
-	<div><a href="#" title="Silliman University Digital Repository"><img class="logoimg" src="img/SUDRLogoTP.png"></a></div>
+	<div><a href="#" title="Silliman University Digital Repository"><img class="logoimg" src="img/SUDRLogo.png"></a></div>
 	<!-- NAVIGATION MENU -->
 	<ul class="nav-links">
 	    <!-- HAMBURGER MENU -->
@@ -25,21 +25,7 @@
 	    <label for="checkbox_toggle" class="hamburger">&#9776;</label>
 
 	    <!-- NAVIGATION MENUS -->
-	    <div class="menu">
-	        <li><a href="SUDRLogin.html">HOME</a></li>
-	        <li class="faq">
-	           <a>FAQ</a>
-	           <!-- DROPDOWN MENU -->
-	           <ul class="dropdown">
-	             <li><a href="/">Dropdown 1 </a></li>
-	             <li><a href="/">Dropdown 2</a></li>
-	             <li><a href="/">Dropdown 2</a></li>
-	             <li><a href="/">Dropdown 3</a></li>
-	             <li><a href="/">Dropdown 4</a></li>
-	           </ul>
-	        </li>	        
-			<li><a href="/">ABOUT</a></li>
-	    </div>
+	
 	</ul>
 </nav>
 
