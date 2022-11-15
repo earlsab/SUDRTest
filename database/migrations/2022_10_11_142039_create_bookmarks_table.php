@@ -14,16 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bookmarks', function (Blueprint $table) {
-            $table->id('BookMarkID');
-            $table->unsignedBigInteger('user_ID')->unsigned();
-            $table->unsignedBigInteger('paper_ID')->unsigned();
+            $table->bigIncrements('BookMarkID');
+            $table->string('BookmarkName');
+            //$table->unsignedBigInteger('user_id');
+            //$table->foreign('user_id')->references('UserID')->on('users');
+            $table->unsignedBigInteger('paper_id');
+            $table->foreign('paper_id')->references('PaperID')->on('papers');
             $table->timestamps();
         });
 
-        Schema::table('bookmarks', function (Blueprint $table){
-            $table->foreign('user_ID')->references('UserID')->on('users');
-            $table->foreign('paper_ID')->references('PaperID')->on('papers');
-        });
     }
 
     /**

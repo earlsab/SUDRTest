@@ -9,6 +9,21 @@
 			<div class="tablewrapper">
 
 				<div style="overflow-x:auto;">
+				<form action="{{ route('MyPapers') }}" method="GET" role="search" class="searchbar">
+					<span class="input-group-btn mr-5 mt-1">
+                            <button class="btn btn-info" type="submit" title="Search Paper Titles">
+                                <span class="fas fa-search"></span>
+                            </button>
+                        </span>
+                        <input type="text" class="form-control mr-2" name="term" placeholder="Search Paper Titles" id="term">
+                        <a href="{{ route('MyPapers') }}" class=" mt-1">
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button" title="Refresh page">
+                                    <span class="fas fa-sync-alt"></span>
+                                </button>
+                            </span>
+                        </a>
+				</form>
 					<table class="stripedtable">
 						<thead>
 							<tr>
@@ -18,7 +33,7 @@
 							</tr>
 						</thead>
 						<tbody>
-						@foreach($papers as $papers)
+						@foreach($paper as $papers)
 
 						<tr>
 							<td>{{$papers->PaperTitle}}</td>
@@ -28,6 +43,7 @@
 
 						@endforeach
 					</table>
+					{{ $paper->links() }}
 				</div>
 
 				<button class="uploadlink buttonstyle3">
