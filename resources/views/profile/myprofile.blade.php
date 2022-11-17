@@ -35,23 +35,23 @@
 
 							<h2>Change Password</h2>
 
-							<form class="newpassInput">
+							<form class="newpassInput" action ="{{ route('passupdate') }}" method ="POST">
 								<div class="group">      
-									<input class="inputInfo" type="text" required>
+									<input class="inputInfo" type="password" name="oldpassword" required>
 									<span class="highlight"></span>
 									<span class="bar"></span>
 									<label class="infoLabel">Old Password</label>
 								</div>
 
 								<div class="group">      
-									<input class="inputInfo" id="inputID" type="text" required>
+									<input class="inputInfo" id="inputID" type="password" name="newpassword" required>
 									<span class="highlight"></span>
 									<span class="bar"></span>
 									<label class="infoLabel">New Password</label>
 								</div>
 
 								<div class="group">      
-									<input class="inputInfo" id="inputID" type="text" required>
+									<input class="inputInfo" id="inputID" type="password" name="confirmnewpass" required>
 									<span class="highlight"></span>
 									<span class="bar"></span>
 									<label class="infoLabel">Confirm New Password</label>
@@ -60,7 +60,7 @@
 								<br>
 								<br>
 
-								<button class="redBtn">Change</button>
+								<button class="redBtn" type="submit">Change</button>
 							</form>
 						</div>
 					</div>
