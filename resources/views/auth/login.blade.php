@@ -14,15 +14,12 @@
                                 <i class="fa-solid fa-envelope"></i>
                                 <input id="email" type="email" class="input" name="email" value="{{ old('email') }}" required autocomplete="email" 
                                 placeholder = "Email Address" autofocus>
-
+                            </div>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror    
-
-                            </div>
-
+                                @enderror 
                             <!-- PASWORD INPUT -->
                             <div class="reginput">
                                 <i class="fa-solid fa-lock"></i>

@@ -2,60 +2,146 @@
 
 @section('content')
 
-<div class="profileblock">
-			<h1 class="heading">My Profile</h1>
-			<hr class="modline">
+<div class="profileCont">
 
-			<div class="profileinfo">
-				<span>Full Name:</span>
-				<span class="dispfullname"><b>{{ Auth::user()->name }}</b></span>
+	<div class="profileCard">
+		<input id="profView" type="checkbox">
+
+			<div class="placeholderPic">
+				<img src="/img/cat.jpg" alt="">
 			</div>
 
-			<div class="profileinfo">
-				<span>SU Email: </span>
-				<span class="dispemail"><b>{{ Auth::user()->email }}</b></span>
+			<div class="userName">@ {{ Auth::user()->UserName }}</div>
+
+			<div class="fullNameBlock">
+				<div class="firstName">
+					<h2>{{ Auth::user()->FirstName }}</h2>
+				</div>
+
+				<div class="midLastName">
+					<h2>{{ Auth::user()->MiddleName }}</h2>
+					<h2>{{ Auth::user()->LastName }}</h2>
+				</div>
 			</div>
 
-			<div class="profileinfo">
-				<span>ID Number:</span>
-				<span class="dispid"><b>{{ Auth::user()->studid }}</b></span>
+			<div class="changePwBlock">
+				<button class="redBtn">Change Password</button>
 			</div>
 
-			<hr class="modline">
+			<div class="colEmailBlock">
+				<div class="userTypeBlock">
+					<button class="adminViewBtn">adm</button>
+					<div>{{ Auth::user()->UserType }}</div>
+				</div>
 
-			<div class="profileinfo">
-				<span>College: </span><br>
-				<span class="dispecol"><b>{{ Auth::user()->college }}</b></span>
+				<div>{{ Auth::user()->college }}</div>
+				<div>{{ Auth::user()->email }}</div>
 			</div>
 
-			<div class="profileinfo">
-				<span>Password:</span>
-				<button class="buttonstyle1"><a href="{{ route('ChangePass') }}">CHANGE</a></button>
-			</div>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+		<label class="profDown" for="profView"></label>
+	</div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+	<div class="userFunctionsCard">
+
+		<div class="container">
+			<div class="content">
+				<input type="radio" name="slider" checked id="add">
+				<input type="radio" name="slider" id="mypaper">
+				<input type="radio" name="slider" id="bookmark">
+
+				<div class="list">
+
+					<label for="add" class="add">
+					<i class="fas fa-solid fa-plus"></i>
+					<span class="title">Add Paper</span>
+					</label>
+
+					<label for="mypaper" class="mypaper">
+						<span class="icon"><i class="fas fa-solid fa-scroll"></i></span>
+						<span class="title">My Papers</span>
+					</label>
+
+					<label for="bookmark" class="bookmark">
+						<span class="icon"><i class="far fa-solid fa-bookmark"></i></span>
+						<span class="title">Bookmarks</span>
+					</label>
+					<div class="slider"></div>
+				</div>
+
+				<div class="text-content">
+					<div class="add text">
+						<div class="title">Add a Paper</div>
+						
+						<form class="paperInput">
+							<div class="group">      
+								<input class="inputchecker1 inputInfo" type="text" required>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label class="infoLabel">Paper Title</label>
+							</div>
+
+							<div class="group">      
+								<input class="inputchecker2 inputInfo" id="inputID" type="text" required>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label class="infoLabel">Author(s)</label>
+							</div>
+
+							<select class="selectType">
+								<option selected="true" disabled="disabled">Select Paper Type</option>
+								<option>Thesis</option>
+								<option>Capstone</option>
+							</select>
+
+							<div class="addPDF">
+									<button class="redBtn"><i class="pdf fa-solid fa-plus"></i>Add PDF</button>
+							</div>
+
+							<br>
+							<br>
+
+							<button class="redBtn">Submit Paper</button>
+						</form>
+					</div>
+
+					<div class="mypaper text">
+						<div class="title">My Papers</div>
+						asdasdad
+					</div>
+
+					<div class="bookmark text">
+						<div class="title">My Bookmarks</div>
+						gggggggg
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
+
+	<footer id="footer">
+		<p>Silliman University Digital Repository</p>
+	</footer>
+
+	<script>
+			function checkMediaQuery() {
+			
+				const boxinput1 = document.querySelector('.inputchecker1');
+				const boxinput2 = document.querySelector('.inputchecker1');
+
+				if (window.innerWidth <= 768) {
+
+						if (boxinput1 === document.activeElement) {
+							document.getElementById("footer").style.display = "none";
+						} else if (boxinput2 === document.activeElement) {
+							document.getElementById("footer").style.display = "none";
+						}
+					
+				}
+			}
+			window.addEventListener('resize', checkMediaQuery);
+	</script>
+</div>
+
+
 
 @endsection
