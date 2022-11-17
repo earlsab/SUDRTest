@@ -8,7 +8,7 @@
 <div class="categoryCont">
 
 	<div class="searchbarCont">
-		<h2 class="searchHeading">Anything you're looking for?</h2>
+		<h2 class="searchHeading">Hi, {{ Auth::user()->FirstName }}! <br> Anything you're looking for?</h2>
 		<form class="searchForm">
 			<input type="text" placeholder="Search.." name="search2">
 			<button type="submit"><i class="fa fa-search"></i></button>

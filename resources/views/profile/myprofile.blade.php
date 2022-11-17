@@ -25,12 +25,50 @@
 			</div>
 
 			<div class="changePwBlock">
-				<button class="redBtn">Change Password</button>
+					<button class="redBtn" id="modalBtn">Change Password</button>
+			</div>
+
+			<div id="myModal" class="modal">
+			<div class="modal-content">
+					  	<span class="close">&times;</span>
+					  	<div class="modalinfoCont">
+
+							<h2>Change Password</h2>
+
+							<form class="newpassInput">
+								<div class="group">      
+									<input class="inputInfo" type="text" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label class="infoLabel">Old Password</label>
+								</div>
+
+								<div class="group">      
+									<input class="inputInfo" id="inputID" type="text" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label class="infoLabel">New Password</label>
+								</div>
+
+								<div class="group">      
+									<input class="inputInfo" id="inputID" type="text" required>
+									<span class="highlight"></span>
+									<span class="bar"></span>
+									<label class="infoLabel">Confirm New Password</label>
+								</div>
+
+								<br>
+								<br>
+
+								<button class="redBtn">Change</button>
+							</form>
+						</div>
+					</div>
 			</div>
 
 			<div class="colEmailBlock">
 				<div class="userTypeBlock">
-					<button class="adminViewBtn">adm</button>
+					<button class="adminViewBtn"><i class="fa-solid fa-star"></i></button>
 					<div>{{ Auth::user()->UserType }}</div>
 				</div>
 
@@ -123,22 +161,40 @@
 	</footer>
 
 	<script>
-			function checkMediaQuery() {
-			
-				const boxinput1 = document.querySelector('.inputchecker1');
-				const boxinput2 = document.querySelector('.inputchecker1');
 
-				if (window.innerWidth <= 768) {
+		var modal = document.getElementById("myModal");
 
-						if (boxinput1 === document.activeElement) {
-							document.getElementById("footer").style.display = "none";
-						} else if (boxinput2 === document.activeElement) {
-							document.getElementById("footer").style.display = "none";
-						}
-					
+		// Get the button that opens the modal
+		var btn = document.getElementById("modalBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		function checkMediaQuery() {
+		
+			const boxinput1 = document.querySelector('.inputchecker1');
+			const boxinput2 = document.querySelector('.inputchecker1');
+
+			if (window.innerWidth <= 768) {
+				if (boxinput1 === document.activeElement) {
+					document.getElementById("footer").style.display = "none";
+				} else if (boxinput2 === document.activeElement) {
+					document.getElementById("footer").style.display = "none";
 				}
 			}
-			window.addEventListener('resize', checkMediaQuery);
+		}
+		window.addEventListener('resize', checkMediaQuery);
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		modal.style.display = "none";
+		}
+
 	</script>
 </div>
 
