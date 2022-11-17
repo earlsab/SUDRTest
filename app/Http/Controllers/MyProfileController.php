@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use DB;
+use Auth;
 
 
 class MyProfileController extends Controller
@@ -30,8 +32,9 @@ class MyProfileController extends Controller
             return redirect()->back()->with("error", "Old Password Doesn't match!");
         }
 
-
-        User::whereId(auth()->user()->id)->update([
+        DB::table('users')
+            ->where('UserID', '=', Auth::user()->UserID)
+            ->update([
             'password' => Hash::make($request->newpassword)
         ]);
 

@@ -36,6 +36,7 @@
 							<h2>Change Password</h2>
 
 							<form class="newpassInput" action ="{{ route('passupdate') }}" method ="POST">
+								@csrf
 								<div class="group">      
 									<input class="inputInfo" type="password" name="oldpassword" required>
 									<span class="highlight"></span>
