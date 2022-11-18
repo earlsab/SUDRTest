@@ -118,7 +118,9 @@
 
 					<div class="mypaper text">
 						<div class="title">My Papers</div>
-						@include('papers.mypapers')
+
+						@yield('Papers')
+
 					</div>
 
 					<div class="bookmark text">

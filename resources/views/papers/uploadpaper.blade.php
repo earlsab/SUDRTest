@@ -1,7 +1,6 @@
 
-
-
 <form class="paperInput" action="{{ route('papers.store') }} " method="POST" enctype="multipart/form-data">
+@csrf
 							<div class="group">      
 								<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
 								<span class="highlight"></span>
@@ -23,7 +22,7 @@
 							</select>
 
 							<div class="addPDF">
-								@csrf
+								
 									<input class="redBtn" 
 									name='file' type="file" accept="application/pdf" >
 							</div>
@@ -33,3 +32,4 @@
 
 							<button class="redBtn" type="submit">Submit Paper</button>
 						</form>
+
