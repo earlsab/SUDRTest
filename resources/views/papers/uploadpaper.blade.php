@@ -1,62 +1,35 @@
-@extends ('layouts.main')
-<!-- CREATE OF THE PAPERS -->
-@section ('content')
 
-<div class="uploadblock">
-			<h1 class="uploadheading">Upload a Paper</h1>
-			<hr class="modline">
 
-        <form action="{{ route('papers.store') }} " method="post" enctype="multipart/form-data">
 
-			<div class="uploaditem">
-				<p class="uploadinfo">Title:</p>
-				<input class="uploadinput" type="text"  name="PaperTitle" placeholder="Enter Paper Title">
-			</div>
+<form class="paperInput" action="{{ route('papers.store') }} " method="POST" enctype="multipart/form-data">
+							<div class="group">      
+								<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label class="infoLabel">Paper Title</label>
+							</div>
 
-			<div class="uploaditem">
-				<p class="uploadinfo">Paper Type:</p>
-				<select class="papertype style" name="PaperType">
-					<option value="blank">Choose Paper Type</option>
-					<option>CAPSTONE</option>
-					<option>Thesis</option>
-					<option>Dessertation</option>
-					<option>SUSG Papers</option>
-				</select>
-			</div>
+							<div class="group">      
+								<input class="inputchecker2 inputInfo" id="inputID" type="text" name="Authors" required>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label class="infoLabel">Author(s)</label>
+							</div>
 
-			<div class="uploaditem">
-				<p class="uploadinfo">Upload PDF:</p>
-                        @csrf
-                        <label for="file" class="uploadbutton">
-                            <i class="fa fa-plus"></i>
-                        </label>
-                             <input id="file" name='file' type="file" accept="application/pdf" style="display:none;">
-			</div>
+							<select class="selectType">
+								<option selected="true" disabled="disabled" name="PaperType">Select Paper Type</option>
+								<option>Thesis</option>
+								<option>Capstone</option>
+							</select>
 
-			<div class="buttoncont">
-			@if (session('success'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-			@if (count($errors) > 0)
-                <div class="alert alert-danger">                   
-                        @foreach ($errors->all() as $error)
-                          {{ $error }}
-                        @endforeach
-                </div>
-              @endif
-				<input class="buttonstyle2" type="submit">
-			</div>
-        </form>
-		</div>
+							<div class="addPDF">
+								@csrf
+									<input class="redBtn" 
+									name='file' type="file" accept="application/pdf" >
+							</div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+							<br>
+							<br>
 
-        <script>
-            $('#file').change(function() {
-            var i = $(this).prev('label').clone();
-            var file = $('#file')[0].files[0].name;
-            $(this).prev('label').text(file);
-        });</script>
-@endsection
+							<button class="redBtn" type="submit">Submit Paper</button>
+						</form>

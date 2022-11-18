@@ -17,13 +17,12 @@ return new class extends Migration
             $table->id('PaperID');
             $table->string('PaperTitle');
             $table->string('PaperType');
+            $table->string('Authors');
             $table->string('College')->nullable();
             $table->string('file');
-            $table->date('DateUploaded')->nullable();
             $table->date('DatePublished')->nullable();
-            $table->date('DateLastModified')->nullable();
-            //$table->unsignedBigInteger('UploaderUserID')->unsigned();
-            //$table->foreign('UploaderUserID')->references('UserID')->on('users');
+            $table->unsignedBigInteger('UploaderUserID');
+            $table->foreign('UploaderUserID')->references('UserID')->on('users');
             $table->timestamps();
         });
     }

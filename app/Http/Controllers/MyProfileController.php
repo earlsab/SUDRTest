@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Papers;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\File;
 use DB;
 use Auth;
 
@@ -40,4 +43,8 @@ class MyProfileController extends Controller
 
         return redirect()->back()->with("status", "Password changed successfully!");
     }
+
+    
+
+   
 }

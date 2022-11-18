@@ -9,6 +9,8 @@ class College extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'CollegeID';
+
     protected $fillable = [
         'CollegeName',
         'CollegeAbbr',

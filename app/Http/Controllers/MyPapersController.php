@@ -44,6 +44,7 @@ class MyPapersController extends Controller
         $request->validate([
             'PaperTitle' => 'required',
             'PaperType' => 'required',
+            'Authors' => 'required',
             'file' => [
                 'required',
                 File::types('pdf')
@@ -61,16 +62,13 @@ class MyPapersController extends Controller
 
             $paper->PaperTitle=$request->PaperTitle;
             $paper->PaperType=$request->PaperType;
+            $paper->Authors=$request->Authors;
 
             $paper->save();
             return redirect()->back()->with('success','File has been uploaded.');
 
     }
 
-    public function view($PaperID)
-    {
-        $paper=Papers::find($PaperID);
-        return view('papers.viewPDF',compact('paper'));
-    }
+
     
 }

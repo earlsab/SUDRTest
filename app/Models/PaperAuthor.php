@@ -9,6 +9,8 @@ class PaperAuthor extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'PaperAuthorID';
+
     protected $fillable = [
         'AuthorName',
     ];

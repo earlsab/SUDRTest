@@ -9,6 +9,8 @@ class PaperType extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'PaperTypeID';
+
     protected $fillable = [
         'PaperTypeName',
     ];

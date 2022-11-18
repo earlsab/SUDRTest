@@ -15,16 +15,14 @@ return new class extends Migration
     {
         Schema::create('paper_authors', function (Blueprint $table) {
             $table->id('PaperAuthorID');
-            $table->unsignedBigInteger('paper_ID')->unsigned();
+            $table->unsignedBigInteger('paper_ID');
+            $table->foreign('paper_ID')->references('PaperID')->on('papers');
             $table->string('AuthorName');
-            $table->unsignedBigInteger('user_ID')->unsigned();
+            $table->unsignedBigInteger('user_ID');
+            $table->foreign('user_ID')->references('UserID')->on('users');
             $table->timestamps();
         });
 
-        Schema::table('paper_authors', function (Blueprint $table){
-            $table->foreign('paper_ID')->references('PaperID')->on('papers');
-            $table->foreign('user_ID')->references('UserID')->on('users');
-        });
     }
 
     /**

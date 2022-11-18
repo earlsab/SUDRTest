@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MyPapersController;
+use App\Http\Controllers\MyProfileController;
 
 
 
@@ -40,7 +41,7 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/MyPapers', [App\Http\Controllers\MyPapersController::class, 'index'])->name('MyPapers');
     Route::get('/MyBookmarks', [App\Http\Controllers\BookmarkController::class, 'index'])->name('MyBookmarks');
     Route::get('/viewPDF/{id}', [App\Http\Controllers\MyPapersController::class, 'view'])->name('viewPDF');
-    Route::resource('papers', MyPapersController::class)->only(['create', 'store']);
+    Route::resource('papers', MyPapersController::class)->only(['create','store']);
 });
 
 /* Profiles Route for Viewing and Changing Passwords */

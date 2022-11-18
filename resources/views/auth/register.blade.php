@@ -76,25 +76,11 @@
 
                                         <select class="college style" name="college">
                                             <option value="blank">Select College</option>
-                                            <option value="College of Arts and Sciences">College of Arts and Sciences</option>
-                                            <option value="College of Business Administration">College of Business Administration</option>
-                                            <option value="College of Computer Studies">College of Computer Studies</option>
-                                            <option value="College of Education">College of Education</option>
-                                            <option value="College of Engineering and Design">College of Engineering and Design</option>
-                                            <option value="College of Law">College of Law</option>
-                                            <option value="College of Mass Communication">College of Mass Communication</option>
-                                            <option value="College of Nursing">College of Nursing</option>
-                                            <option value="College of Visual and Performing Arts">College of Visual and Performing Arts</option>
-                                            <option value="Divinity School">Divinity School</option>
-                                            <option value="Graduate Programs">Graduate Programs</option>
-                                            <option value="Institute of Clinical Laboratory Sciences">Institute of Clinical Laboratory Sciences</option>
-                                            <option value="Institute of Environmental and Marine Sciences">Institute of Environmental and Marine Sciences</option>
-                                            <option value="Institute of Rehabilitative Sciences">Institute of Rehabilitative Sciences</option>
-                                            <option value="Institute of Service Learning">Institute of Service Learning</option>
-                                            <option value="Medical School">Medical School</option>
-                                            <option value="School of Agro-Industrial and Technical Education">School of Agro-Industrial and Technical Education</option>
-                                            <option value="School of Basic Education">School of Basic Education</option>
-                                            <option value="School of Public Affairs & Governance">School of Public Affairs & Governance</option>
+
+                                            @foreach($College as $Colleges)
+                                                <option value="{{$Colleges->CollegeName}}">{{$Colleges->CollegeName}}</option>
+                                            @endforeach
+    
                                         </select> 
                                     </div>
                                         @error('college')

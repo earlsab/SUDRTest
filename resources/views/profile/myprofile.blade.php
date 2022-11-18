@@ -37,6 +37,7 @@
 
 							<form class="newpassInput" action ="{{ route('passupdate') }}" method ="POST">
 								@csrf
+								
 								<div class="group">      
 									<input class="inputInfo" type="password" name="oldpassword" required>
 									<span class="highlight"></span>
@@ -111,41 +112,13 @@
 					<div class="add text">
 						<div class="title">Add a Paper</div>
 						
-						<form class="paperInput">
-							<div class="group">      
-								<input class="inputchecker1 inputInfo" type="text" required>
-								<span class="highlight"></span>
-								<span class="bar"></span>
-								<label class="infoLabel">Paper Title</label>
-							</div>
+						@include('papers.uploadpaper')
 
-							<div class="group">      
-								<input class="inputchecker2 inputInfo" id="inputID" type="text" required>
-								<span class="highlight"></span>
-								<span class="bar"></span>
-								<label class="infoLabel">Author(s)</label>
-							</div>
-
-							<select class="selectType">
-								<option selected="true" disabled="disabled">Select Paper Type</option>
-								<option>Thesis</option>
-								<option>Capstone</option>
-							</select>
-
-							<div class="addPDF">
-									<button class="redBtn"><i class="pdf fa-solid fa-plus"></i>Add PDF</button>
-							</div>
-
-							<br>
-							<br>
-
-							<button class="redBtn">Submit Paper</button>
-						</form>
 					</div>
 
 					<div class="mypaper text">
 						<div class="title">My Papers</div>
-						asdasdad
+						@include('papers.mypapers')
 					</div>
 
 					<div class="bookmark text">
@@ -191,6 +164,7 @@
 		}
 
 	</script>
+
 </div>
 
 
