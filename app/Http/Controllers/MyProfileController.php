@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Papers;
-use Illuminate\Support\Facades\Validator;
+use App\Models\College;
+use App\Models\PaperType;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Validator;
+
 use DB;
 use Auth;
 
@@ -16,7 +20,10 @@ class MyProfileController extends Controller
 {
     public function index()
     {
-        return view('profile.myprofile');
+        $College = College::all();
+        $PT = PaperType::all();
+        $paper = Papers::all();
+        return view('profile.myprofile', compact('College','PT','paper'));
     }
 
     public function changepass()

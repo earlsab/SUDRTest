@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="mypapersblock">
-        <h1 class="papersheading"><b>{{ $paper->PaperTitle }}</b></h1>	        
+        <h1 class="papersheading"><b></b></h1>	        
         <hr class="modline">
 
         
@@ -26,7 +26,7 @@
                 <div class="form-group">
                         <label>Bookmark Name</label>
                         <input type="text" class="form-control" name="BookmarkName">
-                        <input type="hidden" class="form-control" name="paper_id" value="{{ $paper->PaperID}}">
+                        <input type="hidden" class="form-control" name="paper_id" value="">
                 </div>
                 <br/>
                 <button type="submit"  class="btn btn-success">Submit</button>
@@ -47,7 +47,7 @@
         </div>
 
 
-                <iframe  class="pdfviewer" src="/assets/{{$paper->file}}#toolbar=0 "></iframe>
+                <iframe  class="pdfviewer" src=""></iframe>
 
 </div>
 

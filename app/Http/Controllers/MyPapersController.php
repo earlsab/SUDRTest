@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 use App\Models\Papers;
-use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
 use DB;
 use Auth;
 
@@ -31,9 +33,9 @@ class MyPapersController extends Controller
 
     }
 
-    public function showpage()
+    public function view()
     {
-        return view('papers.uploadpaper');
+        return view('papers.viewPDF');
     }
 
     public function create()
@@ -69,13 +71,12 @@ class MyPapersController extends Controller
             $paper->PaperTitle=$request->PaperTitle;
             $paper->PaperType=$request->PaperType;
             $paper->Authors=$request->Authors;
+            $paper->College=$request->College;
             $paper->UploaderUserID = $user;
 
             $paper->save();
             return redirect()->back()->with('success','File has been uploaded.');
 
     }
-
-
-    
+ 
 }

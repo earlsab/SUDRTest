@@ -15,16 +15,22 @@
 								<label class="infoLabel">Author(s)</label>
 							</div>
 
-							<select class="selectType" name="PaperType">
+							<select class="selectType" name="College">
 								<option selected="true" disabled="disabled">Select College</option>
-								<option>asdasd</option>
-								<option>asdasdasd</option>
+
+								@foreach($College as $Colleges)
+                                	<option value="{{$Colleges->CollegeAbbr}}">{{$Colleges->CollegeName}}</option>
+                                @endforeach
+
 							</select>
 
 							<select class="selectType" name="PaperType">
 								<option selected="true" disabled="disabled">Select Paper Type</option>
-								<option>Thesis</option>
-								<option>Capstone</option>
+
+								@foreach($PT as $PaperType)
+                                	<option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
+                                @endforeach
+
 							</select>
 
 							<div class="addPDF">

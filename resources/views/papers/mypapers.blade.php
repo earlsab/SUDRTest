@@ -8,11 +8,13 @@
 			<div class="col col-3">College</div>
 			<div class="col col-4">View Link</div>
 		</li>
+		@foreach($paper as $papers)
 		<li class="tablepaperInfo">
-		    <div class="col col-1" data-label="Title:">how to steal isda from hooman</div>
-			<div class="col col-2" data-label="Paper Type:">Thesis</div>
-			<div class="col col-3" data-label="College:">CCS</div>
-			<div class="col col-4" data-label="View Link:"><button class="redBtn">View</button></div>
-		</li>							
+		    <div class="col col-1" data-label="Title:">{{$papers->PaperTitle}}</div>
+			<div class="col col-2" data-label="Paper Type:">{{$papers->PaperType}}</div>
+			<div class="col col-3" data-label="College:">{{$papers->College}}</div>
+			<div class="col col-4" data-label="View Link:"><button class="redBtn" onclick="location.href='{{route('viewPDF', $papers->PaperID)}}'">View</button></div>
+		</li>
+		@endforeach							
 	</ul>
 </div>
