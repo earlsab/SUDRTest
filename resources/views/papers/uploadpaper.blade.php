@@ -16,6 +16,12 @@
 							</div>
 
 							<select class="selectType" name="PaperType">
+								<option selected="true" disabled="disabled">Select College</option>
+								<option>asdasd</option>
+								<option>asdasdasd</option>
+							</select>
+
+							<select class="selectType" name="PaperType">
 								<option selected="true" disabled="disabled">Select Paper Type</option>
 								<option>Thesis</option>
 								<option>Capstone</option>

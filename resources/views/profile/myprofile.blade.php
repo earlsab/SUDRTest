@@ -70,7 +70,7 @@
 
 			<div class="colEmailBlock">
 				<div class="userTypeBlock">
-					<button class="adminViewBtn"><i class="fa-solid fa-star"></i></button>
+					<button class="nodesignBtn"><i class="fa-solid fa-star"></i></button>
 					<div>{{ Auth::user()->UserType }}</div>
 				</div>
 
@@ -119,13 +119,15 @@
 					<div class="mypaper text">
 						<div class="title">My Papers</div>
 
-						@yield('Papers')
+						@include('papers.mypapers')
 
 					</div>
 
 					<div class="bookmark text">
 						<div class="title">My Bookmarks</div>
-						gggggggg
+
+						@include('papers.mybookmarks')
+
 					</div>
 				</div>
 			</div>

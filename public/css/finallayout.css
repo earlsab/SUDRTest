@@ -176,6 +176,16 @@ input[type=checkbox], input[type=radio]{
   cursor: pointer;
 }
 
+.nodesignBtn {
+  background-color: transparent;
+  border: none;
+  margin-right: 5px;
+}
+
+.nodesignBtn:hover {
+  color: #c71f37;
+}
+
 .pdf {
   padding-right: 5px;
 }
@@ -220,6 +230,7 @@ input[type=checkbox], input[type=radio]{
 
 .userTypeBlock {
   display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -460,6 +471,8 @@ input[type=checkbox], input[type=radio]{
   display: none;
 }
 
+/* ADD PAPER START */
+
 .paperInput {
   width: 100%;
 }
@@ -572,6 +585,57 @@ input[type=checkbox], input[type=radio]{
 .addPDF {
   margin-top: 45px;
 }
+
+/* ADD PAPER END */
+
+/* MY PAPERS START */
+
+.paperCont, .bookmarkCont {
+  height: 70vh;
+  width: 95%;
+  overflow: auto;
+} 
+
+.displayTable {
+  overflow: auto;
+}
+
+.tableHeader, .tablepaperInfo {
+  border-radius: 5px;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.tableHeader {
+  background-color: #c71f37;
+  color: #f1f1f1;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  position: sticky;
+}
+.tablepaperInfo {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+
+.col-1 {
+  flex-basis: 50%;
+}
+.col-2 {
+  flex-basis: 20%;
+}
+.col-3 {
+  flex-basis: 20%;
+}
+.col-4 {
+  flex-basis: 10%;
+}
+
+/* MY PAPERS END */
 
 /* FUNCTIONS CARD END */
 
@@ -711,6 +775,38 @@ input[type=checkbox], input[type=radio]{
     #bookmark:checked ~ .list .slider{
       top: 0;
     }
+
+    /* MY PAPERS START */
+
+    .paperCont, .bookmarkCont {
+      height: 65vh;
+      width: 100%;
+
+      overflow: auto;
+    }
+
+    .tableHeader {
+      display: none;
+    }
+  
+    .tablepaperInfo{
+      display: block;
+    }
+  
+    .col {
+      display: flex;
+      padding: 10px 0;
+      flex-basis: 100%;
+    }
+  
+    .col::before {
+      color: #c71f37;
+      padding-right: 10px;
+      content: attr(data-label);;
+      text-align: right;
+    }
+
+    /* MY PAPERS END */
 
     /* FUNCTIONS CARD END */
 
@@ -1036,4 +1132,3 @@ footer {
 }
 
 /* FOOTER END */
-
