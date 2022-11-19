@@ -15,8 +15,8 @@
 								<label class="infoLabel">Author(s)</label>
 							</div>
 
-							<select class="selectType">
-								<option selected="true" disabled="disabled" name="PaperType">Select Paper Type</option>
+							<select class="selectType" name="PaperType">
+								<option selected="true" disabled="disabled">Select Paper Type</option>
 								<option>Thesis</option>
 								<option>Capstone</option>
 							</select>
