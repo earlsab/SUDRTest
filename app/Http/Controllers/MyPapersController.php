@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Papers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\File;
+use DB;
+use Auth;
 
 class MyPapersController extends Controller
 {
@@ -51,6 +53,10 @@ class MyPapersController extends Controller
                     ->max(12 * 1024),
             ],
         ]);
+
+        $user = DB::table('users')
+            ->where('UserID', '=', Auth::user()->UserID)
+            ->value('UserID');
         
         $paper=new Papers();
 
@@ -63,6 +69,7 @@ class MyPapersController extends Controller
             $paper->PaperTitle=$request->PaperTitle;
             $paper->PaperType=$request->PaperType;
             $paper->Authors=$request->Authors;
+            $paper->UploaderUserID = $user;
 
             $paper->save();
             return redirect()->back()->with('success','File has been uploaded.');
