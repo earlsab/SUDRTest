@@ -592,7 +592,6 @@ input[type=checkbox], input[type=radio]{
 .paperCont, .bookmarkCont {
   height: 70vh;
   width: 95%;
-  overflow: auto;
 } 
 
 .displayTable {
