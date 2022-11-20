@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Papers;
 use App\Models\Bookmarks;
 
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class BookmarkController extends Controller
     public function index()
     {
         $bm = Bookmarks::all();
-        return view('bookmarks.bookmarks', compact('bm'));
+        return view('papers.mybookmarks', compact('bm'));
     }
 
     public function store(Request $request)
@@ -27,6 +28,7 @@ class BookmarkController extends Controller
         $paper = DB::table('papers')
             ->where('PaperID', '=', $request->paper_id)
             ->value('PaperID');
+        
 
         $bm = new Bookmarks();
         $bm->BookmarkName=$request->BookmarkName;

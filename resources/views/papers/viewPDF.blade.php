@@ -14,15 +14,12 @@
             </li>
 
             <li class="pdfpaperInfo">
-                <div class="colpdf col-1" data-label="Title:">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                    molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                    numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                    optio,</div>
-                <div class="colpdf" data-label="Paper Type:">Thesis</div>
-                <div class="colpdf" data-label="College:">CCS</div>
-                <div class="colpdf" data-label="Authors:">ms. meow meow</div>
+                <div class="colpdf col-1" data-label="Title:">{{ $paper->PaperTitle }}</div>
+                <div class="colpdf" data-label="Paper Type:">{{ $paper->PaperType }}</div>
+                <div class="colpdf" data-label="College:">{{ $paper->College }}</div>
+                <div class="colpdf" data-label="Author(s):">{{ $paper->Authors }}</div>
                 <div class="pdfbtnCont">
-                    <button class="pdfBtn redBtn">Back</button>
+                    <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
                     <button class="pdfBtn redBtn" id="bookmarkBtn">Bookmark</button>
                     <button class="pdfBtn redBtn" id="citeBtn">Cite</button>
                 </div>
@@ -37,10 +34,10 @@
 
                         <h2>Add bookmark</h2>
 
-                        <form class="bookmarkInput">
-
+                        <form class="bookmarkInput" action="{{ route('Bookmarks')}} " method="POST" >
+                            @csrf
                             <div class="group">      
-                                <input class="inputInfo" type="text" required>
+                                <input class="inputInfo" type="text" name="BookmarkName" required>
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label class="infoLabel">Bookmark Name</label>
@@ -49,7 +46,7 @@
                             <br>
                             <br>
 
-                            <button class="redBtn">Add</button>
+                            <button class="redBtn" type="submit">Add</button>
                         </form>
                     </div>
                 </div>
@@ -75,7 +72,7 @@
 
         <div class="pdfdisplayCard">
 
-            <iframe  class="pdfFrame" src=""></iframe>
+            <iframe  class="pdfFrame" src="/assets/{{$paper->file}}#toolbar=0"></iframe>
 
         </div>
 

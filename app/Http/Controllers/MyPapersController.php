@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Papers;
+use App\Models\College;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
@@ -28,14 +29,15 @@ class MyPapersController extends Controller
             ->orderBy("PaperID", "desc")
             ->paginate(5);
         
-        return view('papers.mypapers', compact('paper'))
+        return view('papers.displaysearch', compact('paper'))
             ->with('i', (request()->input('page', 1) -1) *5);
 
     }
 
-    public function view()
+    public function view($PaperID)
     {
-        return view('papers.viewPDF');
+        $paper = Papers::find($PaperID);
+        return view('papers.viewPDF', compact('paper'));
     }
 
     public function create()
