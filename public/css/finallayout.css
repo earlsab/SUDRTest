@@ -592,6 +592,7 @@ input[type=checkbox], input[type=radio]{
 .paperCont, .bookmarkCont {
   height: 70vh;
   width: 95%;
+  overflow: auto;
 } 
 
 .displayTable {
@@ -636,6 +637,8 @@ input[type=checkbox], input[type=radio]{
 /* MY PAPERS END */
 
 /* FUNCTIONS CARD END */
+
+
 
   @media (max-width: 768px) {
 
@@ -1113,6 +1116,128 @@ input:checked + .uiabt, input:checked + .uicontact {
 }
 
 /* HOMEPAGE END */
+
+/* VIEW PDF START */
+
+.viewPDFCont {
+  background-image: url("../img/SUDRbg2.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pdfinfoDisplay {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.pdfinfoCard {
+  width: 30%;
+}
+
+.paperinfoHeader {
+  background-color: #c71f37;
+  color: #f1f1f1;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  position: sticky;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 25px 30px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdfpaperInfo {
+  display: block;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 25px 30px 15px;
+  margin-bottom: 25px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+
+.colpdf {
+  display: flex;
+  padding: 10px 0;
+  flex-basis: 100%;
+}
+
+.colpdf::before {
+  color: #c71f37;
+  padding-right: 10px;
+  content: attr(data-label);;
+  text-align: right;
+}
+
+.pdfbtnCont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pdfBtn {
+  margin: 10px 20px;
+  border-radius: 5px;
+}
+
+.pdfdisplayCard {
+  height: 100%;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+}
+
+.pdfFrame {
+  height: 120vh;
+  width: 95%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+}
+
+@media (max-width: 768px) {
+
+  .pdfinfoDisplay {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pdfinfoCard {
+    width: 90%;
+  }
+  
+  .pdfdisplayCard {
+    height: 100%;
+    width: 100%;
+  }
+
+  .pdfFrame {
+    height: 80vh;
+    width: 95%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid black;
+  }
+
+}
+
+
+/* VIEW PDF END */
 
 /* FOOTER START */
 
