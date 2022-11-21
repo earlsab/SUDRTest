@@ -18,6 +18,7 @@
                 <div class="colpdf" data-label="Paper Type:">{{ $paper->PaperType }}</div>
                 <div class="colpdf" data-label="College:">{{ $paper->College }}</div>
                 <div class="colpdf" data-label="Author(s):">{{ $paper->Authors }}</div>
+                <div class="colpdf" data-label="Date Published):">{{ $paper->DatePublished }}</div>
                 <div class="pdfbtnCont">
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
                     <button class="pdfBtn redBtn" id="bookmarkBtn">Bookmark</button>

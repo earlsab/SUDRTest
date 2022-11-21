@@ -22,12 +22,13 @@ class MyPapersController extends Controller
         [function($query) use ($request) {
             if (($term = $request->term)) {
                 $query->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
-                    ->orWhere('PaperType', 'LIKE','%'. $term . '%')->get();
+                    ->orWhere('PaperType', 'LIKE','%'. $term . '%')
+                    ->orWhere('College', 'LIKE','%'. $term . '%')->get();
             }
         }]
        ])
             ->orderBy("PaperID", "desc")
-            ->paginate(5);    
+            ->paginate(5);
 
         return view('papers.displaysearch', compact('paper'))
             ->with('i', (request()->input('page', 1) -1) *5);
@@ -74,6 +75,7 @@ class MyPapersController extends Controller
             $paper->PaperType=$request->PaperType;
             $paper->Authors=$request->Authors;
             $paper->College=$request->College;
+            $paper->DatePublished=$request->DatePublished;
             $paper->UploaderUserID = $user;
 
             $paper->save();
