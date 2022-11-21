@@ -1,11 +1,13 @@
 @extends('layouts.auth')
 
 @section('content')
+<div class="indexCont">
+		<div class="indexWrapper">
 
-    <!-- SMALL LOGO --> 
-		<img class="smalllogoimg" src="Img/SUDRSmallLogo.png">
+			<div class="registerCard">
+
+		        <img class="smallLogo" src="Img/SUDRSmallLogo.png">
    
-            <!-- FORM HANDLER -->
                 <form class="formcontainerreg" method="POST" action="{{ route('register') }}">
                     @csrf
 
@@ -148,62 +150,46 @@
                   
                         <!-- REGISTER -->
                         <div class="buttoncont">
-                            <button class="buttonstyle1">
+                            <button class="indexBtn">
                                 <a href = "{{ route('login') }}">Back</a>
                             </button>
 
-                            <button type="submit" class="buttonstyle1">
+                            <button type="submit" class="indexBtn">
                                 {{ __('Register') }}
                             </button>
                         </div>
 
                         <script>
+
+                            document.getElementById('student').style.display = "none";
+                            document.getElementById("collegeinput").style.display = "none";
+                            document.getElementById("organization").style.display = "none";
+
                             function text(x){
                                 if ( x == 1){
                                     document.getElementById('student').style.display = "block";
                                     document.getElementById("collegeinput").style.display = "block";
                                     document.getElementById("organization").style.display = "none";
-                                    /*
-                                    document.getElementById("typeheader").style.display = "none";
-                                    document.getElementById("facultytab").style.display = "none";
-                                    document.getElementById("orgtab").style.display = "none";
-                                    document.getElementById("studenttab").style.display = "none";
-                                    
-                                    document.getElementById("facultylabel").style.display = "none";
-                                    document.getElementById("orglabel").style.display = "none";
-                                    document.getElementById("studentlabel").style.display = "none"; */
                                 }
                                 else if ( x == 2){
                                     document.getElementById("student").style.display = "none";
                                     document.getElementById("organization").style.display = "block";
-                                    /*
-                                    document.getElementById("typeheader").style.display = "none";
-                                    document.getElementById("facultytab").style.display = "none";
-                                    document.getElementById("orgtab").style.display = "none";
-                                    document.getElementById("studenttab").style.display = "none";
-                                    
-                                    document.getElementById("facultylabel").style.display = "none";
-                                    document.getElementById("orglabel").style.display = "none";
-                                    document.getElementById("studentlabel").style.display = "none"; */
                                 }
                                 else if ( x == 3){
                                     document.getElementById("student").style.display = "block";
                                     document.getElementById("collegeinput").style.display = "none";
                                     document.getElementById("organization").style.display = "none";
-                                    /*
-                                    document.getElementById("typeheader").style.display = "none";
-                                    document.getElementById("facultytab").style.display = "none";
-                                    document.getElementById("orgtab").style.display = "none";
-                                    document.getElementById("studenttab").style.display = "none";
-                                    
-                                    document.getElementById("facultylabel").style.display = "none";
-                                    document.getElementById("orglabel").style.display = "none";
-                                    document.getElementById("studentlabel").style.display = "none";*/
                                 }
                                 return; 
                             }
                         </script>
 
                 </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+		<p>Silliman University Digital Repository</p>
+	</footer>
 
 @endsection
