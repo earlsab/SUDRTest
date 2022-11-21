@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use DB;
+use Auth;
 
 
 class BookmarkController extends Controller
@@ -25,14 +26,20 @@ class BookmarkController extends Controller
             'BookmarkName' => 'required',
         ]);
 
+        
         $paper = DB::table('papers')
             ->where('PaperID', '=', $request->paper_id)
             ->value('PaperID');
+
+        $user = DB::table('users')
+            ->where('UserID', '=', Auth::user()->UserID)
+            ->value('UserID');
         
 
         $bm = new Bookmarks();
         $bm->BookmarkName=$request->BookmarkName;
         $bm->paper_id = $paper;
+        $bm->user_id = $user;
 
         $bm->save();
         return redirect()->back()->with('success','Bookmark Added');

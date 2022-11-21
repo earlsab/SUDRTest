@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('bookmarks', function (Blueprint $table) {
             $table->bigIncrements('BookMarkID');
             $table->string('BookmarkName');
-            //$table->unsignedBigInteger('user_id');
-            //$table->foreign('user_id')->references('UserID')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('UserID')->on('users');
             $table->unsignedBigInteger('paper_id');
             $table->foreign('paper_id')->references('PaperID')->on('papers');
             $table->timestamps();

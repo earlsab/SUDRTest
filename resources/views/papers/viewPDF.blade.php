@@ -38,11 +38,12 @@
                             @csrf
                             <div class="group">      
                                 <input class="inputInfo" type="text" name="BookmarkName" required>
+                                <input class="inputInfo" type="text" name="paper_id"  value="{{$paper->PaperID}}" required>
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label class="infoLabel">Bookmark Name</label>
                             </div>
-
+                           
                             <br>
                             <br>
 
@@ -61,8 +62,12 @@
                     <div class="modalinfoCont">
 
                         <h2>Cite this paper</h2>
-                        add citation here
-                        
+                        APA Format is structure as follows [Lastname.First Letter of First name.Year Published.Paper Title]
+                        <br>
+                        Here are the following values you need:
+                        Author(s):{{$paper->Authors}}
+                        <br>
+                        Paper Title:{{$paper->PaperTitle}}
                     </div>
                 </div>
             
