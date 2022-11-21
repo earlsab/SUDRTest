@@ -23,6 +23,7 @@ class MyProfileController extends Controller
         $College = College::all();
         $PT = PaperType::all();
         $paper = Papers::all();
+
         return view('profile.myprofile', compact('College','PT','paper'));
     }
 

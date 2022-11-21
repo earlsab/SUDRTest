@@ -70,7 +70,11 @@
 
 			<div class="colEmailBlock">
 				<div class="userTypeBlock">
+					@if(Auth::user()->isAdmin == '1')
+					
 					<button class="nodesignBtn"><i class="fa-solid fa-star"></i></button>
+					
+					@endif
 					<div>{{ Auth::user()->UserType }}</div>
 				</div>
 
