@@ -1137,6 +1137,10 @@ input:checked + .uiabt, input:checked + .uicontact {
   align-items: center;
 }
 
+.idpaperauto {
+  display: none;
+}
+
 .pdfinfoDisplay {
   width: 100%;
   display: flex;

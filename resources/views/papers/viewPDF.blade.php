@@ -38,7 +38,7 @@
                             @csrf
                             <div class="group">      
                                 <input class="inputInfo" type="text" name="BookmarkName" required>
-                                <input class="inputInfo" type="text" name="paper_id"  value="{{$paper->PaperID}}" required>
+                                <input class="idpaperauto inputInfo" type="text" name="paper_id"  value="{{$paper->PaperID}}" required>
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label class="infoLabel">Bookmark Name</label>
