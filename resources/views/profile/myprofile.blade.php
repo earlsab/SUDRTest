@@ -72,7 +72,7 @@
 				<div class="userTypeBlock">
 					@if(Auth::user()->isAdmin == '1')
 					
-					<button class="nodesignBtn"><i class="fa-solid fa-star"></i></button>
+					<button class="nodesignBtn" onclick="location.href='{{route('AdminPage')}}'"><i class="fa-solid fa-star"></i></button>
 					
 					@endif
 					<div>{{ Auth::user()->UserType }}</div>
