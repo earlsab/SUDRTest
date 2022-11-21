@@ -77,8 +77,12 @@
 					@endif
 					<div>{{ Auth::user()->UserType }}</div>
 				</div>
+				
+					@if(Auth::user()->UserType == 'Student')
 
 				<div>{{ Auth::user()->college }}</div>
+
+					@endif
 				<div>{{ Auth::user()->email }}</div>
 			</div>
 

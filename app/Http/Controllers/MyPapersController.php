@@ -29,7 +29,7 @@ class MyPapersController extends Controller
             ->orderBy("PaperID", "desc")
             ->paginate(5);    
 
-        return view('papers.mypapers', compact('paper'))
+        return view('papers.displaysearch', compact('paper'))
             ->with('i', (request()->input('page', 1) -1) *5);
 
     }
