@@ -10,6 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/finallayout.css">
 	<script src="https://kit.fontawesome.com/6299020e6b.js" crossorigin="anonymous"></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>

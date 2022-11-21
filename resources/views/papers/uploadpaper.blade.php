@@ -33,6 +33,8 @@
 
 							</select>
 
+							<input class="datepicker selectType" id="inputID" type="date" placeholder="Select a date" required>
+
 							<div class="addPDF">
 								
 									<input class="redBtn" 

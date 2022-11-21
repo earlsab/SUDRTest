@@ -59,11 +59,40 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <span class="ctClose close">&times;</span>
-                    <div class="modalinfoCont">
+                    <div class="citemodalCont modalinfoCont">
 
                         <h2>Cite this paper</h2>
-                        APA Format is structure as follows [Lastname.First Letter of First name.Year Published.Paper Title]
                         <br>
+                        <li class="paperinfoHeader">
+								APA
+						</li>
+			
+						<li class="pdfpaperInfo">
+							<div class="colpdf">
+                            {{ Auth::user()->LastName }}, First Initial. (Year). &nbsp <i>{{$paper->PaperTitle}}</i>. Publisher. URL 
+                            </div>
+						</li>
+
+                        <li class="paperinfoHeader">
+								MLA
+						</li>
+			
+						<li class="pdfpaperInfo">
+							<div class="colpdf">
+
+                            </div>
+						</li>
+
+                        <li class="paperinfoHeader">
+								IEEE
+						</li>
+			
+						<li class="pdfpaperInfo">
+							<div class="colpdf">
+
+                            </div>
+						</li>
+
                         Here are the following values you need:
                         Author(s):{{$paper->Authors}}
                         <br>

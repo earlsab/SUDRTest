@@ -324,11 +324,16 @@ input[type=checkbox], input[type=radio]{
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 30%;
+  width: 50%;
 }
 
 .modalinfoCont {
   margin: 16px;
+}
+
+.citemodalCont {
+  max-height: 50vh;
+  overflow: auto;
 }
 
 .close {
@@ -560,6 +565,7 @@ input[type=checkbox], input[type=radio]{
   -moz-animation: inputHighlighter 0.3s ease;
   animation: inputHighlighter 0.3s ease;
 }
+
 
 @-webkit-keyframes inputHighlighter {
   from { background:#c71f37; }
@@ -1238,6 +1244,33 @@ input:checked + .uiabt, input:checked + .uicontact {
 
 
 /* VIEW PDF END */
+
+/* CATEGORY PAGE START*/
+.categorypageCont {
+  background: whitesmoke;
+}
+
+.catSelect {
+  margin-top: 0px;
+  height: 30px;
+}
+
+.pdfbtnCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectiondisplayCard {
+  border: none;
+  height: 85vh;
+}
+
+.resultDisplay {
+  height: 95%;
+}
+
+/* CATEGORY PAGE END*/
 
 /* FOOTER START */
 

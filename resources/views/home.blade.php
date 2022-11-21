@@ -10,7 +10,7 @@
 	<div class="searchbarCont">
 		<h2 class="searchHeading">Hi, {{ Auth::user()->FirstName }}! <br> Anything you're looking for?</h2>
 		<form class="searchForm" action="{{ route('Papers') }}" method="GET" role="search" >
-			<input type="text" placeholder="I'm the one you're looking for ;)" name="term">
+			<input type="text" placeholder="Search" name="term">
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
 	</div>
