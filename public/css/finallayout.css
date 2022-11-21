@@ -596,9 +596,8 @@ input[type=checkbox], input[type=radio]{
 /* MY PAPERS START */
 
 .paperCont, .bookmarkCont {
-  height: 70vh;
+  height: 85vh;
   width: 95%;
-  overflow: auto;
 } 
 
 .displayTable {
@@ -1137,10 +1136,6 @@ input:checked + .uiabt, input:checked + .uicontact {
   align-items: center;
 }
 
-.idpaperauto {
-  display: none;
-}
-
 .pdfinfoDisplay {
   width: 100%;
   display: flex;
@@ -1275,6 +1270,20 @@ input:checked + .uiabt, input:checked + .uicontact {
 }
 
 /* CATEGORY PAGE END*/
+
+/* SEARCH LANDING PAGE START */
+
+.searchlandCont {
+  width: 100%;
+  display: flex;
+  background: #f1f1f1;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: fit-content;
+  flex-direction: column;
+}
+
+/* SEARCH LANDING PAGE END */
 
 /* FOOTER START */
 

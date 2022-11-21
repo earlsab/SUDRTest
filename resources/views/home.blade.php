@@ -39,16 +39,6 @@
 		<div class="catBlock">
 			<article class="card-outer">
 				<a href="#" class="card-inner">
-					<i class="fa-solid fa-pen-nib"></i>
-					<br>
-					Authors
-				</a>
-			</article>
-		</div>
-
-		<div class="catBlock">
-			<article class="card-outer">
-				<a href="#" class="card-inner">
 					<i class="fa-solid fa-building"></i>
 					<br>
 					SUSG
