@@ -51,7 +51,7 @@
 						</li>						
 						@endforeach
 					</ul>
-					{{ $paper->links() }}
+					{{ $paper->links() }} 
 				</div>
 				
             </div>
