@@ -64,13 +64,22 @@
 
                         <h2>Cite this paper</h2>
                         <br>
+                        Important values you need:
+                        <br>
+                        Paper Title:{{$paper->PaperTitle}}
+                        <br>
+                        Author(s):{{$paper->Authors}}
+                        <br>
+                        Date Published:{{$paper->DatePublished}} 
+                        <br>
+                        Here are the most common formats
                         <li class="paperinfoHeader">
 								APA
 						</li>
 			
 						<li class="pdfpaperInfo">
 							<div class="colpdf">
-                            {{ Auth::user()->LastName }}, First Initial. (Year). &nbsp <i>{{$paper->PaperTitle}}</i>. Publisher. URL 
+                            Johnson, S. (Publication Date).<i>Sample Title</i>.Publisher.Inc.Sample URL
                             </div>
 						</li>
 
@@ -80,7 +89,7 @@
 			
 						<li class="pdfpaperInfo">
 							<div class="colpdf">
-
+                            Johnson, S.<i>Paper Title</i>, Publisher, Publication Date, URL 
                             </div>
 						</li>
 
@@ -90,14 +99,9 @@
 			
 						<li class="pdfpaperInfo">
 							<div class="colpdf">
-
+                            S, Johnson."Paper Title". Website Name. URL (accessed Nov. 22, 2022) 
                             </div>
 						</li>
-
-                        Here are the following values you need:
-                        Author(s):{{$paper->Authors}}
-                        <br>
-                        Paper Title:{{$paper->PaperTitle}}
                     </div>
                 </div>
             

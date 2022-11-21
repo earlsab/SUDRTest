@@ -31,14 +31,14 @@
                                     <!-- USER NAME -->
                                     <div class="reginput" >
                                         <i class="fa-solid fa-at"></i>
-                                        <input id="name" type="text" class="input" name="UserName" value="{{ old('UserName') }}" required autocomplete="name" 
+                                        <input id="name" type="text" class="input" name="UserName" value="{{ old('UserName') }}"  
                                         placeholder = "User Name" autofocus>   
                                     </div>
 
                                     <!-- FIRST NAME -->
                                     <div class="reginput" >
                                         <i class="fa-solid fa-1"></i>
-                                        <input id="Fname" type="text" class="input" name="FirstName" value="{{ old('FirstName') }}" required autocomplete="Fname" 
+                                        <input id="Fname" type="text" class="input" name="FirstName" value="{{ old('FirstName') }}"  
                                         placeholder = "First Name" autofocus>   
                                     </div>
                                         @error('Fname')
@@ -62,15 +62,9 @@
                                     <!-- LAST NAME -->
                                     <div class="reginput" >
                                             <i class="fa-solid fa-3"></i>
-                                            <input id="Lname" type="text" class="input" name="LastName" value="{{ old('LastName') }}" required autocomplete="Lname" 
+                                            <input id="Lname" type="text" class="input" name="LastName" value="{{ old('LastName') }}"  
                                             placeholder = "Last Name" autofocus>
                                     </div>
-                                    <!--
-                                        @error('studid')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror-->
 
                                     <!-- COLLEGE -->
                                     <div class="reginput" id="collegeinput">
@@ -93,16 +87,15 @@
                                 </section>    
                             
                                 
-
+                                <!-- Organization Name -->
                                 <div class="regrequired">
-
                                     <section class="org" id="organization">
                                         <div class="reginput" >
                                             <i class="fa-solid fa-school"></i>
-                                            <input id="Orgname" type="text" class="input" name="OrganizationName" value="{{ old('OrganizationName') }}"  
-                                            placeholder = "Organization Name">   
+                                            <input id="Orgname" type="text" class="input" name="OrganizationName" required   
+                                            placeholder = "Organization Name" required>   
                                         </div>
-                                            @error('name')
+                                            @error('OrganizationName')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -158,7 +151,7 @@
                                 {{ __('Register') }}
                             </button>
                         </div>
-
+                    </form>
                         <script>
 
                             document.getElementById('student').style.display = "none";
@@ -173,6 +166,7 @@
                                 }
                                 else if ( x == 2){
                                     document.getElementById("student").style.display = "none";
+                                    document.getElementById("collegeinput").style.display = "none";
                                     document.getElementById("organization").style.display = "block";
                                 }
                                 else if ( x == 3){
@@ -184,7 +178,7 @@
                             }
                         </script>
 
-                </form>
+                
             </div>
         </div>
     </div>
