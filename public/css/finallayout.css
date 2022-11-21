@@ -14,6 +14,27 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: grey transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 20px;
+  border: transparent;
+}
+
 body {
   font-family: Montserrat;
   height: 100%;
@@ -1177,6 +1198,7 @@ input:checked + .uiabt, input:checked + .uicontact {
   display: flex;
   padding: 10px 0;
   flex-basis: 100%;
+  align-items: center;
 }
 
 .colpdf::before {

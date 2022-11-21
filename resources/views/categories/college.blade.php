@@ -15,8 +15,8 @@
 				<li class="pdfpaperInfo">
 					<div class="colpdf col-1" data-label="Searched:">
 
-					<div class="subcatPicker pdfbtnCont" >
-					<form action="{{ route('Colleges') }}" method="GET" role="search" >
+					<div>
+					<form class="subcatPicker pdfbtnCont" action="{{ route('Colleges') }}" method="GET" role="search" >
 						<select class="catSelect selectType" name="term" type="text">
 						 	
 							<option selected="true" disabled="disabled">Choose A Paper Type</option>
