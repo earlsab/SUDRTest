@@ -28,7 +28,7 @@
 
 		<div class="catBlock">
 			<article class="card-outer">
-				<a href="#" class="card-inner">
+				<a href="{{ route('Colleges') }}" class="card-inner">
 					<i class="fa-solid fa-school"></i>
 					<br>
 					Colleges

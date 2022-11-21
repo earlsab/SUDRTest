@@ -39,7 +39,8 @@ Route::prefix('Admin')->middleware(['auth','isAdmin'])->group(function() {
 Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/MyProfile', [App\Http\Controllers\MyProfileController::class, 'index'])->name('MyProfile');
     Route::get('/Papers', [App\Http\Controllers\MyPapersController::class, 'index'])->name('Papers');
-    Route::get('/Category/PaperType', [App\Http\Controllers\CategoriesController::class, 'index'])->name('PaperType');
+    Route::get('/Category/PaperType', [App\Http\Controllers\CategoriesController::class, 'papertype'])->name('PaperType');
+    Route::get('/Category/Colleges', [App\Http\Controllers\CategoriesController::class, 'college'])->name('Colleges');
     Route::get('/MyBookmarks', [App\Http\Controllers\BookmarkController::class, 'index'])->name('MyBookmarks');
     Route::get('/viewPDF/{id}', [App\Http\Controllers\MyPapersController::class, 'view'])->name('viewPDF');
     Route::resource('papers', MyPapersController::class)->only(['create','store']);

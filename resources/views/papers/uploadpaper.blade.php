@@ -33,7 +33,7 @@
 
 							</select>
 
-							<input class="datepicker selectType" id="inputID" type="date" placeholder="Select a date" required>
+							<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Published" name="DatePublished" required>
 
 							<div class="addPDF">
 								

@@ -9,20 +9,20 @@
             <div class="pdfinfoCard">
 
 				<li class="paperinfoHeader">
-					Paper Type
+					Colleges
 				</li>
 
 				<li class="pdfpaperInfo">
 					<div class="colpdf col-1" data-label="Searched:">
 
 					<div class="subcatPicker pdfbtnCont" >
-					<form action="{{ route('PaperType') }}" method="GET" role="search" >
+					<form action="{{ route('Colleges') }}" method="GET" role="search" >
 						<select class="catSelect selectType" name="term" type="text">
 						 	
 							<option selected="true" disabled="disabled">Choose A Paper Type</option>
-                                	<option  value="CAPSTONE" >CAPSTONE</option>
-									<option  value="Dissertations" >Dissertations</option>
-									<option  value="Thesis" >Thesis</option>
+                            @foreach($College as $Colleges)
+                                	<option  value="{{$Colleges->CollegeAbbr}}" >{{$Colleges->CollegeName}}</option>
+                            @endforeach
 						</select>
 						<button class="pdfBtn redBtn" type="submit">Select</button>
 						</form>
