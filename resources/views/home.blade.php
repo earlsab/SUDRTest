@@ -18,7 +18,7 @@
 	<div class="catWrapper">
 		<div class="catBlock">
 			<article class="card-outer">
-				<a href="#" class="card-inner">
+				<a href="{{ route('PaperType') }}" class="card-inner">
 					<i class="fa-solid fa-scroll"></i>
 					<br>
 					Paper Type
