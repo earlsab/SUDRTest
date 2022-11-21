@@ -119,6 +119,8 @@
         citeModal.style.display = "none";
     }
 
+    
+
 </script>
 
 @endsection
