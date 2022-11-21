@@ -1,4 +1,8 @@
-	<div class="homeCont">
+@extends('layouts.main')
+
+@section('content')
+    
+    <div class="homeCont">
 
         <div class="categoryCont">
 
@@ -157,3 +161,5 @@
 	<footer>
 		<p>Silliman University Digital Repository</p>
 	</footer>
+
+    @endsection
