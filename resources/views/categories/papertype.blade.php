@@ -21,7 +21,7 @@
 						 	
 							<option selected="true" disabled="disabled">Choose A Paper Type</option>
                                 	<option  value="CAPSTONE" >CAPSTONE</option>
-									<option  value="Dissertations" >Dissertations</option>
+									<option  value="Dissertation" >Dissertation</option>
 									<option  value="Thesis" >Thesis</option>
 						</select>
 						<button class="pdfBtn redBtn" type="submit">Select</button>
@@ -51,8 +51,9 @@
 						</li>						
 						@endforeach
 					</ul>
+					{{ $paper->links() }}
 				</div>
-
+				
             </div>
         
         </div>
