@@ -101,12 +101,12 @@
 
 					<label for="add" class="add">
 					<i class="fas fa-solid fa-plus"></i>
-					<span class="title">Add Paper</span>
+					<span class="title">Maintain Paper</span>
 					</label>
 
 					<label for="mypaper" class="mypaper">
 						<span class="icon"><i class="fas fa-solid fa-scroll"></i></span>
-						<span class="title">My Papers</span>
+						<span class="title">Statistics and Analytics</span>
 					</label>
 					<div class="slider"></div>
 				</div>
@@ -122,7 +122,7 @@
 					<div class="mypaper text">
 						<div class="title">Analytics</div>
 
-						@include('papers.mypapers')
+						@include('statistics.stats')
 
 					</div>
 				</div>
