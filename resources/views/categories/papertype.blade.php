@@ -25,10 +25,11 @@
 										<option  value="Thesis" >Thesis</option>
 							</select>
 							<button class="pdfBtn redBtn" type="submit">Select</button>
+							
 							</form>
 						</div>
 					</div>
-					{{ $paper->links() }} 
+					{{ $paper->links() }}
 				</li>
 
 
@@ -56,6 +57,7 @@
 						</li>						
 						@endforeach
 					</ul>
+
 				</div>
 				
             </div>

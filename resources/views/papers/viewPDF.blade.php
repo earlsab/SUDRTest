@@ -64,8 +64,6 @@
 
                         <h2>Cite this paper</h2>
                         <br>
-                        Important values you need:
-                        <br>
                         Paper Title:{{$paper->PaperTitle}}
                         <br>
                         Author(s):{{$paper->Authors}}

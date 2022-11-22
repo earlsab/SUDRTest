@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Papers;
+use App\Models\College;
+use App\Models\PaperType;
+use App\Models\Bookmarks;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +17,12 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.adminpage');
+        $College = College::all();
+        $PT = PaperType::all();
+        $paper = Papers::all();
+        $bm = Bookmarks::all();
+
+        return view('admin.adminpage',compact('College','PT','paper','bm'));
     }
     
 

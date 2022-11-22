@@ -28,8 +28,9 @@
 						</form>
 					</div>
 					</div>
+					{{ $paper->links() }}
 				</li>
-
+				
             </div>
 
             <div class="pdfdisplayCard">

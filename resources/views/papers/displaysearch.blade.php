@@ -18,6 +18,7 @@
 		<div class="searchlandCont">
             <div class="selectiondisplayCard pdfFrame">
                 <ul class="resultDisplay displayTable">
+                {{ $paper->links() }}
                     <li class="tableHeader">
                         <div class="col col-1">Title</div>
                         <div class="col col-2">Paper Type</div>
