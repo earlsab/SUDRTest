@@ -10,9 +10,9 @@
 			<div class="placeholderPic">
 				<img src="/img/cat.jpg" alt="">
 			</div>
-				@if(Auth::user()->UserType == 'Student' || Auth::user()->UserType == 'Faculty' )
+				
 			<div class="userName">@ {{ Auth::user()->UserName }}</div>
-				@endif
+
 			<div class="fullNameBlock">
 				<div class="firstName">
 					<h2>{{ Auth::user()->FirstName }}</h2>
@@ -82,9 +82,6 @@
 
 				<div>{{ Auth::user()->college }}</div>
 
-					@endif
-					@if(Auth::user()->UserType == 'Organization')
-				<div>{{ Auth::user()->OrganizationName }}</div>
 					@endif
 				<div>{{ Auth::user()->email }}</div>
 			</div>

@@ -61,11 +61,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'UserName' => ['required', 'string'],
+            'FirstName' => ['required', 'string'],
+            'LastName' => ['required', 'string'],
+            'college' => ['required', 'string'],
             'email' => ['required', 'string', 'email', 'unique:users', 'regex:/(.*)@su.edu.ph/i'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ],['email.regex' => 'Email must be a silliman email']);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *

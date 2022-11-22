@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('UserName')->nullable();
-            $table->string('FirstName')->nullable();
+            $table->string('UserName');
+            $table->string('FirstName');
             $table->string('MiddleName')->nullable();
-            $table->string('LastName')->nullable();
-            $table->string('college')->nullable();
+            $table->string('LastName');
+            $table->string('college');
             $table->integer('isAdmin')->default('0');
             $table->string('UserType');
             $table->string('OrganizationName')->nullable();

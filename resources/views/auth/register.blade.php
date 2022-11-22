@@ -31,14 +31,14 @@
                                     <!-- USER NAME -->
                                     <div class="reginput" >
                                         <i class="fa-solid fa-at"></i>
-                                        <input id="name" type="text" class="input" name="UserName" value="{{ old('UserName') }}"  
+                                        <input id="name" type="text" class="input" name="UserName" value="{{ old('UserName') }}" required autocomplete="name" 
                                         placeholder = "User Name" autofocus>   
                                     </div>
 
                                     <!-- FIRST NAME -->
                                     <div class="reginput" >
                                         <i class="fa-solid fa-1"></i>
-                                        <input id="Fname" type="text" class="input" name="FirstName" value="{{ old('FirstName') }}"  
+                                        <input id="Fname" type="text" class="input" name="FirstName" value="{{ old('FirstName') }}" required autocomplete="Fname"
                                         placeholder = "First Name" autofocus>   
                                     </div>
                                         @error('Fname')
@@ -62,7 +62,7 @@
                                     <!-- LAST NAME -->
                                     <div class="reginput" >
                                             <i class="fa-solid fa-3"></i>
-                                            <input id="Lname" type="text" class="input" name="LastName" value="{{ old('LastName') }}"  
+                                            <input id="Lname" type="text" class="input" name="LastName" value="{{ old('LastName') }}" required autocomplete="Lname"
                                             placeholder = "Last Name" autofocus>
                                     </div>
 
@@ -92,7 +92,7 @@
                                     <section class="org" id="organization">
                                         <div class="reginput" >
                                             <i class="fa-solid fa-school"></i>
-                                            <input id="Orgname" type="text" class="input" name="OrganizationName" required   
+                                            <input id="Orgname" type="text" class="input" name="OrganizationName" value="{{ old('OrganizationName') }}"   
                                             placeholder = "Organization Name" required>   
                                         </div>
                                             @error('OrganizationName')
@@ -151,7 +151,7 @@
                                 {{ __('Register') }}
                             </button>
                         </div>
-                    </form>
+                       
                         <script>
 
                             document.getElementById('student').style.display = "none";
@@ -177,7 +177,7 @@
                                 return; 
                             }
                         </script>
-
+                     </form>
                 
             </div>
         </div>
