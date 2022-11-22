@@ -24,11 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->isAdmin == '1'){
-            return view('admin.adminpage');
-        } else {
             return view('home');
-        }
+        
     }
     
 }
