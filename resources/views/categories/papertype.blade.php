@@ -15,26 +15,31 @@
 				<li class="pdfpaperInfo">
 					<div class="colpdf col-1" data-label="Searched:">
 
-					<div>
-						<form class="subcatPicker pdfbtnCont" action="{{ route('PaperType') }}" method="GET" role="search" >
-						<select class="catSelect selectType" name="term" type="text">
-						 	
-							<option selected="true" disabled="disabled">Choose A Paper Type</option>
-                                	<option  value="CAPSTONE" >CAPSTONE</option>
-									<option  value="Dissertation" >Dissertation</option>
-									<option  value="Thesis" >Thesis</option>
-						</select>
-						<button class="pdfBtn redBtn" type="submit">Select</button>
-						</form>
+						<div>
+							<form class="subcatPicker pdfbtnCont" action="{{ route('PaperType') }}" method="GET" role="search" >
+							<select class="catSelect selectType" name="term" type="text">
+								
+								<option selected="true" disabled="disabled">Choose A Paper Type</option>
+										<option  value="CAPSTONE" >CAPSTONE</option>
+										<option  value="Dissertation" >Dissertation</option>
+										<option  value="Thesis" >Thesis</option>
+							</select>
+							<button class="pdfBtn redBtn" type="submit">Select</button>
+							</form>
+						</div>
 					</div>
-					</div>
+					{{ $paper->links() }} 
 				</li>
+
 
             </div>
 
             <div class="pdfdisplayCard">
 
 				<div class="selectiondisplayCard pdfFrame">
+					
+					
+
 					<ul class="resultDisplay displayTable">
 						<li class="tableHeader">
 							<div class="col col-1">Title</div>
@@ -51,7 +56,6 @@
 						</li>						
 						@endforeach
 					</ul>
-					{{ $paper->links() }} 
 				</div>
 				
             </div>

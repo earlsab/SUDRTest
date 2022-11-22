@@ -620,11 +620,6 @@ input[type=checkbox], input[type=radio]{
   height: 85vh;
   width: 95%;
 } 
-
-.displayTable {
-  overflow: auto;
-}
-
 .tableHeader, .tablepaperInfo {
   border-radius: 5px;
   padding: 25px 30px;
@@ -1322,3 +1317,15 @@ footer {
 }
 
 /* FOOTER END */
+
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 20px;
+}
+
+.page-item {
+  width: 30px;
+  font-size: 20px;
+}
