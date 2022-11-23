@@ -122,7 +122,7 @@
 					<div class="mypaper text">
 						<div class="title">Analytics</div>
 
-						
+						@include('statistics.stats')
 
 					</div>
 				</div>
