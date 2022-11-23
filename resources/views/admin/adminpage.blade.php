@@ -101,12 +101,12 @@
 
 					<label for="add" class="add">
 					<i class="fas fa-solid fa-plus"></i>
-					<span class="title">Add Paper</span>
+					<span class="title">Maintain Papers</span>
 					</label>
 
 					<label for="mypaper" class="mypaper">
 						<span class="icon"><i class="fas fa-solid fa-scroll"></i></span>
-						<span class="title">My Papers</span>
+						<span class="title">Analytics</span>
 					</label>
 					<div class="slider"></div>
 				</div>
@@ -115,14 +115,14 @@
 					<div class="add text">
 						<div class="title">Maintain Papers</div>
 						
-						@include('papers.uploadpaper')
+						@include('admin.updatepaper')
 
 					</div>
 
 					<div class="mypaper text">
 						<div class="title">Analytics</div>
 
-						@include('papers.mypapers')
+						
 
 					</div>
 				</div>
