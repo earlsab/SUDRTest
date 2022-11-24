@@ -210,6 +210,13 @@ input[type=checkbox], input[type=radio]{
 .pdf {
   padding-right: 5px;
 }
+
+.modalbtnCont {
+  display: flex;
+  width: 20%;
+  justify-content: space-around;
+}
+
 /* MAIN CONTENT CONTAINER END */
 
 /* USER DASHBOARD START */
@@ -1281,6 +1288,12 @@ input:checked + .uiabt, input:checked + .uicontact {
     margin-bottom: 30px;
     border: 1px solid black;
   }
+
+  .modalbtnCont {
+    display: flex;
+    width: 35%;
+    justify-content: space-around;
+}
 
 }
 

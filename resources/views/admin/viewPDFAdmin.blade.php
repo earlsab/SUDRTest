@@ -80,7 +80,16 @@
                     <div class="modalTwoCont modalinfoCont">
 
                         <h2>Delete Paper</h2>
-
+                        <br>
+                        Are you sure you want to delete this paper?
+                        <br>
+                        <br>
+                        <div class="modalbtnCont">
+                            <form>
+                                <button class="redBtn" type="submit">Yes</button>
+                            </form>
+                            <button class="redBtn" type="submit">No</button>
+                        </div>
                     </div>
                 </div>
             
