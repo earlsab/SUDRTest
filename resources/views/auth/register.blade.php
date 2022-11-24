@@ -3,7 +3,7 @@
 <div class="indexCont">
 		<div class="indexWrapper">
 			<div class="registerCard">
-		        <img class="smallLogo" src="Img/SUDRSmallLogo.png">
+		        <img class="smallLogo" src="img/SUDRSmallLogo.png">
    
                 <form class="formcontainerreg" method="POST" action="{{ route('register') }}">
                     @csrf
@@ -22,14 +22,14 @@
                                     <!-- USER NAME -->
                                     <div class="reginput" >
                                         <i class="fa-solid fa-at"></i>
-                                        <input id="name" type="text" class="input" name="UserName" value="{{ old('UserName') }}" required autocomplete="name" 
+                                        <input id="name" type="text" class="input" name="UserName" value="{{ old('UserName') }}"  
                                         placeholder = "User Name" autofocus>   
                                     </div>
 
                                     <!-- FIRST NAME -->
                                     <div class="reginput" >
                                         <i class="fa-solid fa-1"></i>
-                                        <input id="Fname" type="text" class="input" name="FirstName" value="{{ old('FirstName') }}" required autocomplete="Fname" 
+                                        <input id="Fname" type="text" class="input" name="FirstName" value="{{ old('FirstName') }}"  
                                         placeholder = "First Name" autofocus>   
                                     </div>
                                         @error('Fname')
@@ -52,7 +52,7 @@
                                     <!-- LAST NAME -->
                                     <div class="reginput" >
                                             <i class="fa-solid fa-3"></i>
-                                            <input id="Lname" type="text" class="input" name="LastName" value="{{ old('LastName') }}" required autocomplete="Lname" 
+                                            <input id="Lname" type="text" class="input" name="LastName" value="{{ old('LastName') }}"  
                                             placeholder = "Last Name" autofocus>
                                     </div>
                                     <!--

@@ -10,7 +10,8 @@
 			<div class="placeholderPic">
 				<img src="/img/cat.jpg" alt="">
 			</div>
-				
+			<!--If User is Student or Faculty Display This -->
+			@if(Auth::user()->UserType == 'Student' || Auth::user()->UserType == 'Faculty')
 			<div class="userName">@ {{ Auth::user()->UserName }}</div>
 
 			<div class="fullNameBlock">
@@ -23,7 +24,9 @@
 					<h2>{{ Auth::user()->LastName }}</h2>
 				</div>
 			</div>
+			@endif
 
+			<!--Change Password Display and Modal -->
 			<div class="changePwBlock">
 					<button class="redBtn" id="modalBtn">Change Password</button>
 			</div>
@@ -68,21 +71,26 @@
 					</div>
 			</div>
 
+			<!--Admin and User Views -->
 			<div class="colEmailBlock">
 				<div class="userTypeBlock">
 					@if(Auth::user()->isAdmin == '1')
-					
-					<button class="nodesignBtn" onclick="location.href='{{route('AdminPage')}}'"><i class="fa-solid fa-star"></i></button>
-					
+						<button class="nodesignBtn" onclick="location.href='{{route('AdminPage')}}'"><i class="fa-solid fa-star"></i></button>
 					@endif
 					<div>{{ Auth::user()->UserType }}</div>
 				</div>
-				
+
+				<!--Displaying College -->
 					@if(Auth::user()->UserType == 'Student')
-
-				<div>{{ Auth::user()->college }}</div>
-
+						<div>{{ Auth::user()->college }}</div>
 					@endif
+
+				<!--Displaying if User Type is Organization -->
+					@if(Auth::user()->UserType == 'Organization')
+						<div>{{ Auth::user()->OrganizationName }}</div>
+					@endif
+					
+				<!--Displays Email-->
 				<div>{{ Auth::user()->email }}</div>
 			</div>
 

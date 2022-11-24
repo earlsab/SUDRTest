@@ -8,7 +8,11 @@
 <div class="categoryCont">
 
 	<div class="searchbarCont">
+		@if(Auth::user()->UserType == 'Student' || Auth::user()->UserType == 'Faculty')
 		<h2 class="searchHeading">Hi, {{ Auth::user()->UserName }}! <br> Anything you're looking for?</h2>
+		@else
+		<h2 class="searchHeading">Welcome, {{ Auth::user()->OrganizationName }}! <br> Anything you're looking for?</h2>
+		@endif
 		<form class="searchForm" action="{{ route('Papers') }}" method="GET" role="search" >
 			<input type="text" placeholder="Search" name="term">
 			<button type="submit"><i class="fa fa-search"></i></button>
