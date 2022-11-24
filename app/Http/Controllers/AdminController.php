@@ -40,8 +40,9 @@ class AdminController extends Controller
 
    public function view($PaperID)
    {
+        $PT = PaperType::all();
         $paper=Papers::find($PaperID);
-        return view('admin.viewPDFAdmin',compact('paper'));
+        return view('admin.viewPDFAdmin',compact('paper', 'PT'));
    }
 
    public function destroy(Papers $paper, $PaperID)
