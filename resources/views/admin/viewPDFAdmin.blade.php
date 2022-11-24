@@ -18,7 +18,7 @@
                 <div class="colpdf" data-label="Paper Type:">{{ $paper->PaperType }}</div>
                 <div class="colpdf" data-label="College:">{{ $paper->College }}</div>
                 <div class="colpdf" data-label="Author(s):">{{ $paper->Authors }}</div>
-                <div class="colpdf" data-label="Date Published):">{{ $paper->DatePublished }}</div>
+                <div class="colpdf" data-label="Date Published:">{{ $paper->DatePublished }}</div>
                 <div class="pdfbtnCont">
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
                     <button class="pdfBtn redBtn" id="modalOneBtn">Update</button>
@@ -37,6 +37,35 @@
 
                         <form class="updatePaperForm">
 
+                            <div class="group">      
+								<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label class="infoLabel">Paper Title</label>
+							</div>
+
+							<div class="group">      
+								<input class="inputchecker2 inputInfo" id="inputID" type="text" name="Authors" required>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label class="infoLabel">Author(s)</label>
+							</div>
+
+							<select class="selectType" name="PaperType">
+								<option selected="true" disabled="disabled">Select Paper Type</option>
+
+								@foreach($PT as $PaperType)
+                                	<option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
+                                @endforeach
+
+							</select>
+
+							<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Published" name="DatePublished" required>
+
+							<br>
+							<br>
+
+							<button class="redBtn" type="submit">Submit Paper</button>
                         </form>
                     </div>
                 </div>

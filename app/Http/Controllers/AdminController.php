@@ -28,36 +28,36 @@ class AdminController extends Controller
 
    public function showAll()
    {
-        $papers=Papers::all();
-        return view('admin.mypapersadmin',compact('papers'));
+        $paper=Papers::all();
+        return view('admin.mypapersadmin',compact('paper'));
    }
 
    public function maintenance()
    {
-        $papers=Papers::all();
-        return view('admin.mpm',compact('papers'));
+        $paper=Papers::all();
+        return view('admin.mpm',compact('paper'));
    }
 
    public function view($PaperID)
    {
-        $papers=Papers::find($PaperID);
-        return view('admin.viewPDFAdmin',compact('papers'));
+        $paper=Papers::find($PaperID);
+        return view('admin.viewPDFAdmin',compact('paper'));
    }
 
-   public function destroy(Papers $papers, $PaperID)
+   public function destroy(Papers $paper, $PaperID)
    {
-       $papers=Papers::find($PaperID);
-       $papers->delete();
+       $paper=Papers::find($PaperID);
+       $paper->delete();
        return redirect()->back();
    }
 
-   public function edit(Papers $papers, $PaperID)
+   public function edit(Papers $paper, $PaperID)
    {
-       $papers=Papers::find($PaperID);
-       return view('admin.updatepaper',compact('papers'));
+       $paper=Papers::find($PaperID);
+       return view('admin.updatepaper',compact('paper'));
    }
 
-   public function update(Request $request,Papers $papers, $PaperID )
+   public function update(Request $request,Papers $paper, $PaperID )
    {
         $request->validate([
             'PaperTitle' => 'required',
@@ -69,19 +69,19 @@ class AdminController extends Controller
         ],
     ]);
     
-        $papers=new Papers();
+        $paper=new Papers();
 
         $file=$request->file;
 
         $filename=time().'.'.$file->getClientOriginalExtension();
                 $request->file->move('assets', $filename);
-                $papers->file=$filename;
+                $paper->file=$filename;
 
-            $papers->PaperTitle=$request->PaperTitle;
-            $papers->PaperType=$request->PaperType;
+            $paper->PaperTitle=$request->PaperTitle;
+            $paper->PaperType=$request->PaperType;
 
 
-            $papers->update();
+            $paper->update();
             return redirect()->back();
    }
     
