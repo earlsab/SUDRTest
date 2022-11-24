@@ -115,7 +115,7 @@
 					<div class="blockSection1 text">
 						<div class="title">Maintain Papers</div>
 						
-						@include('admin.updatepaper')
+						@include('admin.mpm')
 
 					</div>
 

@@ -21,7 +21,7 @@
                 <div class="colpdf" data-label="Date Published:">{{ $paper->DatePublished }}</div>
                 <div class="pdfbtnCont">
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
-                    <button class="pdfBtn redBtn" id="modalOneBtn">Update</button>
+                    <button class="pdfBtn redBtn" id="modalOneBtn" onclick="location.href='{{route('papers.edit', $paper->PaperID)}}'">Update</button>
                     <button class="pdfBtn redBtn" id="modalTwoBtn">Delete</button>
                 </div>
             </li>
@@ -35,38 +35,7 @@
 
                         <h2>Update Paper</h2>
 
-                        <form class="updatePaperForm">
-
-                            <div class="group">      
-								<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
-								<span class="highlight"></span>
-								<span class="bar"></span>
-								<label class="infoLabel">Paper Title</label>
-							</div>
-
-							<div class="group">      
-								<input class="inputchecker2 inputInfo" id="inputID" type="text" name="Authors" required>
-								<span class="highlight"></span>
-								<span class="bar"></span>
-								<label class="infoLabel">Author(s)</label>
-							</div>
-
-							<select class="selectType" name="PaperType">
-								<option selected="true" disabled="disabled">Select Paper Type</option>
-
-								@foreach($PT as $PaperType)
-                                	<option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
-                                @endforeach
-
-							</select>
-
-							<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Published" name="DatePublished" required>
-
-							<br>
-							<br>
-
-							<button class="redBtn" type="submit">Submit Paper</button>
-                        </form>
+                            @include('admin.updatepaper')
                     </div>
                 </div>
             
@@ -85,7 +54,9 @@
                         <br>
                         <br>
                         <div class="modalbtnCont">
-                            <form>
+                            <form method="POST" action="{{route('papers.destroy', $paper->PaperID) }}">
+                            @csrf
+							@method('DELETE')
                                 <button class="redBtn" type="submit">Yes</button>
                             </form>
                             <button class="redBtn" type="submit">No</button>

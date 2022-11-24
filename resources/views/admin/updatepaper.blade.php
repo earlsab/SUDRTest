@@ -1,22 +1,41 @@
-<div class="paperCont">
 
-	<ul class="displayTable">
-		<li class="tableHeader">
-			<div class="col col-1">Title</div>
-			<div class="col col-2">Paper Type</div>
-			<div class="col col-3">College</div>
-			<div class="col col-4">View Link</div>
-		</li>
-		@foreach($paper as $papers)
-			@if($papers->UploaderUserID == ($user = \Auth::guard('web')->user()->UserID))
-		<li class="tablepaperInfo">
-		    <div class="col col-1" data-label="Title:">{{$papers->PaperTitle}}</div>
-			<div class="col col-2" data-label="Paper Type:">{{$papers->PaperType}}</div>
-			<div class="col col-3" data-label="College:">{{$papers->College}}</div>
-			<div class="col col-4" data-label="View Link:"><button class="redBtn" onclick="location.href='{{route('AdminView', $papers->PaperID)}}'">View</button></div>
-		</li>
-			@endif		
-		@endforeach		
-	</ul>
-	
-</div>
+<form class="updatePaperForm" action="{{ route('papers.update', $paper->PaperID) }} " method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="group">      
+								<input class="inputchecker1 inputInfo" type="text" name="PaperTitle"  required>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label class="infoLabel">Paper Title</label>
+							</div>
+
+							<div class="group">      
+								<input class="inputchecker2 inputInfo" id="inputID" type="text" name="Authors" required>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label class="infoLabel">Author(s)</label>
+							</div>
+
+							<select class="selectType" name="PaperType">
+                                
+								<option selected="true" disabled="disabled">Select Paper Type</option>
+
+								@foreach($PT as $PaperType)
+                                	<option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
+                                @endforeach
+                                
+							</select>
+
+							<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Published" name="DatePublished" required>
+
+                            <div class="addPDF">
+							@csrf
+									<input class="redBtn" 
+									name='file' type="file" accept="application/pdf" >
+							</div>
+
+							<br>
+							<br>
+
+							<button class="redBtn" type="submit">Update Paper</button>
+                        </form>

@@ -69,7 +69,7 @@ class AdminController extends Controller
                     ->max(12 * 1024),
         ],
     ]);
-    
+
         $paper=new Papers();
 
         $file=$request->file;
@@ -78,8 +78,10 @@ class AdminController extends Controller
                 $request->file->move('assets', $filename);
                 $paper->file=$filename;
 
+            $paper->DatePublished=$request->DatePublished;
             $paper->PaperTitle=$request->PaperTitle;
             $paper->PaperType=$request->PaperType;
+            $paper->Authors=$request->Authors;
 
 
             $paper->update();
