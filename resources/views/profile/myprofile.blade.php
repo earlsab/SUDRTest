@@ -93,23 +93,23 @@
 
 		<div class="container">
 			<div class="content">
-				<input type="radio" name="slider" checked id="add">
-				<input type="radio" name="slider" id="mypaper">
-				<input type="radio" name="slider" id="bookmark">
+				<input type="radio" name="slider" checked id="blockSection1">
+				<input type="radio" name="slider" id="blockSection2">
+				<input type="radio" name="slider" id="blockSection3">
 
 				<div class="list">
 
-					<label for="add" class="add">
+					<label for="blockSection1" class="blockSection1">
 					<i class="fas fa-solid fa-plus"></i>
 					<span class="title">Add Paper</span>
 					</label>
 
-					<label for="mypaper" class="mypaper">
+					<label for="blockSection2" class="blockSection2">
 						<span class="icon"><i class="fas fa-solid fa-scroll"></i></span>
 						<span class="title">My Papers</span>
 					</label>
 
-					<label for="bookmark" class="bookmark">
+					<label for="blockSection3" class="blockSection3">
 						<span class="icon"><i class="far fa-solid fa-bookmark"></i></span>
 						<span class="title">Bookmarks</span>
 					</label>
@@ -117,21 +117,21 @@
 				</div>
 
 				<div class="text-content">
-					<div class="add text">
+					<div class="blockSection1 text">
 						<div class="title">Add a Paper</div>
 						
 						@include('papers.uploadpaper')
 
 					</div>
 
-					<div class="mypaper text">
+					<div class="blockSection2 text">
 						<div class="title">My Papers</div>
 
 						@include('papers.mypapers')
 
 					</div>
 
-					<div class="bookmark text">
+					<div class="blockSection3 text">
 						<div class="title">My Bookmarks</div>
 
 						@include('papers.mybookmarks')

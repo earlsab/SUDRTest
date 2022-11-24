@@ -18,19 +18,19 @@
                 <div class="colpdf" data-label="Paper Type:">{{ $paper->PaperType }}</div>
                 <div class="colpdf" data-label="College:">{{ $paper->College }}</div>
                 <div class="colpdf" data-label="Author(s):">{{ $paper->Authors }}</div>
-                <div class="colpdf" data-label="Date Published):">{{ $paper->DatePublished }}</div>
+                <div class="colpdf" data-label="Date Published:">{{ $paper->DatePublished }}</div>
                 <div class="pdfbtnCont">
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
-                    <button class="pdfBtn redBtn" id="bookmarkBtn">Bookmark</button>
-                    <button class="pdfBtn redBtn" id="citeBtn">Cite</button>
+                    <button class="pdfBtn redBtn" id="modalOneBtn">Bookmark</button>
+                    <button class="pdfBtn redBtn" id="modalTwoBtn">Cite</button>
                 </div>
             </li>
 
-            <div id="bookmarkModal" class="modal">
+            <div id="modalOne" class="modal">
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="bkClose close">&times;</span>
+                    <span class="m1Close close">&times;</span>
                     <div class="modalinfoCont">
 
                         <h2>Add bookmark</h2>
@@ -55,12 +55,12 @@
             
             </div>
 
-            <div id="citeModal" class="modal">
+            <div id="modalTwo" class="modal">
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="ctClose close">&times;</span>
-                    <div class="citemodalCont modalinfoCont">
+                    <span class="m2Close close">&times;</span>
+                    <div class="modalTwoCont modalinfoCont">
 
                         <h2>Cite this paper</h2>
                         <br>
@@ -122,33 +122,33 @@
 
 <script>
 
-    var bookmarkModal = document.getElementById("bookmarkModal");
-    var citeModal = document.getElementById("citeModal");
+    var modalOne = document.getElementById("modalOne");
+    var modalTwo = document.getElementById("modalTwo");
 
     // Get the button that opens the modal
-    var bookmarkBtn = document.getElementById("bookmarkBtn");
-    var citeBtn = document.getElementById("citeBtn")
+    var modalOneBtn = document.getElementById("modalOneBtn");
+    var modalTwoBtn = document.getElementById("modalTwoBtn")
 
     // Get the <span> element that closes the modal
-    var bkspan = document.getElementsByClassName("bkClose")[0];
-    var ctspan = document.getElementsByClassName("ctClose")[0];
+    var m1span = document.getElementsByClassName("m1Close")[0];
+    var m2span = document.getElementsByClassName("m2Close")[0];
 
     // When the user clicks the button, open the modal 
-    bookmarkBtn.onclick = function() {
-        bookmarkModal.style.display = "block";
+    modalOneBtn.onclick = function() {
+        modalOne.style.display = "block";
     }
 
-    citeBtn.onclick = function() {
-        citeModal.style.display = "block"
+    modalTwoBtn.onclick = function() {
+        modalTwo.style.display = "block"
     }
 
     // When the user clicks on <span> (x), close the modal
-    bkspan.onclick = function() {
-        bookmarkModal.style.display = "none";
+    m1span.onclick = function() {
+        modalOne.style.display = "none";
     }
 
-    ctspan.onclick = function() {
-        citeModal.style.display = "none";
+    m2span.onclick = function() {
+        modalTwo.style.display = "none";
     }
 
     

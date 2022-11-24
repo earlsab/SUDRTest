@@ -93,33 +93,33 @@
 
 		<div class="container">
 			<div class="content">
-				<input type="radio" name="slider" checked id="add">
-				<input type="radio" name="slider" id="mypaper">
-				<input type="radio" name="slider" id="bookmark">
+				<input type="radio" name="slider" checked id="blockSection1">
+				<input type="radio" name="slider" id="blockSection2">
+				<input type="radio" name="slider" id="blockSection3">
 
 				<div class="list">
 
-					<label for="add" class="add">
+					<label for="blockSection1" class="blockSection1">
 					<i class="fas fa-solid fa-plus"></i>
 					<span class="title">Maintain Papers</span>
 					</label>
 
-					<label for="mypaper" class="mypaper">
-						<span class="icon"><i class="fas fa-solid fa-scroll"></i></span>
+					<label for="blockSection2" class="blockSection2">
+						<span class="icon"><i class="fa-solid fa-chart-line"></i></span>
 						<span class="title">Analytics</span>
 					</label>
-					<div class="slider"></div>
+					<div class="sliderAdmin"></div>
 				</div>
 
 				<div class="text-content">
-					<div class="add text">
+					<div class="blockSection1 text">
 						<div class="title">Maintain Papers</div>
 						
 						@include('admin.updatepaper')
 
 					</div>
 
-					<div class="mypaper text">
+					<div class="blockSection2 text">
 						<div class="title">Analytics</div>
 
 						@include('statistics.stats')

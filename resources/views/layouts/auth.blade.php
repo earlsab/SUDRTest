@@ -26,8 +26,8 @@
 
 	    <!-- NAVIGATION MENUS -->
 	    <div class="menu">
-			<li><button class="topBtn" id="faqBtn">FAQ</button></li>
-			<li><button class="topBtn" id="abtBtn">ABOUT</button></li>    
+			<li><button class="topBtn" id="modalOneBtn">FAQ</button></li>
+			<li><button class="topBtn" id="modalTwoBtn">ABOUT</button></li>    
 	    </div>
 	</ul>
 </nav>
@@ -39,10 +39,10 @@
 	@yield('content')
 @endif
 
-	<div id="faqModal" class="modal">
+	<div id="modalOne" class="modal">
 		<!-- Modal content -->
 		<div class="modal-content">
-			  <span class="faqClose close">&times;</span>
+			  <span class="m1Close close">&times;</span>
 			  <div class="modalinfoCont">
 
 				<h2>FAQ</h2>
@@ -51,11 +51,11 @@
 		</div>	  
 	</div>
 
-	<div id="aboutModal" class="modal">
+	<div id="modalTwo" class="modal">
 
 		<!-- Modal content -->
 		<div class="modal-content">
-			  <span class="abtClose close">&times;</span>
+			  <span class="m2Close close">&times;</span>
 			  <div class="modalinfoCont">
 
 				<h2>About Us</h2>
@@ -67,33 +67,33 @@
 
 	<script>
 
-		var faqModal = document.getElementById("faqModal");
-		var aboutModal = document.getElementById("aboutModal");
+		var modalOne = document.getElementById("modalOne");
+		var modalTwo = document.getElementById("modalTwo");
 
 		// Get the button that opens the modal
-		var faqBtn = document.getElementById("faqBtn");
-		var abtBtn = document.getElementById("abtBtn")
+		var modalOneBtn = document.getElementById("modalOneBtn");
+		var modalTwoBtn = document.getElementById("modalTwoBtn")
 
 		// Get the <span> element that closes the modal
-		var faqspan = document.getElementsByClassName("faqClose")[0];
-		var abtspan = document.getElementsByClassName("abtClose")[0];
+		var m1span = document.getElementsByClassName("m1Close")[0];
+		var m2span = document.getElementsByClassName("m2Close")[0];
 
 		// When the user clicks the button, open the modal 
-		faqBtn.onclick = function() {
-			faqModal.style.display = "block";
+		modalOneBtn.onclick = function() {
+			modalOne.style.display = "block";
 		}
 
-		abtBtn.onclick = function() {
-			aboutModal.style.display = "block"
+		modalTwoBtn.onclick = function() {
+			modalTwo.style.display = "block"
 		}
 
 		// When the user clicks on <span> (x), close the modal
-		faqspan.onclick = function() {
-			faqModal.style.display = "none";
+		m1span.onclick = function() {
+			modalOne.style.display = "none";
 		}
 
-		abtspan.onclick = function() {
-			aboutModal.style.display = "none";
+		m2span.onclick = function() {
+			modalTwo.style.display = "none";
 		}
 
 	</script>
