@@ -21,7 +21,7 @@
                 <div class="colpdf" data-label="Date Published:">{{ $paper->DatePublished }}</div>
                 <div class="pdfbtnCont">
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
-                    <button class="pdfBtn redBtn" id="modalOneBtn" onclick="location.href='{{route('papers.edit', $paper->PaperID)}}'">Update</button>
+                    <button class="pdfBtn redBtn" id="modalOneBtn">Update</button>
                     <button class="pdfBtn redBtn" id="modalTwoBtn">Delete</button>
                 </div>
             </li>

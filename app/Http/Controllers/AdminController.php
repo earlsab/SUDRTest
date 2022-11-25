@@ -45,11 +45,11 @@ class AdminController extends Controller
         return view('admin.viewPDFAdmin',compact('paper', 'PT'));
    }
 
-   public function destroy(Papers $paper, $PaperID)
+   public function destroy(Papers $paper)
    {
-       $paper=Papers::find($PaperID);
+      
        $paper->delete();
-       return redirect()->back();
+       return redirect()->route('AdminPage');
    }
 
    public function edit(Papers $paper, $PaperID)
@@ -58,8 +58,9 @@ class AdminController extends Controller
        return view('admin.updatepaper',compact('paper'));
    }
 
-   public function update(Request $request,Papers $paper, $PaperID )
+   public function update(Request $request, $PaperID)
    {
+       
         $request->validate([
             'PaperTitle' => 'required',
             'PaperType' => 'required',
@@ -70,7 +71,7 @@ class AdminController extends Controller
         ],
     ]);
 
-        $paper=new Papers();
+        $paper=Papers::find($PaperID);
 
         $file=$request->file;
 
@@ -85,7 +86,7 @@ class AdminController extends Controller
 
 
             $paper->update();
-            return redirect()->back();
+            return redirect()->route('AdminPage');
    }
     
    
