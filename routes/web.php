@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MyPapersController;
 use App\Http\Controllers\MyProfileController;
+
 
 
 
@@ -22,7 +25,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
 /* Home Page Route */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -50,4 +54,6 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
 Route::get('/ChangePass', [App\Http\Controllers\MyProfileController::class, 'changepass'])->name('ChangePass');
 Route::post('/ChangePassword', [App\Http\Controllers\MyProfileController::class, 'updatepassword'])->name('passupdate');
 Route::post('/Bookmarked', [App\Http\Controllers\BookmarkController::class, 'store'])->name('Bookmarks');
+
+
 
