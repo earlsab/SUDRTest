@@ -5,6 +5,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+    var weekly = @json($result_weekly);
+    var monthly = @json($result_monthly);
+    var yearly = @json($result_yearly);
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'bar',
@@ -12,7 +15,7 @@
             labels: ['Week', 'Month', 'Year'],
             datasets: [{
                 label: 'Number of Papers Uploaded',
-                data: [6,8,15],
+                data: [weekly,monthly,yearly],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
