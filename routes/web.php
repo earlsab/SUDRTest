@@ -61,5 +61,8 @@ Route::get('/ChangePass', [App\Http\Controllers\MyProfileController::class, 'cha
 Route::post('/ChangePassword', [App\Http\Controllers\MyProfileController::class, 'updatepassword'])->name('passupdate');
 Route::post('/Bookmarked', [App\Http\Controllers\BookmarkController::class, 'store'])->name('Bookmarks');
 
+Route::post('/RoleChange', [App\Http\Controllers\SuperAdminController::class, 'change_role'])->name('roles');
+
+
 
 
