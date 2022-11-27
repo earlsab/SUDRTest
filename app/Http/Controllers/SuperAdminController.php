@@ -14,12 +14,12 @@ class SuperAdminController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $user = User::all();
         $College = College::all();
         $PT = PaperType::all();
         $paper = Papers::all();
         $bm = Bookmarks::all();
 
-        return view ('admin.superadminpanel',compact('users','College', 'PT', 'paper', 'bm'));
+        return view ('admin.superadminpanel',compact('user','College', 'PT', 'paper', 'bm'));
     }
 }

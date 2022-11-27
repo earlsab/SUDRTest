@@ -37,18 +37,19 @@
 					<ul class="resultDisplay displayTable">
 
 						<li class="tableHeader">
-							<div class="col col-1">Full Name</div>
+							<div class="col col-1">Last Name</div>
 							<div class="col col-2">Email</div>
 							<div class="col col-3">College</div>
-							<div class="col col-4">Add Admin</div>
+							<div class="col col-4">Role Change</div>
 						</li>
+						@foreach($user as $users)
 						<li class="tablepaperInfo">
-							<div class="col col-1" data-label="Full Name">Kyle Angelee Estabillo</div>
-							<div class="col col-2" data-label="Email:">kyleestabillo@su.edu.ph</div>
-							<div class="col col-3" data-label="College:">CCS</div>
-							<div class="col col-4" data-label="Add as Admin"><button class="redBtn">Add</button></div>
+							<div class="col col-1" data-label="Last Name">{{$users->LastName}}</div>
+							<div class="col col-2" data-label="Email:">{{$users->email}}</div>
+							<div class="col col-3" data-label="College:">{{$users->college}}</div>
+							<div class="col col-4" data-label="Add as Admin"><button class="redBtn">Role Change</button></div>
 						</li>
-						
+						@endforeach
 					</ul>
 				</div>
 
