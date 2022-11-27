@@ -1,63 +1,64 @@
 @extends('layouts.Adminauth')
 @section('content')
 
-<div class="ctrlpanel">
-		<input id="tab1" type="radio" name="tabs" checked>
-		<label class="uitab" for="tab1">Add Admin</label>
-		  
-		<input id="tab2" type="radio" name="tabs">
-		<label class="uitab" for="tab2">Others</label>
-		
-		  
-		<section id="content1">
-			<form class="usersearch">
-				<input type="text" placeholder="Search.." name="search2">
-				<button type="submit"><i class="fa fa-search"></i></button>
-			</form>
+	<div class="categorypageCont viewPDFCont">
 
-			<div style="overflow-x:auto;">
-				<table id="userstable" class="stripedtable">
-					<thead>
-						<tr>
-							<th>Add</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Email</th>
-							<th>College</th>
-							<th>Role</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><button class="addbtn"><i class="fa-regular fa-square-plus"></i></button></td>
-							<td>Juan</td>
-							<td>Dela Cruz</td>
-							<td>juandelacruz@su.edu.ph</td>
-							<td>College of Computer Studies</td>
-							<td>Admin</td>
-						</tr>
-				</table>
-			</div>
-		</section>
-		  
-		<section id="content2">
-			<div class="catblock">
-				<h3 class="heading2">Add College:</h3>
-				<form class="addcat">
-					<input type="text" placeholder="Add New College" name="collegename">
-					<button type="submit"><i class="fa-solid fa-circle-plus"></i></button>
-				</form>
-		 	</div>
+        <div class="pdfinfoDisplay">
 
-			 <div class="catblock">
-				<h3 class="heading2">Add Paper Type:</h3>
-				<form class="addcat">
-					<input type="text" placeholder="Add New Paper Type" name="papername">
-					<button type="submit"><i class="fa-solid fa-circle-plus"></i></button>
-				</form>
-		 	</div>
-		</section>
-		  
-	</div>
+            <div class="pdfinfoCard">
+
+				<li class="paperinfoHeader">
+					Add Categories
+				</li>
+
+				<li class="pdfpaperInfo">
+					<div class="subcatPicker pdfbtnCont">
+						<input type="text" class="catSelect selectType" placeholder="Add Paper Type">
+						<button class="pdfBtn redBtn">Add</button>
+					</div>
+
+					<div class="subcatPicker pdfbtnCont">
+						<input type="text" class="catSelect selectType" placeholder="Add College">
+						<button class="pdfBtn redBtn">Add</button>
+					</div>
+
+					<div class="subcatPicker pdfbtnCont">
+						<input type="text" class="catSelect selectType" placeholder="Search User">
+						<button class="pdfBtn redBtn">Search</button>
+					</div>
+				</li>
+
+            </div>
+
+            <div class="pdfdisplayCard">
+
+				<div class="selectiondisplayCard pdfFrame">
+	
+					<ul class="resultDisplay displayTable">
+
+						<li class="tableHeader">
+							<div class="col col-1">Full Name</div>
+							<div class="col col-2">Email</div>
+							<div class="col col-3">College</div>
+							<div class="col col-4">Add Admin</div>
+						</li>
+						<li class="tablepaperInfo">
+							<div class="col col-1" data-label="Full Name">Kyle Angelee Estabillo</div>
+							<div class="col col-2" data-label="Email:">kyleestabillo@su.edu.ph</div>
+							<div class="col col-3" data-label="College:">CCS</div>
+							<div class="col col-4" data-label="Add as Admin"><button class="redBtn">Add</button></div>
+						</li>
+						
+					</ul>
+				</div>
+
+            </div>
+        
+        </div>
+    </div>
+
+	<footer>
+		<p>Silliman University Digital Repository</p>
+	</footer>
 
 	@endsection

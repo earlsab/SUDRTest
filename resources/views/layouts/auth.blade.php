@@ -59,12 +59,15 @@
 			  <div class="modalinfoCont">
 
 				<h2>About Us</h2>
+				
+				<br>
 
 				The Silliman University Digital Repository is an online resource that primarily houses 
 				a collection of outstanding theses, capstone research, and final requirement documents 
 				submitted by Silliman University students. It will incorporate elements and final requirement 
 				pieces from all of the University's colleges, institutes, and schools.
 
+				<br>
 				<br>
 
 				This online repository would make it easier and more convenient for Sillimanians to access 
