@@ -22,4 +22,14 @@ class SuperAdminController extends Controller
 
         return view ('admin.superadminpanel',compact('user','College', 'PT', 'paper', 'bm'));
     }
+
+    public function change_role(Request $request, $UserID)
+    {
+        $user = User::find($UserID);
+        $user->isAdmin = $request->isAdmin;
+        
+        $user->update();
+
+        return redirect()->route('SuperAdminPage');
+    }
 }

@@ -27,7 +27,12 @@
 
 	    <!-- NAVIGATION MENUS -->
 	    <div class="menu">
-        	<li><a href="#">LOGOUT</a></li>
+        	<li><a href="{{ route('logout') }}"
+						onclick="event.preventDefault();
+						document.getElementById('logout-form').submit();">LOGOUT</a>
+			<form id="logout-form" action="{{ route('logout') }}" method="POST">
+											@csrf
+				</form></li>
 	    </div>
 	</ul>
 </nav>
