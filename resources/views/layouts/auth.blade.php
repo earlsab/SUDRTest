@@ -46,7 +46,21 @@
 			  <div class="modalinfoCont">
 
 				<h2>FAQ</h2>
-				
+				<br>
+				<h3>1. How is SUDR different from the SU Library?</h3>
+
+						<br>
+
+						<p>
+						The Silliman University Library has a dedicated section for Academic Materials such as these, 
+						but students are not allowed to take them out of the campus, and can only be borrowed and read within 
+						the school library. 
+						<br><br>
+						This online repository would make it easier and more convenient for Sillimanians 
+						to access the previous years' papers, as it can be accessed anywhere with an internet connection, 
+						and because it is a free service for Sillimanian Students and Sillimanian faculty, and staff. 
+
+						</p>
 			</div>
 		</div>	  
 	</div>

@@ -75,14 +75,19 @@
 				<section class="contactSec" id="contact1">
 					<div class="contactInfo">
 
-						<h3>FAQ 1</h3>
+						<h3>How is SUDR different from the SU Library?</h3>
 
 						<br>
 
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						The Silliman University Library has a dedicated section for Academic Materials such as these, 
+						but students are not allowed to take them out of the campus, and can only be borrowed and read within 
+						the school library. 
+						<br><br>
+						This online repository would make it easier and more convenient for Sillimanians 
+						to access the previous years' papers, as it can be accessed anywhere with an internet connection, 
+						and because it is a free service for Sillimanian Students and Sillimanian faculty, and staff. 
+
 						</p>
 
 					</div>
@@ -176,9 +181,9 @@
 						<br>
 
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						The Silliman University Digital Repository is an online resource that primarily houses a collection of outstanding theses, 
+						capstone research, and final requirement documents submitted by Silliman University students. It will incorporate elements 
+						and final requirement pieces from all of the University's colleges, institutes, and schools.
 						</p>
 
 					</div>
