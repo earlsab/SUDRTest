@@ -60,8 +60,22 @@
 							<span class="m1Close close">&times;</span>
 							<div class="modalinfoCont">
 
-								<h2>Chage Role</h2>
-								
+								<h2>Change Role</h2>
+
+								<br>
+								<br>
+
+								*Note <br><br>
+								REGULAR USER = 0 <br>
+								ADMIN = 1 <br>
+
+								<br>
+								<br>
+
+								<div class="subcatPicker pdfbtnCont">
+									<input type="text" class="catSelect selectType" placeholder="Change Role">
+									<button class="pdfBtn redBtn">Update</button>
+								</div>
 							</div>
 						</div>	  
 					</div>
