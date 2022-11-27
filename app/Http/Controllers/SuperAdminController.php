@@ -12,24 +12,57 @@ use Illuminate\Http\Request;
 
 class SuperAdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = User::all();
-        $College = College::all();
-        $PT = PaperType::all();
-        $paper = Papers::all();
-        $bm = Bookmarks::all();
 
-        return view ('admin.superadminpanel',compact('user','College', 'PT', 'paper', 'bm'));
+        $user = User::where([
+            ['UserID', '!=', Null],
+            [function($query) use ($request) {
+                if (($term = $request->term)) {
+                    $query->orWhere('UserName', 'LIKE','%'. $term . '%')
+                        ->orWhere('FirstName', 'LIKE','%'. $term . '%')
+                        ->orWhere('LastName', 'LIKE','%'. $term . '%')->get();
+                }
+            }]
+           ])
+                ->orderBy("UserID", "desc")
+                ->paginate(5);
+    
+            return view('admin.superadminpanel', compact('user'))
+                ->with('i', (request()->input('page', 1) -1) *5);
+
     }
 
-    public function change_role(Request $request, $UserID)
+    public function roles($UserID)
     {
         $user = User::find($UserID);
+        return view('admin.updaterole',compact('user'));
+    }
+
+    public function update(Request $request, $UserID)
+    {
+        $user = User::find($UserID);
+        
         $user->isAdmin = $request->isAdmin;
         
         $user->update();
 
         return redirect()->route('SuperAdminPage');
+    }
+
+    public function store(Request $request)
+    {
+        $PT = new PaperType();
+        $College = new College();
+
+        $PT->PaperTypeName=$request->PaperTypeName;
+        $College->CollegeName=$request->CollegeName;
+        $College->CollegeAbbr=$request->CollegeAbbr;
+
+        $PT->save();
+        $College->save();
+
+        return redirect()->back();
     }
 }

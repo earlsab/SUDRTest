@@ -12,20 +12,28 @@
 				</li>
 
 				<li class="pdfpaperInfo">
-					<div class="subcatPicker pdfbtnCont">
-						<input type="text" class="catSelect selectType" placeholder="Add Paper Type">
-						<button class="pdfBtn redBtn">Add</button>
-					</div>
+					<form class="subcatPicker pdfbtnCont" action="{{ route('Changes.store') }} " method="POST">
+					@csrf
+						<input type="text" class="catSelect selectType" placeholder="Add Paper Type" name="PaperTypeName">
+						<button class="pdfBtn redBtn" type="submit">Add</button>
+					</form>
 
-					<div class="subcatPicker pdfbtnCont">
-						<input type="text" class="catSelect selectType" placeholder="Add College">
+					<form class="subcatPicker pdfbtnCont" action="{{ route('Changes.store') }} " method="POST">
+					@csrf
+						<input type="text" class="catSelect selectType" placeholder="Add College" name="CollegeName">
 						<button class="pdfBtn redBtn">Add</button>
-					</div>
+					</form>
 
-					<div class="subcatPicker pdfbtnCont">
-						<input type="text" class="catSelect selectType" placeholder="Search User">
+					<form class="subcatPicker pdfbtnCont" action="{{ route('Changes.store') }} " method="POST">
+					@csrf
+						<input type="text" class="catSelect selectType" placeholder="College Abbreviation for the Added College" name="CollegeAbbr">
+						<button class="pdfBtn redBtn">Add</button>
+					</form>
+
+					<form class="subcatPicker pdfbtnCont" action="{{ route('SuperAdminPage') }}" method="GET" role="search">
+						<input type="text" class="catSelect selectType" placeholder="Search User" name="term">
 						<button class="pdfBtn redBtn">Search</button>
-					</div>
+					</form>
 				</li>
 
             </div>
@@ -49,11 +57,11 @@
 							<div class="col col-2" data-label="First Name:">{{$users->FirstName}}</div>
 							<div class="col col-3" data-label="Email:">{{$users->email}}</div>
 							<div class="col col-4" data-label="College:">{{$users->college}}</div>
-							<div class="col col-5" data-label="Role Change:"><button class="redBtn">Add</button></div>
+							<div class="col col-5" data-label="Role Change:"><button class="redBtn" onclick="location.href='{{route('Roles', $users->UserID)}}'">Add</button></div>
 						</li>
 						@endforeach
 					</ul>
-					
+					{{ $user->links() }}
 				</div>
 
             </div>

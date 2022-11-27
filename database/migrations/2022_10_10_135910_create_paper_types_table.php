@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('paper_types', function (Blueprint $table) {
             $table->id('PaperTypeID');
-            $table->string('PaperTypeName');
+            $table->string('PaperTypeName')->nullable();
             $table->timestamps();
         });
     }

@@ -21,10 +21,14 @@
                     <br>
                     <br>
 
-                    <form>
+                    <form action="{{ route('Changes.update', $user->UserID) }} " method="POST" >
+                            @csrf
+                            @method('PUT')
                         <div class="subcatPicker pdfbtnCont">
-                            <input type="text" class="catSelect selectType" placeholder="Change Role">
-                            <button class="pdfBtn redBtn">Update</button>
+                            {{ $user->LastName}}
+                            {{ $user->FirstName}}
+                            <input type="text" class="catSelect selectType" placeholder="Change Role" name="isAdmin">
+                            <button class="pdfBtn redBtn" type="submit">Update</button>
                         </div>
                     </form>
 				</li>
