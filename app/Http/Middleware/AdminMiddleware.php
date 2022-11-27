@@ -18,10 +18,10 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->isAdmin == '1'){
+            if(Auth::user()->isAdmin == '2'){
                 return $next($request);
-            } else if(Auth::user()->isAdmin == '0'){
-                return redirect('/home')->with('message', 'Access Denied');
+            } else if(Auth::user()->isAdmin == '1'){
+                return $next($request);
             } else {
                 return redirect('/home')->with('message', 'Access Denied');
             }

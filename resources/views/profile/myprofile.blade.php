@@ -74,6 +74,9 @@
 			<!--Admin and User Views -->
 			<div class="colEmailBlock">
 				<div class="userTypeBlock">
+					@if(Auth::user()->isAdmin == '2')
+						<button class="nodesignBtn" onclick="location.href='{{route('SuperAdminPage')}}'"><i class="fa-solid fa-star"></i></button>
+					@endif
 					@if(Auth::user()->isAdmin == '1')
 						<button class="nodesignBtn" onclick="location.href='{{route('AdminPage')}}'"><i class="fa-solid fa-star"></i></button>
 					@endif

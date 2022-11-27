@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\MyPapersController;
 use App\Http\Controllers\MyProfileController;
 
@@ -29,6 +30,11 @@ Auth::routes(['verify' => true]);
 
 /* Home Page Route */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/* Super Admin Route Handles Adding Colleges, Paper Types and Users to Admins */
+Route::prefix('SuperAdmin')->middleware(['auth','isAdmin'])->group(function() {
+    Route::get('/Page', [App\Http\Controllers\SuperAdminController::class, 'index'])->name('SuperAdminPage');
+});
 
 /* Admin Route Handles Everything in the CRUD except for adding */
 Route::prefix('Admin')->middleware(['auth','isAdmin'])->group(function() {

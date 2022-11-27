@@ -8,7 +8,7 @@
 		<input id="profView" type="checkbox">
 
 			<div class="placeholderPic">
-				<img src="/img/cat.jpg" alt="">
+				<img src="/img/user.png" alt="">
 			</div>
 
 			<div class="userName">@ {{ Auth::user()->UserName }}</div>
