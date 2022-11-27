@@ -1148,6 +1148,15 @@ input:checked + .uiabt, input:checked + .uicontact {
   flex-direction: row;
 }
 
+.updateroleDisplay {
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+}
+
 .pdfinfoCard {
   width: 30%;
 }

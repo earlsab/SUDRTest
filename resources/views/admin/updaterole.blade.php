@@ -3,7 +3,7 @@
 
 	<div class="categorypageCont viewPDFCont">
 
-        <div class="pdfinfoDisplay">
+        <div class="updateroleDisplay">
 
             <div class="pdfinfoCard">
 
@@ -24,9 +24,10 @@
                     <form action="{{ route('Changes.update', $user->UserID) }} " method="POST" >
                             @csrf
                             @method('PUT')
+
+                           User: {{ $user->LastName}},{{ $user->FirstName}}
+                            
                         <div class="subcatPicker pdfbtnCont">
-                            {{ $user->LastName}}
-                            {{ $user->FirstName}}
                             <input type="text" class="catSelect selectType" placeholder="Change Role" name="isAdmin">
                             <button class="pdfBtn redBtn" type="submit">Update</button>
                         </div>
