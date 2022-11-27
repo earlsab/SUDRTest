@@ -8,7 +8,7 @@
 		<input id="profView" type="checkbox">
 
 			<div class="placeholderPic">
-				<img src="/img/cat.jpg" alt="">
+				<img src="/img/user.png" alt="">
 			</div>
 			<!--If User is Student or Faculty Display This -->
 			@if(Auth::user()->UserType == 'Student' || Auth::user()->UserType == 'Faculty')
