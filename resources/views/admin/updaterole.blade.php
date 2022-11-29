@@ -12,23 +12,20 @@
 				</li>
 
 				<li class="pdfpaperInfo">
-                    <br>
-
-                    *Note <br><br>
-                    REGULAR USER = 0 <br>
-                    ADMIN = 1 <br>
-
-                    <br>
-                    <br>
-
                     <form action="{{ route('Changes.update', $user->UserID) }} " method="POST" >
                             @csrf
                             @method('PUT')
 
-                           User: {{ $user->LastName}},{{ $user->FirstName}}
+                           User: {{ $user->LastName}},{{ $user->FirstName}}<br><br>
+                            Role: 
+                            @if( $user->isAdmin == '1')
+                                Admin
+                            @else
+                                User
                             
+                            @endif
                         <div class="subcatPicker pdfbtnCont">
-                            <input type="text" class="catSelect selectType" placeholder="Change Role" name="isAdmin">
+                            <input type="text" class="catSelect selectType" placeholder="Admin" name="isAdmin">
                             <button class="pdfBtn redBtn" type="submit">Update</button>
                         </div>
                     </form>
