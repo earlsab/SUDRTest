@@ -6,6 +6,7 @@ use App\Models\Papers;
 use App\Models\Authors;
 use App\Models\College;
 use App\Models\Relations;
+use App\Models\PaperType;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
@@ -39,7 +40,17 @@ class MyPapersController extends Controller
 
     public function view($PaperID)
     {
+        $College = College::all();
+        $PT = PaperType::all();
+
         $paper = Papers::find($PaperID);
+
+        $cite = DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)
+        ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
+        ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
+        ->select(DB::raw("GROUP_CONCAT(authors.Lname,' ', authors.Fname) as Citation"))
+        ->get();
 
         
         $result = DB::table('authors')
@@ -49,7 +60,7 @@ class MyPapersController extends Controller
         ->select(DB::raw("GROUP_CONCAT(authors.Fname,' ', authors.Lname) as FullName"))
         ->get();
 
-        return view('papers.viewPDF', compact('paper','result'));
+        return view('papers.viewPDF', compact('paper','result','cite','College','PT'));
     }
 
     public function create()
@@ -112,18 +123,52 @@ class MyPapersController extends Controller
 
     }
 
-    public function joint()
+    public function update(Request $request, $PaperID)
     {
-        $result = DB::table('authors')
-            ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
-            ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
-            ->select('papers.PaperTitle as PaperTitle', DB::raw("GROUP_CONCAT(authors.Fname,' ', authors.Lname) as FullName"),
-            DB::raw('count(authors.AuthorID) as total'))
-            ->orderBy('papers.PaperTitle', 'desc')
-            ->groupBy('papers.PaperID')
-            ->get();
+        $request->validate([
+            'PaperTitle' => 'required',
+            'PaperType' => 'required',
+            'file' => [
+                'required',
+                File::types('pdf')
+                    ->max(12 * 1024),
+            ],
+        ]);
 
-            return $result;
+        $paper=Papers::find($PaperID);
+        
+
+        $file=$request->file;
+
+        $filename=time().'.'.$file->getClientOriginalExtension();
+                $request->file->move('assets', $filename);
+                $paper->file=$filename;
+
+            $paper->PaperTitle=$request->PaperTitle;
+            $paper->PaperType=$request->PaperType;
+            $paper->College=$request->College;
+            $paper->DateCompleted=$request->DateCompleted;
+            $paper->ContentAdviser=$request->ContentAdviser;
+            
+            $paper->update();
+
+            $input = $request->all();
+
+            if(count($input['Fname']) > 0){
+                for($i = 0 ; $i < count($input['Fname']) ; $i++){
+                    
+    
+                    $author->Fname = $input['Fname'][$i];
+                    $author->Lname = $input['Lname'][$i];
+                    $author->update();
+                }
+            }
+
+            return redirect()->back()->with('success','File has been updated.');
+
     }
+
+
+    
  
 }

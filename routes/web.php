@@ -58,7 +58,7 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/Category/Colleges', [CategoriesController::class, 'college'])->name('Colleges');
     Route::get('/MyBookmarks', [BookmarkController::class, 'index'])->name('MyBookmarks');
     Route::get('/viewPDF/{id}', [MyPapersController::class, 'view'])->name('viewPDF');
-    Route::resource('papers', MyPapersController::class)->only(['create','store']);
+    Route::resource('papers', MyPapersController::class);
 });
 
 /* Profiles Route for Viewing and Changing Passwords */

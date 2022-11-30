@@ -74,12 +74,6 @@
 
                         <h2>Cite this paper</h2>
                         <br>
-                        Paper Title:{{$paper->PaperTitle}}
-                        <br>
-                        Author(s):{{$paper->Authors}}
-                        <br>
-                        Date Published:{{$paper->DatePublished}} 
-                        <br>
                         Here are the most common formats
                         <li class="paperinfoHeader">
 								APA
@@ -87,7 +81,12 @@
 			
 						<li class="pdfpaperInfo">
 							<div class="colpdf">
-                            Johnson, S. (Publication Date).<i>Sample Title</i>.Publisher.Inc.Sample URL
+                                
+                                @foreach($cite as $cites)
+                                    {{$cites->Citation}}
+                                @endforeach
+                                
+                            .({{$paper->DateCompleted}}).<i>{{$paper->PaperTitle}}</i>.Silliman University.[sudr.online]
                             </div>
 						</li>
 
@@ -97,7 +96,12 @@
 			
 						<li class="pdfpaperInfo">
 							<div class="colpdf">
-                            Johnson, S.<i>Paper Title</i>, Publisher, Publication Date, URL 
+
+                            @foreach($cite as $cites)
+                                {{$cites->Citation}}
+                            @endforeach
+                            
+                            .<i>{{$paper->PaperTitle}}</i>, Silliman University,({{$paper->DateCompleted}}),[sudr.online]
                             </div>
 						</li>
 
@@ -107,7 +111,12 @@
 			
 						<li class="pdfpaperInfo">
 							<div class="colpdf">
-                            S, Johnson."Paper Title". Website Name. URL (accessed Nov. 22, 2022) 
+                                
+                            @foreach($cite as $cites)
+                                {{$cites->Citation}}
+                            @endforeach
+                            
+                            ."{{$paper->PaperTitle}}". [sudr.online]. URL (Date Accessed) 
                             </div>
 						</li>
                     </div>
@@ -123,7 +132,7 @@
                     <div class="modalinfoCont">
 
                         <h2>Edit Paper</h2>
-                        
+                        @include('papers.updatepaper')
                     </div>
                 </div>
             
