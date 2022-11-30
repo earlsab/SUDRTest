@@ -17,8 +17,13 @@
                 <div class="colpdf col-1" data-label="Title:">{{ $paper->PaperTitle }}</div>
                 <div class="colpdf" data-label="Paper Type:">{{ $paper->PaperType }}</div>
                 <div class="colpdf" data-label="College:">{{ $paper->College }}</div>
-                <div class="colpdf" data-label="Author(s):">{{ $paper->Authors }}</div>
-                <div class="colpdf" data-label="Date Published:">{{ $paper->DatePublished }}</div>
+                <div class="colpdf" data-label="Author(s):">
+                @foreach($result as $results)
+                {{ $results->FullName }}
+                @endforeach  
+                </div>
+                <div class="colpdf" data-label="Content Adviser:">{{ $paper->ContentAdviser }}</div>
+                <div class="colpdf" data-label="Date Completed:">{{ $paper->DateCompleted }}</div>
                 <div class="pdfbtnCont">
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
                     <button class="pdfBtn redBtn" id="modalOneBtn">Bookmark</button>

@@ -14,10 +14,10 @@ class Papers extends Model
     protected $fillable = [
         'PaperTitle',
         'PaperType',
-        'Authors' ,
         'College',
         'file',
-        'DatePublished',
+        'DateCompleted',
+        'Content_Adviser',
     ];
 
 }

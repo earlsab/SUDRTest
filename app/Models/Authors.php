@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PaperAuthor extends Model
+class Authors extends Model
 {
     use HasFactory;
-
-    protected $primaryKey = 'PaperAuthorID';
+    protected $primaryKey = 'AuthorID';
 
     protected $fillable = [
-        'AuthorName',
+        'Fname',
+        'Lname',
+        'paper_id',
     ];
 }

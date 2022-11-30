@@ -15,14 +15,14 @@
 	<div class="authorFullName">
 		<i class="numIcon fa-solid fa-1"></i>
 		<div class="nameDivCont group">      
-			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<input class="inputchecker1 inputInfo" type="text" name="Fname[]" required>
 			<span class="highlight"></span>
 			<span class="bar"></span>
 			<label class="infoLabel">First Name</label>
 		</div>
 
 		<div class="nameDivCont group">      
-			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<input class="inputchecker1 inputInfo" type="text" name="Lname[]" required>
 			<span class="highlight"></span>
 			<span class="bar"></span>
 			<label class="infoLabel">Last Name</label>
@@ -32,14 +32,14 @@
 	<div class="authorFullName">
 		<i class="numIcon fa-solid fa-2"></i>
 		<div class="nameDivCont group">      
-			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<input class="inputchecker1 inputInfo" type="text" name="Fname[]" required>
 			<span class="highlight"></span>
 			<span class="bar"></span>
 			<label class="infoLabel">First Name</label>
 		</div>
 
 		<div class="nameDivCont group">      
-			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<input class="inputchecker1 inputInfo" type="text" name="Lname[]" required>
 			<span class="highlight"></span>
 			<span class="bar"></span>
 			<label class="infoLabel">Last Name</label>
@@ -49,14 +49,14 @@
 	<div class="authorFullName">
 		<i class="numIcon fa-solid fa-3"></i>
 		<div class="nameDivCont group">      
-			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<input class="inputchecker1 inputInfo" type="text" name="Fname[]" required>
 			<span class="highlight"></span>
 			<span class="bar"></span>
 			<label class="infoLabel">First Name</label>
 		</div>
 
 		<div class="nameDivCont group">      
-			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<input class="inputchecker1 inputInfo" type="text" name="Lname[]" required>
 			<span class="highlight"></span>
 			<span class="bar"></span>
 			<label class="infoLabel">Last Name</label>
@@ -79,14 +79,14 @@
 	</select>
 
 	<div class="group">      
-		<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+		<input class="inputchecker1 inputInfo" type="text" name="ContentAdviser" required>
 		<span class="highlight"></span>
 		<span class="bar"></span>
 		<label class="infoLabel">Content Advisor</label>
 	</div>
 
-	<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Published" name="DatePublished" required>
-
+	<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Completed" name="DateCompleted" required>
+@csrf
 	<div class="addPDF">
 		<input class="redBtn" name='file' type="file" accept="application/pdf" >
 	</div>

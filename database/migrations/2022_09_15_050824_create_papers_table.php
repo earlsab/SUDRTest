@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id('PaperID');
             $table->string('PaperTitle');
             $table->string('PaperType');
-            $table->string('Authors');
+            $table->string('ContentAdviser');
             $table->string('College')->nullable();
             $table->string('file');
-            $table->date('DatePublished')->nullable();
+            $table->date('DateCompleted')->nullable();
             $table->unsignedBigInteger('UploaderUserID');
             $table->foreign('UploaderUserID')->references('UserID')->on('users');
             $table->timestamps();
