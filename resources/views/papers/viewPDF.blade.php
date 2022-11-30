@@ -23,6 +23,11 @@
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
                     <button class="pdfBtn redBtn" id="modalOneBtn">Bookmark</button>
                     <button class="pdfBtn redBtn" id="modalTwoBtn">Cite</button>
+                  
+                        @if($paper->UploaderUserID == ($user = \Auth::guard('web')->user()->UserID))
+                            <button class="pdfBtn redBtn" id="modalThreeBtn">Edit</button>
+                        @endif
+                 
                 </div>
             </li>
 
@@ -105,6 +110,20 @@
             
             </div>
 
+            <div id="modalThree" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="m3Close close">&times;</span>
+                    <div class="modalinfoCont">
+
+                        <h2>Edit Paper</h2>
+                        
+                    </div>
+                </div>
+            
+            </div>
+
         </div>
 
         <div class="pdfdisplayCard">
@@ -124,14 +143,17 @@
 
     var modalOne = document.getElementById("modalOne");
     var modalTwo = document.getElementById("modalTwo");
+    var modalThree = document.getElementById("modalThree");
 
     // Get the button that opens the modal
     var modalOneBtn = document.getElementById("modalOneBtn");
-    var modalTwoBtn = document.getElementById("modalTwoBtn")
+    var modalTwoBtn = document.getElementById("modalTwoBtn");
+    var modalThreeBtn = document.getElementById("modalThreeBtn");
 
     // Get the <span> element that closes the modal
     var m1span = document.getElementsByClassName("m1Close")[0];
     var m2span = document.getElementsByClassName("m2Close")[0];
+    var m3span = document.getElementsByClassName("m3Close")[0];
 
     // When the user clicks the button, open the modal 
     modalOneBtn.onclick = function() {
@@ -142,6 +164,10 @@
         modalTwo.style.display = "block"
     }
 
+    modalThreeBtn.onclick = function() {
+        modalThree.style.display = "block"
+    }
+
     // When the user clicks on <span> (x), close the modal
     m1span.onclick = function() {
         modalOne.style.display = "none";
@@ -149,6 +175,10 @@
 
     m2span.onclick = function() {
         modalTwo.style.display = "none";
+    }
+
+    m3span.onclick = function() {
+        modalThree.style.display = "none";
     }
 
     

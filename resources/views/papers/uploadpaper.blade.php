@@ -1,49 +1,100 @@
 
 <form class="paperInput" action="{{ route('papers.store') }} " method="POST" enctype="multipart/form-data">
 @csrf
-							<div class="group">      
-								<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
-								<span class="highlight"></span>
-								<span class="bar"></span>
-								<label class="infoLabel">Paper Title</label>
-							</div>
+	<div class="group">      
+		<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+		<span class="highlight"></span>
+		<span class="bar"></span>
+		<label class="infoLabel">Paper Title</label>
+	</div>
 
-							<div class="group">      
-								<input class="inputchecker2 inputInfo" id="inputID" type="text" name="Authors" required>
-								<span class="highlight"></span>
-								<span class="bar"></span>
-								<label class="infoLabel">Author(s)</label>
-							</div>
+	<div class="authHeadingCont">
+		<div>Add Author(s):</div>
+	</div>
 
-							<select class="selectType" name="College">
-								<option selected="true" disabled="disabled">Select College</option>
+	<div class="authorFullName">
+		<i class="numIcon fa-solid fa-1"></i>
+		<div class="nameDivCont group">      
+			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label class="infoLabel">First Name</label>
+		</div>
 
-								@foreach($College as $Colleges)
-                                	<option value="{{$Colleges->CollegeAbbr}}">{{$Colleges->CollegeName}}</option>
-                                @endforeach
+		<div class="nameDivCont group">      
+			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label class="infoLabel">Last Name</label>
+		</div>
+	</div>
 
-							</select>
+	<div class="authorFullName">
+		<i class="numIcon fa-solid fa-2"></i>
+		<div class="nameDivCont group">      
+			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label class="infoLabel">First Name</label>
+		</div>
 
-							<select class="selectType" name="PaperType">
-								<option selected="true" disabled="disabled">Select Paper Type</option>
+		<div class="nameDivCont group">      
+			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label class="infoLabel">Last Name</label>
+		</div>
+	</div>
 
-								@foreach($PT as $PaperType)
-                                	<option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
-                                @endforeach
+	<div class="authorFullName">
+		<i class="numIcon fa-solid fa-3"></i>
+		<div class="nameDivCont group">      
+			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label class="infoLabel">First Name</label>
+		</div>
 
-							</select>
+		<div class="nameDivCont group">      
+			<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+			<span class="highlight"></span>
+			<span class="bar"></span>
+			<label class="infoLabel">Last Name</label>
+		</div>
+	</div>
 
-							<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Published" name="DatePublished" required>
 
-							<div class="addPDF">
-								
-									<input class="redBtn" 
-									name='file' type="file" accept="application/pdf" >
-							</div>
+	<select class="selectType" name="College">
+		<option selected="true" disabled="disabled">Select College</option>
+		@foreach($College as $Colleges)
+        <option value="{{$Colleges->CollegeAbbr}}">{{$Colleges->CollegeName}}</option>
+        @endforeach
+	</select>
 
-							<br>
-							<br>
+	<select class="selectType" name="PaperType">
+		<option selected="true" disabled="disabled">Select Paper Type</option>
+		@foreach($PT as $PaperType)
+        <option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
+        @endforeach
+	</select>
 
-							<button class="redBtn" type="submit">Submit Paper</button>
-						</form>
+	<div class="group">      
+		<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" required>
+		<span class="highlight"></span>
+		<span class="bar"></span>
+		<label class="infoLabel">Content Advisor</label>
+	</div>
+
+	<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Published" name="DatePublished" required>
+
+	<div class="addPDF">
+		<input class="redBtn" name='file' type="file" accept="application/pdf" >
+	</div>
+
+	<br>
+	<br>
+
+	<button class="redBtn" type="submit">Submit</button>
+</form>
+
 

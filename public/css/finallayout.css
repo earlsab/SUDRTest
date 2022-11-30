@@ -627,6 +627,28 @@ input[type=checkbox], input[type=radio]{
   margin-top: 45px;
 }
 
+
+.authorFullName {
+  display: flex;
+}
+
+.authHeadingCont {
+  display: flex;
+  margin-top: 45px;
+}
+
+.nameDivCont {
+  margin-top: 10px;
+}
+
+.numIcon::before {
+  display: flex;
+  height: 100%;
+  width: 30px;
+  margin-top: 10px;
+  align-items: center;
+}
+
 /* ADD PAPER END */
 
 /* MY PAPERS START */
@@ -668,11 +690,6 @@ input[type=checkbox], input[type=radio]{
 }
 .col-4 {
   flex-basis: 10%;
-}
-
-.displayTable {
-  height: 85vh;
-  overflow: auto;
 }
 
 /* MY PAPERS END */
@@ -1238,13 +1255,14 @@ input:checked + .uiabt, input:checked + .uicontact {
   padding: 10px 0;
   flex-basis: 100%;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .colpdf::before {
   color: #c71f37;
   padding-right: 10px;
   content: attr(data-label);;
-  text-align: right;
+
 }
 
 .pdfbtnCont {
@@ -1254,7 +1272,7 @@ input:checked + .uiabt, input:checked + .uicontact {
 }
 
 .pdfBtn {
-  margin: 10px 20px;
+  margin: 10px 15px;
   border-radius: 5px;
 }
 
@@ -1319,6 +1337,9 @@ input:checked + .uiabt, input:checked + .uicontact {
 .catSelect {
   margin-top: 0px;
   height: 30px;
+  width: 65%;
+  font-family: montserrat;
+  padding-left: 2px;
 }
 
 .pdfbtnCont {
