@@ -45,6 +45,9 @@ class MyPapersController extends Controller
 
         $paper = Papers::find($PaperID);
 
+        $author=DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)->get();
+
         $cite = DB::table('authors')
         ->where('authors.paper_id', '=', $PaperID)
         ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
@@ -52,7 +55,6 @@ class MyPapersController extends Controller
         ->select(DB::raw("GROUP_CONCAT(authors.Lname,' ', authors.Fname) as Citation"))
         ->get();
 
-        
         $result = DB::table('authors')
         ->where('authors.paper_id', '=', $PaperID)
         ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
@@ -60,7 +62,7 @@ class MyPapersController extends Controller
         ->select(DB::raw("GROUP_CONCAT(authors.Fname,' ', authors.Lname) as FullName"))
         ->get();
 
-        return view('papers.viewPDF', compact('paper','result','cite','College','PT'));
+        return view('papers.viewPDF', compact('paper','result','cite','College','PT','author'));
     }
 
     public function create()
@@ -150,19 +152,68 @@ class MyPapersController extends Controller
             $paper->DateCompleted=$request->DateCompleted;
             $paper->ContentAdviser=$request->ContentAdviser;
             
-            $paper->update();
+            $paper->save();
+
+            $author=Relations::select('author_ID')
+            ->where('paper_ID', $PaperID)->get();
+
+            $prevcount = Relations::where('paper_ID', $PaperID)->get()->count();
 
             $input = $request->all();
+            $newcount = count($input['Fname']);
 
-            if(count($input['Fname']) > 0){
-                for($i = 0 ; $i < count($input['Fname']) ; $i++){
+            if($newcount < $prevcount){
+                for($i = $prevcount; $newcount < $i ; $i--){
                     
-    
-                    $author->Fname = $input['Fname'][$i];
-                    $author->Lname = $input['Lname'][$i];
-                    $author->update();
+                    $writerID=Relations::where('paper_ID', $PaperID)->orderBydesc('author_ID')->take(1)->value('id');
+                    $writer_AuthorsID=Authors::where('paper_ID', $PaperID)->orderBydesc('AuthorID')->take(1)->value('AuthorID');
+                    Relations::destroy($writerID);
+                    Authors::destroy($writer_AuthorsID);
+                    
                 }
             }
+            else{
+                for($i = $prevcount; $newcount > $i ; $i++){
+                    $author = new Authors();
+                    $relate = new Relations();
+                    
+                    $AuthorData = [
+                        'Fname' => $input['Fname'][$i],
+                        'Lname' => $input['Lname'][$i],
+                        'paper_id'  => $PaperID,
+                    ];
+        
+                    $authorsmake = Authors::create($AuthorData);
+
+                    $RelationsData = [
+                        'paper_ID'  => $PaperID,
+                        'author_ID' => $authorsmake->AuthorID,
+                    ];
+
+                    Relations::create($RelationsData);
+    
+                }
+            }
+
+            
+            
+            $relate_authors = Relations::where('paper_ID', $PaperID)->get();
+
+            $i = 0;
+                
+                foreach($relate_authors as $relate_author){
+                    $finding = Authors::find($relate_author->author_ID);
+
+                    
+
+                    $AuthorData = [
+                        'Fname' => $input['Fname'][$i],
+                        'Lname' => $input['Lname'][$i],
+                    ];
+
+                    $finding->update($AuthorData);
+                    $i += 1;
+                }           
 
             return redirect()->back()->with('success','File has been updated.');
 
