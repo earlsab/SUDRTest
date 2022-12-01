@@ -55,7 +55,7 @@
 				<label class="infoLabel">Last Name</label>
 			</div>
 
-			<button class="redBtn" id="delBtn" onclick="return this.parentNode.remove();">Delete</button>
+			<input class="redBtn" id="delBtn" onclick="return this.parentNode.remove();">Delete
 		</div>
 	</div>
 
