@@ -514,7 +514,7 @@ input[type=checkbox], input[type=radio]{
 /* ADD PAPER START */
 
 .paperInput {
-  width: 100%;
+  width: 90%;
 }
 
 .group { 
@@ -526,7 +526,7 @@ input[type=checkbox], input[type=radio]{
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 90%;
+  width: 85%;
   border: none;
   border: 1px solid #757575;
 }
@@ -558,7 +558,7 @@ input[type=checkbox], input[type=radio]{
 .bar { 
   position: relative; 
   display: block; 
-  width: 90%;
+  width: 85%;
 }
 
 .bar:before, .bar:after {
@@ -619,7 +619,7 @@ input[type=checkbox], input[type=radio]{
 .selectType {
   margin-top: 45px;
   height: 45px;
-  width: 92%;
+  width: 30%;
   font-family: montserrat;
 }
 
@@ -630,15 +630,21 @@ input[type=checkbox], input[type=radio]{
 
 .authorFullName {
   display: flex;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .authHeadingCont {
   display: flex;
   margin-top: 45px;
+  margin-bottom: 20px;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nameDivCont {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .numIcon::before {
@@ -647,6 +653,31 @@ input[type=checkbox], input[type=radio]{
   width: 30px;
   margin-top: 10px;
   align-items: center;
+}
+
+.selectCont {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .selectCont {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .authHeadingCont {
+    display: flex;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    width: 65%;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 /* ADD PAPER END */
@@ -1255,7 +1286,6 @@ input:checked + .uiabt, input:checked + .uicontact {
   padding: 10px 0;
   flex-basis: 100%;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .colpdf::before {
