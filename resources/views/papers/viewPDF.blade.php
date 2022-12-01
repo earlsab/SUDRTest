@@ -80,7 +80,7 @@
 						</li>
 			
 						<li class="pdfpaperInfo">
-							<div class="colpdf">
+							<div>
                                 
                                 @foreach($cite as $cites)
                                     {{$cites->Citation}}
@@ -95,7 +95,7 @@
 						</li>
 			
 						<li class="pdfpaperInfo">
-							<div class="colpdf">
+							<div>
 
                             @foreach($cite as $cites)
                                 {{$cites->Citation}}
@@ -110,7 +110,7 @@
 						</li>
 			
 						<li class="pdfpaperInfo">
-							<div class="colpdf">
+							<div>
                                 
                             @foreach($cite as $cites)
                                 {{$cites->Citation}}
@@ -123,20 +123,19 @@
                 </div>
             
             </div>
-
+            
+            @if($paper->UploaderUserID == ($user = \Auth::guard('web')->user()->UserID))
             <div id="modalThree" class="modal">
-
                 <!-- Modal content -->
                 <div class="modal-content">
                     <span class="m3Close close">&times;</span>
                     <div class="modalinfoCont">
-
                         <h2>Edit Paper</h2>
                         @include('papers.updatepaper')
                     </div>
                 </div>
-            
             </div>
+            @endif
 
         </div>
 
@@ -147,6 +146,7 @@
         </div>
 
     </div>
+    
 </div>
 
 <footer>
@@ -195,7 +195,6 @@
         modalThree.style.display = "none";
     }
 
-    
 
 </script>
 

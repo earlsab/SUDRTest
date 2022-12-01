@@ -847,7 +847,7 @@ input[type=checkbox], input[type=radio]{
       transition: all 0.4s ease;
     }
 
-    .sliderAdmin {
+    .content .sliderAdmin {
       position: absolute;
       left: 0;
       top: 0;
@@ -1249,6 +1249,7 @@ input:checked + .uiabt, input:checked + .uicontact {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+  background-color: #f1f1f1;
 }
 
 .pdfinfoCard {
@@ -1367,7 +1368,7 @@ input:checked + .uiabt, input:checked + .uicontact {
 .catSelect {
   margin-top: 0px;
   height: 30px;
-  width: 65%;
+  width: 100%;
   font-family: montserrat;
   padding-left: 2px;
 }

@@ -35,7 +35,7 @@
 
 	<div class="authHeadingCont">
 		<div>Add Author(s):</div>
-		<input type="button" class="redBtn" id="dupeBtn" onlick="duplicate()">
+		<input type="button" class="redBtn" id="dupeBtn" value="Add Row" onlick="duplicate()">
 	</div>
 
 
@@ -55,7 +55,7 @@
 				<label class="infoLabel">Last Name</label>
 			</div>
 
-			<button class="redBtn" id="delBtn" onclick="return this.parentNode.remove();">Delete</button>
+			<input type="button" class="redBtn" id="delBtn" style="display:none" value="Delete" onclick="return this.parentNode.remove();">
 		</div>
 	</div>
 
@@ -77,10 +77,15 @@
 		var original = document.getElementById('duplicator');
 
 		function duplicate() {
+			document.getElementById("delBtn").style.display = "block";
 			var clone = original.cloneNode(true);
 			clone.id = "duplicate" + ++i;
 			original.parentNode.appendChild(clone);
-			
+
+			if (original.id == 'duplicator') {
+				document.getElementById("delBtn").style.display = "none";
+			}
+
 		}
 
 	</script>
