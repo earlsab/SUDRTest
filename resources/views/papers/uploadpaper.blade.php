@@ -35,7 +35,7 @@
 
 	<div class="authHeadingCont">
 		<div>Add Author(s):</div>
-		<button class="redBtn" id="dupeBtn" onlick="duplicate()"><i class="fas fa-solid fa-plus"></i>Add Row</button>
+		<input type="button" class="redBtn" id="dupeBtn" onlick="duplicate()">
 	</div>
 
 
