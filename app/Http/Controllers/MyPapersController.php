@@ -121,7 +121,7 @@ class MyPapersController extends Controller
                 }
             }
 
-            return redirect()->back()->with('success','File has been uploaded.');
+            return redirect()->back()->with('message','File has been uploaded.');
 
     }
 
@@ -215,7 +215,7 @@ class MyPapersController extends Controller
                     $i += 1;
                 }           
 
-            return redirect()->back()->with('success','File has been updated.');
+            return redirect()->back()->with('message','File has been updated.');
 
     }
 

@@ -1,4 +1,3 @@
-
 <form class="paperInput" action="{{ route('papers.store') }} " method="POST" enctype="multipart/form-data">
 @csrf
 	<div class="group">      
@@ -69,10 +68,24 @@
 
 	<button class="redBtn" type="submit">Submit</button>
 
+	@if(Session::has('message'))        
+		    <div id="modalOne" style="display:block" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="m1Close close">&times;</span>
+                    <div class="modalinfoCont">
+                        <h2>Success!</h2>
+						<br>
+                        {{Session::get('message')}}  
+                    </div>
+                </div>
+            </div>
+	 @endif
+</form>
+
 	<script>
 
 		document.getElementById('dupeBtn').onclick = duplicate;
-
 		var i = 0;
 		var original = document.getElementById('duplicator');
 
@@ -85,9 +98,11 @@
 			if (original.id == 'duplicator') {
 				document.getElementById("delBtn").style.display = "none";
 			}
-
 		}
 
-	</script>
-</form>
+		var m1span = document.getElementsByClassName("m1Close")[0];
+		m1span.onclick = function() {
+			modalOne.style.display = "none";
+    	}
 
+	</script>

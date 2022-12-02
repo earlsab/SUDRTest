@@ -118,6 +118,5 @@
 			original.parentNode.appendChild(clone);
 			
 		}
-
 	</script>
 </form>
