@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use App\Models\Papers;
+use App\Models\Authors;
 use App\Models\College;
+use App\Models\Relations;
 use App\Models\PaperType;
-use App\Models\Bookmarks;
+
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+
+use DB;
+use Auth;
+
 
 
 class AdminController extends Controller
@@ -44,9 +49,33 @@ class AdminController extends Controller
 
    public function view($PaperID)
    {
+        $College = College::all();
         $PT = PaperType::all();
-        $paper=Papers::find($PaperID);
-        return view('admin.viewPDFAdmin',compact('paper', 'PT'));
+
+        $paper = Papers::find($PaperID);
+
+        $author=DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)->get();
+
+        $cite = DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)
+        ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
+        ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
+        ->select(DB::raw("GROUP_CONCAT(authors.Lname,' ', authors.Fname) as Citation"))
+        ->get();
+
+        $result = DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)
+        ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
+        ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
+        ->select(DB::raw("GROUP_CONCAT(authors.Fname,' ', authors.Lname) as FullName"))
+        ->get();
+
+        $keyword = DB::table('tagging_tagged')
+        ->where('taggable_id' , '=' , $PaperID)
+        ->get();
+
+        return view('papers.viewPDF', compact('paper','result','cite','College','PT','author', 'keyword'));
    }
 
    public function destroy(Papers $paper)

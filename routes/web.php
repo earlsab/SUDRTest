@@ -47,7 +47,7 @@ Route::prefix('Admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::get('/Papers', [AdminController::class, 'showAll'])->name('MyPapersAdmin');
     Route::get('/PapersMaintain', [AdminController::class, 'maintenance'])->name('MyPapersMaintain');
     Route::get('/viewPDF/{id}', [AdminController::class, 'view'])->name('AdminView');
-    Route::resource('papers', AdminController::class)->only(['edit', 'update', 'destroy']);
+    Route::resource('paper', AdminController::class)->only(['edit', 'update', 'destroy']);
 });
 
 /* Users Route Handles Adding and Viewing the Paper */
@@ -58,6 +58,7 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/Category/Colleges', [CategoriesController::class, 'college'])->name('Colleges');
     Route::get('/MyBookmarks', [BookmarkController::class, 'index'])->name('MyBookmarks');
     Route::get('/viewPDF/{id}', [MyPapersController::class, 'view'])->name('viewPDF');
+    Route::get('/editPDF/{id}', [MyPapersController::class, 'editPDF'])->name('editPDF');
     Route::resource('papers', MyPapersController::class);
 });
 

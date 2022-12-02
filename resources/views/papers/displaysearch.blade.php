@@ -4,10 +4,16 @@
     
     <div class="viewPDFCont">
 
-    <br>
-    <br>
-    Your search for "" returned xx results.
 
+
+	<form  action="{{ route('Papers') }}" method="GET" role="search" >
+		<input type="text" placeholder="Search" name="term">
+		<button type="submit"><i class="fa fa-search"></i></button>
+	</form>
+
+	Your search for '' returned "" results.
+	
+ 
         <div class="pdfinfoDisplay">
 
             <div class="pdfinfoCard">
@@ -38,7 +44,16 @@
 						</div>
 					</div>
 
-                    <div class="colpdf" data-label="Keyword:">
+                    <div class="colpdf" data-label="Author:">
+						<div>
+                            <form class="subcatPicker pdfbtnCont">
+                                @csrf
+                                <input type="text" class="catSelect selectType" placeholder="Search Author" name="PaperTypeName">
+                            </form>
+						</div>
+					</div>
+
+					<div class="colpdf" data-label="Keyword:">
 						<div>
                             <form class="subcatPicker pdfbtnCont">
                                 @csrf
@@ -74,6 +89,19 @@
 							<div class="col col-4" data-label="View Link:"><button class="redBtn" onclick="location.href='{{route('viewPDF', $papers->PaperID)}}'">View</button></div>
 						</li>						
 						@endforeach
+
+						@foreach($keywordresult as $keytag)
+							@foreach($allpaper as $allpapers)
+								@if($allpapers->PaperID == $keytag->taggable_id)
+									<li class="tablepaperInfo">
+										<div class="col col-1" data-label="Title:">{{$allpapers->PaperTitle}}</div>
+										<div class="col col-2" data-label="Paper Type:">{{$allpapers->PaperType}}</div>
+										<div class="col col-3" data-label="College:">{{$allpapers->College}}</div>
+										<div class="col col-4" data-label="View Link:"><button class="redBtn" onclick="location.href='{{route('viewPDF', $allpapers->PaperID)}}'">View</button></div>
+									</li>
+								@endif
+							@endforeach						
+						@endforeach
 					</ul>
 				</div>
 
@@ -87,4 +115,4 @@
 		<p>Silliman University Digital Repository</p>
 	</footer>
 
-    @endsection
+    @endsection 

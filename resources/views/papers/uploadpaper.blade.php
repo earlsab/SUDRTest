@@ -1,3 +1,4 @@
+
 <form class="paperInput" action="{{ route('papers.store') }} " method="POST" enctype="multipart/form-data">
 @csrf
 	<div class="group">      
@@ -8,14 +9,14 @@
 	</div>
 
 	<div class="group">      
-		<input class="inputchecker1 inputInfo" type="text" name="ContentAdviser" required>
+		<input class="inputchecker1 inputInfo" type="text" name="ContentAdviser">
 		<span class="highlight"></span>
 		<span class="bar"></span>
 		<label class="infoLabel">Content Advisor</label>
 	</div>
 
 	<div class="selectCont">
-	<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Completed" name="DateCompleted" required>
+		<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Completed" name="DateCompleted" required>
 
 		<select class="selectType" name="College">
 			<option selected="true" disabled="disabled">Select College</option>
@@ -31,6 +32,14 @@
 			@endforeach
 		</select>
 	</div>
+
+	<div class="authHeadingCont">
+		<div>Add Keyword(s):</div>
+	</div>
+
+	<div class="mb-3">
+        <input class="form-control" type="text" data-role="tagsinput" name="tags">
+    </div>
 
 	<div class="authHeadingCont">
 		<div>Add Author(s):</div>
@@ -64,7 +73,6 @@
 	</div>
 
 	<br>
-	<br>
 
 	<button class="redBtn" type="submit">Submit</button>
 
@@ -81,11 +89,14 @@
                 </div>
             </div>
 	 @endif
-</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
 	<script>
 
 		document.getElementById('dupeBtn').onclick = duplicate;
+
 		var i = 0;
 		var original = document.getElementById('duplicator');
 
@@ -98,11 +109,16 @@
 			if (original.id == 'duplicator') {
 				document.getElementById("delBtn").style.display = "none";
 			}
+
 		}
 
+		var modalOne = document.getElementById("modalOne");
 		var m1span = document.getElementsByClassName("m1Close")[0];
 		m1span.onclick = function() {
 			modalOne.style.display = "none";
-    	}
+		}
+
 
 	</script>
+</form>
+

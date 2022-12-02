@@ -8,16 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Papers extends Model
 {
     use HasFactory;
+    use \Conner\Tagging\Taggable;
 
     protected $primaryKey = 'PaperID';
 
     protected $fillable = [
+        'UploaderUserID',
         'PaperTitle',
         'PaperType',
         'College',
         'file',
         'DateCompleted',
-        'Content_Adviser',
+        'ContentAdviser',
     ];
 
 }

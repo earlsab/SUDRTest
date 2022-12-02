@@ -19,38 +19,6 @@
 		</form>
 	</div>
 
-	<div class="catWrapper">
-		<div class="catBlock">
-			<article class="card-outer">
-				<a href="{{ route('PaperType') }}" class="card-inner">
-					<i class="fa-solid fa-scroll"></i>
-					<br>
-					Paper Type
-				</a>
-			</article>
-		</div>
-
-		<div class="catBlock">
-			<article class="card-outer">
-				<a href="{{ route('Colleges') }}" class="card-inner">
-					<i class="fa-solid fa-school"></i>
-					<br>
-					Colleges
-				</a>
-			</article>
-		</div>
-
-		<div class="catBlock">
-			<article class="card-outer">
-				<a href="#" class="card-inner">
-					<i class="fa-solid fa-building"></i>
-					<br>
-					SUSG
-				</a>
-			</article>
-		</div>
-	</div>
-
 </div>
 
 <div class="aboutCont">

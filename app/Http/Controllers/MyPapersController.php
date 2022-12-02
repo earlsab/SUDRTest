@@ -20,20 +20,28 @@ class MyPapersController extends Controller
 {
     public function index(Request $request)
     {
-       $paper = Papers::where([
+        $keywordresult = DB::table('tagging_tagged')
+        ->orWhere('tag_name', 'LIKE','%'. $request->term . '%')->get();
+
+        $allpaper = Papers::all();
+
+        $paper = Papers::where([
         ['PaperTitle', '!=', Null],
         [function($query) use ($request) {
+
             if (($term = $request->term)) {
                 $query->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
                     ->orWhere('PaperType', 'LIKE','%'. $term . '%')
-                    ->orWhere('College', 'LIKE','%'. $term . '%')->get();
+                    ->orWhere('College', 'LIKE','%'. $term . '%')
+                    ->orWhere('ContentAdviser', 'LIKE','%'. $term . '%')->get();
             }
         }]
        ])
             ->orderBy("PaperID", "desc")
             ->paginate(5);
-
-        return view('papers.displaysearch', compact('paper'))
+            $tags = Papers::all();
+        
+        return view('papers.displaysearch', compact('paper','tags' , 'keywordresult' ,'allpaper'))
             ->with('i', (request()->input('page', 1) -1) *5);
 
     }
@@ -62,7 +70,11 @@ class MyPapersController extends Controller
         ->select(DB::raw("GROUP_CONCAT(authors.Fname,' ', authors.Lname) as FullName"))
         ->get();
 
-        return view('papers.viewPDF', compact('paper','result','cite','College','PT','author'));
+        $keyword = DB::table('tagging_tagged')
+        ->where('taggable_id' , '=' , $PaperID)
+        ->get();
+
+        return view('papers.viewPDF', compact('paper','result','cite','College','PT','author', 'keyword'));
     }
 
     public function create()
@@ -75,6 +87,7 @@ class MyPapersController extends Controller
         $request->validate([
             'PaperTitle' => 'required',
             'PaperType' => 'required',
+            'tags' => 'required',
             'file' => [
                 'required',
                 File::types('pdf')
@@ -100,10 +113,11 @@ class MyPapersController extends Controller
             $paper->DateCompleted=$request->DateCompleted;
             $paper->ContentAdviser=$request->ContentAdviser;
             $paper->UploaderUserID = $user;
-
-            $paper->save();
-
             $input = $request->all();
+            $tags = explode(",", $request->tags);
+            
+            $paper->save();
+            $paper->tag($tags);
 
             if(count($input['Fname']) > 0){
                 for($i = 0 ; $i < count($input['Fname']) ; $i++){
@@ -120,6 +134,7 @@ class MyPapersController extends Controller
                     $relate->save();
                 }
             }
+ 
 
             return redirect()->back()->with('message','File has been uploaded.');
 
@@ -219,7 +234,34 @@ class MyPapersController extends Controller
 
     }
 
+    public function editPDF($PaperID) {
 
-    
+        $College = College::all();
+        $PT = PaperType::all();
+
+        $paper = Papers::find($PaperID);
+
+        $author=DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)->get();
+
+        $cite = DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)
+        ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
+        ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
+        ->select(DB::raw("GROUP_CONCAT(authors.Lname,' ', authors.Fname) as Citation"))
+        ->get();
+
+        $result = DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)
+        ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
+        ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
+        ->select(DB::raw("GROUP_CONCAT(authors.Fname,' ', authors.Lname) as FullName"))
+        ->get();
+
+        $keyword = DB::table('tagging_tagged')
+        ->where('taggable_id' , '=' , $PaperID)
+        ->get();
+        return view('papers.editPDF', compact('paper','result','cite','College','PT','author','keyword'));
+    }
  
 }

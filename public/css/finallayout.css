@@ -1431,3 +1431,14 @@ footer {
   width: 30px;
   font-size: 20px;
 }
+
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: #ffffff;
+  background: #c71f37;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+.bootstrap-tagsinput {
+  width: 85%;
+}

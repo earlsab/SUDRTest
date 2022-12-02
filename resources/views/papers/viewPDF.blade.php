@@ -24,15 +24,15 @@
                 </div>
                 <div class="colpdf" data-label="Content Adviser:">{{ $paper->ContentAdviser }}</div>
                 <div class="colpdf" data-label="Date Completed:">{{ $paper->DateCompleted }}</div>
+                <div class="colpdf" data-label="Key Words:">
+                    @foreach($keyword as $keywords)
+                        {{$keywords->tag_name}}
+                    @endforeach
+                </div>
                 <div class="pdfbtnCont">
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
                     <button class="pdfBtn redBtn" id="modalOneBtn">Bookmark</button>
                     <button class="pdfBtn redBtn" id="modalTwoBtn">Cite</button>
-                  
-                        @if($paper->UploaderUserID == ($user = \Auth::guard('web')->user()->UserID))
-                            <button class="pdfBtn redBtn" id="modalThreeBtn">Edit</button>
-                        @endif
-                 
                 </div>
             </li>
 

@@ -10,14 +10,12 @@
 
 	<div class="authHeadingCont">
 		<div>Add Author(s):</div>
-		<input type="button" class="redBtn" id="dupeBtn" onlick="duplicate()">
-
+		<input type="button" class="redBtn" value="Add Rows" id="dupeBtn" onlick="duplicate()">
 	</div>
 	<div class="fullnameBlock">
 	@foreach($author as $authors)
 		@if($loop->first)
 		<div class="authorFullName" id="duplicator">
-		<i class="numIcon fa-solid fa-1"></i>
 		<div class="nameDivCont group">      
 			<input class="inputchecker1 inputInfo" type="text" name="Fname[]" value="{{$authors->Fname}}" required>
 			<span class="highlight"></span>
@@ -31,11 +29,10 @@
 			<span class="bar"></span>
 			<label class="infoLabel">Last Name</label>
 		</div>
-		<input class="redBtn" id="delBtn" onclick="return this.parentNode.remove();">Delete
+		<input class="redBtn" id="delBtn" style="display:none;" value="Delete" onclick="return this.parentNode.remove();">
 	</div>
 	@elseif($loop->last)
 	<div class="authorFullName" >
-		<i class="numIcon fa-solid fa-1"></i>
 		<div class="nameDivCont group">      
 			<input class="inputchecker1 inputInfo" type="text" name="Fname[]" value="{{$authors->Fname}}" required>
 			<span class="highlight"></span>
@@ -49,11 +46,10 @@
 			<span class="bar"></span>
 			<label class="infoLabel">Last Name</label>
 		</div>
-		<input class="redBtn" id="delBtn" onclick="return this.parentNode.remove();">Delete
+		<input class="redBtn" id="delBtn" style="display:none;" value="Delete" onclick="return this.parentNode.remove();">
 	</div>
 	@else
 	<div class="authorFullName">
-		<i class="numIcon fa-solid fa-1"></i>
 		<div class="nameDivCont group">      
 			<input class="inputchecker1 inputInfo" type="text" name="Fname[]" value="{{$authors->Fname}}" >
 			<span class="highlight"></span>
@@ -67,25 +63,39 @@
 			<span class="bar"></span>
 			<label class="infoLabel">Last Name</label>
 		</div>
-		<input class="redBtn" id="delBtn" onclick="return this.parentNode.remove();">Delete
+		<input class="redBtn" id="delBtn" style="display:none;" value="Delete" onclick="return this.parentNode.remove();">
 	</div>
 		@endif
 	@endforeach
 </div>
 	
-	<select class="selectType" name="College">
-		<option selected="true" disabled="disabled">Select College</option>
-		@foreach($College as $Colleges)
-        <option value="{{$Colleges->CollegeAbbr}}">{{$Colleges->CollegeName}}</option>
-        @endforeach
-	</select>
+	<div class="selectCont">
 
-	<select class="selectType" name="PaperType">
-		<option selected="true" disabled="disabled">Select Paper Type</option>
-		@foreach($PT as $PaperType)
-        <option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
-        @endforeach
-	</select>
+
+		<input value="{{$paper->DateCompleted}}" class="datepicker selectType" id="inputID" type="date" name="DateCompleted" required>
+
+		<select class="selectType" name="College">
+			<option  disabled="disabled" selected hidden>Select College</option>
+			@foreach($College as $Colleges)
+				@if($Colleges->CollegeAbbr == $paper->College)
+				<option value="{{$Colleges->CollegeAbbr}}" selected>{{$Colleges->CollegeName}}</option>
+				@else
+				<option value="{{$Colleges->CollegeAbbr}}">{{$Colleges->CollegeName}}</option>
+				@endif
+			@endforeach
+		</select>
+
+		<select class="selectType" name="PaperType">
+			<option selected="true" disabled="disabled" hidden>Select Paper Type</option>
+			@foreach($PT as $PaperType)
+				@if($PaperType->PaperTypeName == $paper->PaperType)
+				<option value="{{$PaperType->PaperTypeName}}" selected>{{$PaperType->PaperTypeName}}</option>
+				@else
+				<option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
+				@endif
+			@endforeach
+		</select>
+	</div>
 
 	<div class="group">      
 		<input class="inputchecker1 inputInfo" type="text" name="ContentAdviser" value="{{$paper->ContentAdviser}}"required>
@@ -94,14 +104,27 @@
 		<label class="infoLabel">Content Advisor</label>
 	</div>
 
-	<input class="datepicker selectType" id="inputID" type="date" placeholder="Date Completed" name="DateCompleted" required>
 @csrf
 	<div class="addPDF">
-		<input class="redBtn" name='file' type="file" accept="application/pdf" >
+		<input class="redBtn" value="{{$paper->file}}" name='file' type="file" accept="application/pdf" >
 	</div>
 
 	<br>
 	<br>
+
+	@if(Session::has('message'))        
+		    <div id="modalOne" style="display:block" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="m1Close close">&times;</span>
+                    <div class="modalinfoCont">
+                        <h2>Success!</h2>
+						<br>
+                        {{Session::get('message')}}  
+                    </div>
+                </div>
+            </div>
+	 @endif
 
 	<button class="redBtn" type="submit">Submit</button>
 
@@ -113,10 +136,20 @@
 		var original = document.getElementById('duplicator');
 
 		function duplicate() {
+			document.getElementById("delBtn").style.display = "block";
 			var clone = original.cloneNode(true);
 			clone.id = "duplicate" + ++i;
 			original.parentNode.appendChild(clone);
-			
+
+			if (original.id == 'duplicator') {
+				document.getElementById("delBtn").style.display = "none";
+			}
+		}
+
+		var modalOne = document.getElementById("modalOne");
+		var m1span = document.getElementsByClassName("m1Close")[0];
+		m1span.onclick = function() {
+		modalOne.style.display = "none";
 		}
 	</script>
 </form>
