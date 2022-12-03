@@ -110,7 +110,8 @@
 	</div>
 
 	<br>
-	<br>
+
+	<button class="redBtn" type="submit">Submit</button>
 
 	@if(Session::has('message'))        
 		    <div id="modalOne" style="display:block" class="modal">
@@ -125,8 +126,6 @@
                 </div>
             </div>
 	 @endif
-
-	<button class="redBtn" type="submit">Submit</button>
 
 	<script>
 

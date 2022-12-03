@@ -25,13 +25,12 @@ class AdminController extends Controller
         $College = College::all();
         $PT = PaperType::all();
         $paper = Papers::all();
-        $bm = Bookmarks::all();
 
         $result_weekly = (new StatsController)->stats_weekly();
         $result_monthly = (new StatsController)->stats_monthly();
         $result_yearly = (new StatsController)->stats_yearly();
 
-        return view('admin.adminpage',compact('College','PT','paper','bm', 'result_weekly', 'result_monthly', 'result_yearly'));
+        return view('admin.adminpage',compact('College','PT','paper', 'result_weekly', 'result_monthly', 'result_yearly'));
     }
     
 
@@ -75,14 +74,28 @@ class AdminController extends Controller
         ->where('taggable_id' , '=' , $PaperID)
         ->get();
 
-        return view('papers.viewPDF', compact('paper','result','cite','College','PT','author', 'keyword'));
+        return view('admin.viewPDFAdmin', compact('paper','result','cite','College','PT','author', 'keyword'));
    }
 
    public function destroy(Papers $paper)
-   {
-      
-       $paper->delete();
-       return redirect()->route('AdminPage');
+   {    
+        $papers = $paper->PaperID;
+
+        $authorID=DB::table('authors')
+        ->where('paper_id', '=', $paper)
+        ->value('AuthorID');
+
+        $relation=DB::table('relations')
+        ->where('paper_ID', '=', $paper)
+        ->where('author_ID', '=', $authorID)
+        ->value('id');
+        
+        DB::table('papers')->where('PaperID', '=', $papers)->delete();
+        
+        // Authors::destroy($authorID);
+        // Relations::destroy($relation);
+        
+        return redirect()->route('AdminPage');
    }
 
    public function edit(Papers $paper, $PaperID)

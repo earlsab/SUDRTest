@@ -85,6 +85,19 @@
         </div>
 
     </div>
+    @if(Session::has('message'))        
+		    <div id="modalThree" style="display:block" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="m3Close close">&times;</span>
+                    <div class="modalinfoCont">
+                        <h2>Success!</h2>
+						<br>
+                        {{Session::get('message')}}  
+                    </div>
+                </div>
+            </div>
+	 @endif
 </div>
 
 <footer>
@@ -95,6 +108,7 @@
 
     var modalOne = document.getElementById("modalOne");
     var modalTwo = document.getElementById("modalTwo");
+    var modalThree = document.getElementById("modalTwo");
 
     // Get the button that opens the modal
     var modalOneBtn = document.getElementById("modalOneBtn");
@@ -103,6 +117,7 @@
     // Get the <span> element that closes the modal
     var m1span = document.getElementsByClassName("m1Close")[0];
     var m2span = document.getElementsByClassName("m2Close")[0];
+    var m3span = document.getElementsByClassName("m3Close")[0];
 
     // When the user clicks the button, open the modal 
     modalOneBtn.onclick = function() {
@@ -122,7 +137,9 @@
         modalTwo.style.display = "none";
     }
 
-    
+    m3span.onclick = function() {
+        modalThree.style.display = "none";
+    }
 
 </script>
 

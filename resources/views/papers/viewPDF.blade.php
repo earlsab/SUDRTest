@@ -26,7 +26,11 @@
                 <div class="colpdf" data-label="Date Completed:">{{ $paper->DateCompleted }}</div>
                 <div class="colpdf" data-label="Key Words:">
                     @foreach($keyword as $keywords)
+                        @if($loop->last)
                         {{$keywords->tag_name}}
+                        @else
+                        {{$keywords->tag_name}},
+                        @endif
                     @endforeach
                 </div>
                 <div class="pdfbtnCont">

@@ -16,8 +16,8 @@ class StatsController extends Controller
         $LDW = Carbon::now()->endOfWeek()->toDateString();
 
         $results_weekly = DB::table('papers')
-            ->select(DB::raw('COUNT(created_at) as count'))
-            ->whereBetween(DB::raw('DATE(created_at)'), [$SDW, $LDW])
+            ->select(DB::raw('COUNT(DateCompleted) as count'))
+            ->whereBetween(DB::raw('DATE(DateCompleted)'), [$SDW, $LDW])
             ->value('count');
         
             return $results_weekly;
@@ -29,8 +29,8 @@ class StatsController extends Controller
         $LDM = Carbon::now()->endOfMonth()->toDateString();
 
         $results_monthly = DB::table('papers')
-            ->select(DB::raw('COUNT(created_at) as count'))
-            ->whereBetween(DB::raw('DATE(created_at)'), [$SDM, $LDM])
+            ->select(DB::raw('COUNT(DateCompleted) as count'))
+            ->whereBetween(DB::raw('DATE(DateCompleted)'), [$SDM, $LDM])
             ->value('count');
         
             return $results_monthly;
@@ -42,8 +42,8 @@ class StatsController extends Controller
         $LDY = Carbon::now()->endOfYear()->toDateString();
 
         $results_yearly = DB::table('papers')
-            ->select(DB::raw('COUNT(created_at) as count'))
-            ->whereBetween(DB::raw('DATE(created_at)'), [$SDY, $LDY])
+            ->select(DB::raw('COUNT(DateCompleted) as count'))
+            ->whereBetween(DB::raw('DATE(DateCompleted)'), [$SDY, $LDY])
             ->value('count');
         
             return $results_yearly;

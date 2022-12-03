@@ -128,7 +128,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> 
 
 	<footer id="footer">
 		<p>Silliman University Digital Repository</p>

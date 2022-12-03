@@ -221,6 +221,29 @@ input[type=checkbox], input[type=radio]{
   display: none;
 }
 
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 20px;
+}
+
+.page-item {
+  width: 30px;
+  font-size: 20px;
+}
+
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: #ffffff;
+  background: #c71f37;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+.bootstrap-tagsinput {
+  width: 85%;
+}
+
 /* MAIN CONTENT CONTAINER END */
 
 /* USER DASHBOARD START */
@@ -687,6 +710,7 @@ input[type=checkbox], input[type=radio]{
 .paperCont, .bookmarkCont {
   height: 85vh;
   width: 95%;
+  overflow: auto;
 } 
 .tableHeader, .tablepaperInfo {
   border-radius: 5px;
@@ -1382,6 +1406,7 @@ input:checked + .uiabt, input:checked + .uicontact {
 .selectiondisplayCard {
   border: none;
   height: 85vh;
+  overflow: auto;
 }
 
 .resultDisplay {
@@ -1404,6 +1429,25 @@ input:checked + .uiabt, input:checked + .uicontact {
 
 /* SEARCH LANDING PAGE END */
 
+/* STATS PAGE START */
+
+.inputdataCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputDesign {
+  height: 30px;
+}
+
+.statisticsCont{
+  width: 95%;
+
+}
+
+/* STATS PAGE END */
+
 /* FOOTER START */
 
 footer {
@@ -1420,25 +1464,4 @@ footer {
 
 /* FOOTER END */
 
-.pagination {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  padding: 20px;
-}
 
-.page-item {
-  width: 30px;
-  font-size: 20px;
-}
-
-.bootstrap-tagsinput .tag {
-  margin-right: 2px;
-  color: #ffffff;
-  background: #c71f37;
-  padding: 3px 7px;
-  border-radius: 3px;
-}
-.bootstrap-tagsinput {
-  width: 85%;
-}

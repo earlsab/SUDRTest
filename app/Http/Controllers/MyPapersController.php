@@ -20,28 +20,135 @@ class MyPapersController extends Controller
 {
     public function index(Request $request)
     {
-        $keywordresult = DB::table('tagging_tagged')
-        ->orWhere('tag_name', 'LIKE','%'. $request->term . '%')->get();
-
+        $PT = PaperType::all();
+        $College = College::all();
+        $searchstr=$request->term;
+        $count = 0;
         $allpaper = Papers::all();
 
         $paper = Papers::where([
         ['PaperTitle', '!=', Null],
         [function($query) use ($request) {
-
+            $count = 2;
             if (($term = $request->term)) {
+
+                $keywordresult = DB::table('tagging_tagged')
+                ->orWhere('tag_name', 'LIKE','%'. $request->term . '%')->get();
+
+                $author = DB::table('authors')
+                ->orWhere('Fname', 'LIKE','%'. $request->term . '%')
+                ->orWhere('Lname', 'LIKE','%'. $request->term . '%')->get();
+
+                foreach($author as $authors){
+                    $query->orwhere('PaperID', '=', $authors -> paper_id)
+                        ->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
+                        ->orWhere('PaperType', 'LIKE','%'. $term . '%')
+                        ->orWhere('College', 'LIKE','%'. $term . '%')
+                        //->orWhere('ContentAdviser', 'LIKE','%'. $term . '%')
+                        ->get();
+                }
+
+                foreach($keywordresult as $keywordresults){
+                $query->orwhere('PaperID', '=', $keywordresults -> taggable_id)
+                    ->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
+                    ->orWhere('PaperType', 'LIKE','%'. $term . '%')
+                    ->orWhere('College', 'LIKE','%'. $term . '%')
+                    //->orWhere('ContentAdviser', 'LIKE','%'. $term . '%')
+                    ->get();
+                }
+
                 $query->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
                     ->orWhere('PaperType', 'LIKE','%'. $term . '%')
                     ->orWhere('College', 'LIKE','%'. $term . '%')
-                    ->orWhere('ContentAdviser', 'LIKE','%'. $term . '%')->get();
+                    //->orWhere('ContentAdviser', 'LIKE','%'. $term . '%')
+                    ->get();
+                
+                 
+            }
+            
+        }]
+       ])
+
+        
+            ->orderBy("PaperID", "desc")
+            ->paginate();
+            $tags = Papers::all();
+        $count = $paper ->count();
+        return view('papers.displaysearch', compact('paper','tags','allpaper','searchstr', 'PT', 'College', 'count'))
+            ->with('i', (request()->input('page', 1) -1) *5);
+
+    }
+
+    public function filter(Request $request){
+
+        $PT = PaperType::all();
+        $College = College::all();
+        $allpaper = Papers::all();
+        $searchstr=$request->term;
+        $requestPT = null;
+        $requestCollege = null;
+        $requestCollegeEquals = '!=';
+        $requestPTEquals = '!=';
+        $notequals = "!=";
+        $null = null;
+        $requestAuthor = null;
+        $requestAuthorEquals = "!=";
+
+        if($request -> has('College')){
+            $requestCollegeEquals = '=';
+            $requestCollege = $request->College;
+        }
+
+        if($request -> has('PaperType')){
+            $requestPTEquals = '=';
+            $requestPT = $request->PaperType;
+        }
+
+        if($request ->Author){
+            
+            $author = DB::table('authors')
+                    ->orWhere('Fname', 'LIKE','%'. $request->Author . '%')
+                    ->orWhere('Lname', 'LIKE','%'. $request->Author . '%')->latest()->first();
+                    if($author){
+                        $requestAuthorEquals = '=';
+                        $requestAuthor = $author->paper_id;
+                    }else {
+                        $requestAuthor = null;
+                        $requestAuthorEquals = '!=';
+                    }
+                    //$requestAuthorEquals = '!=';
+        }
+
+        $paper = Papers::where([
+        ['PaperTitle', $notequals, $null],
+        ['College', $requestCollegeEquals, $requestCollege],
+        ['PaperType', $requestPTEquals, $requestPT],
+        ['PaperID', $requestAuthorEquals, $requestAuthor],
+
+
+        [function($query) use ($request) {
+
+            if (($term = $request->term)) {
+
+                $keywordresult = DB::table('tagging_tagged')
+                ->orWhere('tag_name', 'LIKE','%'. $request->term . '%')->get();
+                
+                foreach($keywordresult as $keywordresults){
+                $query->orwhere('PaperID', '=', $keywordresults -> taggable_id)
+                    ->orWhere('PaperTitle', 'LIKE','%'. $term . '%')->get();
+                }
+
+                $query->orWhere('PaperTitle', 'LIKE','%'. $term . '%')->get();
             }
         }]
        ])
+
+
             ->orderBy("PaperID", "desc")
             ->paginate(5);
             $tags = Papers::all();
         
-        return view('papers.displaysearch', compact('paper','tags' , 'keywordresult' ,'allpaper'))
+        return view('papers.displaysearch', compact('paper','tags','allpaper', 'searchstr', 'College', 'PT'))
             ->with('i', (request()->input('page', 1) -1) *5);
 
     }
@@ -145,22 +252,17 @@ class MyPapersController extends Controller
         $request->validate([
             'PaperTitle' => 'required',
             'PaperType' => 'required',
-            'file' => [
-                'required',
-                File::types('pdf')
-                    ->max(12 * 1024),
-            ],
         ]);
 
         $paper=Papers::find($PaperID);
         
 
         $file=$request->file;
-
+        if($request->file !== null){
         $filename=time().'.'.$file->getClientOriginalExtension();
                 $request->file->move('assets', $filename);
                 $paper->file=$filename;
-
+        }
             $paper->PaperTitle=$request->PaperTitle;
             $paper->PaperType=$request->PaperType;
             $paper->College=$request->College;

@@ -3,72 +3,60 @@
 @section('content')
     
     <div class="viewPDFCont">
+		<br>
+		<br>
 
-
-
-	<form  action="{{ route('Papers') }}" method="GET" role="search" >
-		<input type="text" placeholder="Search" name="term">
-		<button type="submit"><i class="fa fa-search"></i></button>
-	</form>
-
-	Your search for '' returned "" results.
+		Your search for '{{$searchstr}}' returned "{{$count}}" results.
 	
  
         <div class="pdfinfoDisplay">
 
             <div class="pdfinfoCard">
 
-				<li class="paperinfoHeader">
-					Filter Search
-				</li>
+				<form action="{{ route('FilterResults') }}" method="GET" role="search">
+					<input type="hidden" placeholder="Search" value="{{$searchstr}}" name="term">
+					<li class="paperinfoHeader">
+						Filter Search
+					</li>
 
-				<li class="pdfpaperInfo">
+					<li class="pdfpaperInfo">
 
-                    <div class="colpdf" data-label="College:">
-						<div>
-							<form class="subcatPicker pdfbtnCont" action="{{ route('PaperType') }}" method="GET" role="search" >
-                                <select class="catSelect selectType" name="term" type="text">
-                                    <option selected="true" disabled="disabled">Choose A College</option>
-                                </select>
-							</form>
+						<div class="colpdf" data-label="College:">
+							<select class="selectType" name="College">
+								<option selected="true" disabled="disabled">Select College</option>
+								@foreach($College as $Colleges)
+								<option value="{{$Colleges->CollegeAbbr}}">{{$Colleges->CollegeName}}</option>
+								@endforeach
+							</select>
 						</div>
-					</div>
 
-                    <div class="colpdf" data-label="Paper Type:">
-						<div>
-							<form class="subcatPicker pdfbtnCont" action="{{ route('PaperType') }}" method="GET" role="search" >
-                                <select class="catSelect selectType" name="term" type="text">
-                                    <option selected="true" disabled="disabled">Choose A Paper Type</option>
-                                </select>
-							</form>
+						<div class="colpdf" data-label="Paper Type:">
+							<div>
+								<select class="selectType" name="PaperType">
+									<option selected="true" disabled="disabled">Select Paper Type</option>
+									@foreach($PT as $PaperType)
+									<option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
+									@endforeach
+								</select>
+							</div>
 						</div>
-					</div>
 
-                    <div class="colpdf" data-label="Author:">
-						<div>
-                            <form class="subcatPicker pdfbtnCont">
-                                @csrf
-                                <input type="text" class="catSelect selectType" placeholder="Search Author" name="PaperTypeName">
-                            </form>
+						<div class="colpdf" data-label="Author:">
+							<div>
+								<form class="subcatPicker pdfbtnCont">
+									@csrf
+									<input type="text" class="catSelect selectType" placeholder="Search Author" name="Author">
+								</form>
+							</div>
 						</div>
-					</div>
 
-					<div class="colpdf" data-label="Keyword:">
-						<div>
-                            <form class="subcatPicker pdfbtnCont">
-                                @csrf
-                                <input type="text" class="catSelect selectType" placeholder="Search Keyword" name="PaperTypeName">
-                            </form>
+						<div class="pdfbtnCont">
+							<button type="submit" class="pdfBtn redBtn">Filter Search</button> 
 						</div>
-					</div>
 
-                    <div class="pdfbtnCont">
-                        <button class="pdfBtn redBtn">Filter Search</button> 
-                    </div>
-
-					{{ $paper->links() }}
-				</li>
-				
+						{{ $paper->links() }}
+					</li>
+				</form>
             </div>
 
             <div class="pdfdisplayCard">
@@ -90,19 +78,8 @@
 						</li>						
 						@endforeach
 
-						@foreach($keywordresult as $keytag)
-							@foreach($allpaper as $allpapers)
-								@if($allpapers->PaperID == $keytag->taggable_id)
-									<li class="tablepaperInfo">
-										<div class="col col-1" data-label="Title:">{{$allpapers->PaperTitle}}</div>
-										<div class="col col-2" data-label="Paper Type:">{{$allpapers->PaperType}}</div>
-										<div class="col col-3" data-label="College:">{{$allpapers->College}}</div>
-										<div class="col col-4" data-label="View Link:"><button class="redBtn" onclick="location.href='{{route('viewPDF', $allpapers->PaperID)}}'">View</button></div>
-									</li>
-								@endif
-							@endforeach						
-						@endforeach
 					</ul>
+
 				</div>
 
             </div>

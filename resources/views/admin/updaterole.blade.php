@@ -25,7 +25,10 @@
                             
                             @endif
                         <div class="subcatPicker pdfbtnCont">
-                            <input type="text" class="catSelect selectType" placeholder="Admin" name="isAdmin">
+                            <select class="catSelect selectType" name="isAdmin">
+                                <option value="0">Regular User</option>
+                                <option value="1">Admin</option>
+                            </select>
                             <button class="pdfBtn redBtn" type="submit">Update</button>
                         </div>
                     </form>
