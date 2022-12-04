@@ -51,7 +51,7 @@ class MyProfileController extends Controller
             'password' => Hash::make($request->newpassword)
         ]);
 
-        return redirect()->back()->with("status", "Password changed successfully!");
+        return redirect()->back()->with("message", "Password changed successfully!");
     }
 
     

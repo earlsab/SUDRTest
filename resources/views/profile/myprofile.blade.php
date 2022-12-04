@@ -66,6 +66,9 @@
 								<br>
 
 								<button class="redBtn" type="submit">Change</button>
+								@if(Session::has('message'))   
+								{{Session::get('message')}} 
+								@endif
 							</form>
 						</div>
 					</div>
@@ -153,12 +156,14 @@
 		</div>
 	</div>
 
+	
+
 	<footer id="footer">
 		<p>Silliman University Digital Repository</p>
 	</footer>
 
 	<script>
-
+		
 		var modal = document.getElementById("myModal");
 		var btn = document.getElementById("modalBtn");
 		var span = document.getElementsByClassName("close")[0];
@@ -185,6 +190,8 @@
 		span.onclick = function() {
 		modal.style.display = "none";
 		}
+
+
 
 	</script>
 

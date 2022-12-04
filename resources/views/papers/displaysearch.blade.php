@@ -5,9 +5,6 @@
     <div class="viewPDFCont">
 		<br>
 		<br>
-
-		Your search for '{{$searchstr}}' returned "{{$count}}" results.
-	
  
         <div class="pdfinfoDisplay">
 

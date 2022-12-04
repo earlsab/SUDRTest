@@ -439,12 +439,6 @@ class MyPapersController extends Controller
             $requestCollege = $request->College;
         }
 
-        if($request -> has('PaperType')){
-            $requestPTEquals = '=';
-            $requestPT = $request->PaperType;
-        }
-
-
         $paper = Papers::where([
 
         ['PaperID', $requestAuthorEquals, $requestAuthor],
@@ -468,5 +462,7 @@ class MyPapersController extends Controller
         
         return view('papers.keywordsearch', compact('paper','tags','allpaper', 'searchstr', 'College', 'PT', 'count'));
     }
+
+    
  
 }

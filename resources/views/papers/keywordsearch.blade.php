@@ -10,7 +10,7 @@
 
             <div class="pdfinfoCard">
 
-				<form action="{{ route('KeySearch') }}" method="GET" role="search">
+				<form action="{{ route('FilterResults') }}" method="GET" role="search">
 					<input type="hidden" placeholder="Search" value="{{$searchstr}}" name="term">
 					<li class="paperinfoHeader">
 						Filter Search

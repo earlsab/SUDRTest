@@ -55,6 +55,7 @@ class AdminController extends Controller
         $range1_chartdata = (new StatsController)->compareRange1($r1mA, $r1yA, $r1mB, $r1yB);
         
         $range2_chartdata = (new StatsController)->compareRange2($r2mA, $r2yA, $r2mB, $r2yB);
+        
         return view('admin.adminpage',compact('College','PT','paper', 'range1_chartdata', 'range2_chartdata'));
     }
 
@@ -75,7 +76,7 @@ class AdminController extends Controller
         $top3_keywords_names = $top3_keywords->keys();
         $top3_keywords_count = $top3_keywords->values();
 
-        return view('admin.adminpage', compact('College', 'PT', 'paper', 'top3_keywords_names', 'top3_keywords_count', 'range1_chartdata', 'range2_chartdata'));
+        return view('statistics.filterstats', compact('College', 'PT', 'paper', 'top3_keywords_names', 'top3_keywords_count', 'range1_chartdata', 'range2_chartdata'));
     }
     
 

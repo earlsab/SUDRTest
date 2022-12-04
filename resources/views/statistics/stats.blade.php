@@ -4,7 +4,7 @@
 <div class="statisticsCont">
 
     <div class="">
-
+        <a href="{{route('Top3Keywords')}}">To Keyword -></a>
         <li class="paperinfoHeader">
             Comparison of number of papers among Colleges
         </li>
@@ -16,7 +16,7 @@
             <br>
 
             <form class="dateRange" method="get" action="{{route('compareRange')}}">
-                <div class="inputdataCont">
+                <div class="inputdataCont1">
                     <div>
                         &nbsp Range 1: &nbsp
                         <select class="inputDesign" name="Range1monthA">
@@ -54,7 +54,7 @@
                 <b>with:</b>
                 <br>
 
-                <div class="inputdataCont">
+                <div class="inputdataCont1">
                     <div>
                         &nbsp Range 2: &nbsp
                         <select class="inputDesign" name="Range2monthA">
@@ -99,33 +99,7 @@
 
     <div class="">
 
-        <li class="paperinfoHeader">
-            Top 3 used keywords
-        </li>
 
-        <li class="pdfpaperInfo">
-            <form method="get" action="{{route('Top3Keywords')}}">
-                <div class="inputdataCont">
-                    <div>
-                        &nbsp From &nbsp
-                        <select class="inputDesign" name="keyMonth">
-                            <option selected disabled>Select Month</option>
-                            <?php
-                                for ($i = 0; $i < 12; $i++) {
-                                    $time = strtotime(sprintf('%d months', $i));   
-                                    $label = date('F', $time);   
-                                    $value = date('n', $time);
-                                    echo "<option value='$value'>$label</option>";
-                                }
-                            ?>
-                        </select>
-                        <input type="text" class="inputDesign" placeholder="year" name="keyYear">
-                    </div>
-                    &nbsp&nbsp&nbsp<button class="redBtn" type="submit">Search</button>
-
-                </div>
-            </form>
-        </li>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
