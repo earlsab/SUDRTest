@@ -5,9 +5,6 @@
     <div class="viewPDFCont">
 		<br>
 		<br>
-
-		Your search for '{{$searchstr}}' returned "{{$count}}" results.
-	
  
         <div class="pdfinfoDisplay">
 
@@ -20,6 +17,15 @@
 					</li>
 
 					<li class="pdfpaperInfo">
+
+                        <div class="colpdf" data-label="Keyword:">
+							<div>
+								<form class="subcatPicker pdfbtnCont">
+									@csrf
+									<input type="text" class="catSelect selectType" placeholder="Search Keyword" name="term">
+								</form>
+							</div>
+						</div>
 
 						<div class="colpdf" data-label="College:">
 							<select class="catSelect" name="College">

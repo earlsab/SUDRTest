@@ -14,11 +14,13 @@
 		<h2 class="searchHeading">Welcome, {{ Auth::user()->OrganizationName }}! <br> Anything you're looking for?</h2>
 		@endif
 		<form class="searchForm" action="{{ route('Papers') }}" method="GET" role="search" >
-			<input type="text" placeholder="Search" name="term" required>
+			<input type="text" placeholder="Search for Paper Titles, Paper Types or Authors..." name="term">
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
+		<div>
+			<a class="keyLink" onclick="location.href='{{route('KeywordSearch')}}'">Search by keywords -></a>
+		</div>
 	</div>
-
 </div>
 
 <div class="aboutCont">

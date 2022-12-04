@@ -249,6 +249,11 @@ input[type=checkbox], input[type=radio]{
   font-size: x-small;
 }
 
+.keyLink {
+  color: #000;
+  padding-top: 10px;
+}
+
 /* MAIN CONTENT CONTAINER END */
 
 /* USER DASHBOARD START */
@@ -1439,7 +1444,8 @@ input:checked + .uiabt, input:checked + .uicontact {
 .inputdataCont {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .inputDesign {
@@ -1449,6 +1455,10 @@ input:checked + .uiabt, input:checked + .uicontact {
 .statisticsCont{
   width: 95%;
 
+}
+
+.compareForm {
+  display: flex;
 }
 
 /* STATS PAGE END */

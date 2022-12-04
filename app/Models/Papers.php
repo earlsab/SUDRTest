@@ -20,6 +20,7 @@ class Papers extends Model
         'file',
         'DateCompleted',
         'ContentAdviser',
+        'modified_by',
     ];
 
 }

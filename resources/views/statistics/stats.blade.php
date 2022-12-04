@@ -6,31 +6,88 @@
     <div class="">
 
         <li class="paperinfoHeader">
-            Comparison of number of papers
+            Comparison of number of papers among Collegs
+        </li>
+
+        <li class="pdfpaperInfo">
+
+            <b>Compare:</b>
+
+            <br>
+
+            <form>
+                <div class="inputdataCont">
+                    <div>
+                        &nbsp Range 1: &nbsp
+                        <select class="inputDesign" name="Range1monthA">
+                               <option>marurary</option>
+                        </select>
+                        <input class="inputDesign" type="text" placeholder="year" name="Range1yearA">
+                    </div>
+                        
+                    <div>
+                        &nbsp to &nbsp
+                        <select class="inputDesign" name="Range2monthB">
+                            <option>marurary</option>
+                        </select>
+                        <input type="text" class="inputDesign" placeholder="year" name="Range1yearB">
+                    </div>
+                </div>
+
+                <br>
+                <b>with:</b>
+                <br>
+
+                <div class="inputdataCont">
+                    <div>
+                        &nbsp Range 2: &nbsp
+                        <select class="inputDesign" name="Range2monthA">
+                               <option>marurary</option>
+                        </select>
+                        <input class="inputDesign" type="text" placeholder="year" name="Range2A">
+                    </div>
+                        
+                    <div>
+                        &nbsp to &nbsp
+                        <select class="inputDesign" name="Range2monthA">
+                            <option>marurary</option>
+                        </select>
+                        <input type="text" class="inputDesign" placeholder="year" name="Range2B">
+                    </div>
+                </div>
+                <br>
+                <button class="redBtn" type="submit">Compare</button>
+            </form>
+        </li>
+    </div>
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="">
+
+        <li class="paperinfoHeader">
+            Top 5 used keywords
         </li>
 
         <li class="pdfpaperInfo">
             <form>
                 <div class="inputdataCont">
                     <div>
-                        &nbsp Compare: &nbsp
-                        <select class="inputDesign">
-                               <option>marurary</option>
-                        </select>
-                        <input class="inputDesign" type="text" placeholder="year" name="ContentAdviser">
+                        Input Keyword:
+                        <input class="inputDesign" type="text" placeholder="Search Keyword" name="Range1yearA">
                     </div>
                         
                     <div>
-                        &nbsp with &nbsp
-                        <select class="inputDesign">
+                        &nbsp from &nbsp
+                        <select class="inputDesign" name="Range2monthB">
                             <option>marurary</option>
                         </select>
-                        <input type="text" class="inputDesign" placeholder="year" name="ContentAdviser">
+                        <input type="text" class="inputDesign" placeholder="year" name="Range1yearB">
                     </div>
-                        
-                    &nbsp &nbsp <button class="redBtn" type="submit">Compare</button>
+                    &nbsp&nbsp&nbsp<button class="redBtn" type="submit">Search</button>
                 </div>
-
             </form>
         </li>
     </div>
@@ -49,7 +106,7 @@
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Month', 'Year'],
+                labels: ['Month', 'Year', 'asdasda'],
                 datasets: [{
                     label: 'Number of Papers Uploaded',
                     data: [monthly,yearly],

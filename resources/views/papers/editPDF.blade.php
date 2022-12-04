@@ -19,14 +19,18 @@
                 <div class="colpdf" data-label="College:">{{ $paper->College }}</div>
                 <div class="colpdf" data-label="Author(s):">
                     @foreach($result as $results)
-                        {{ $results->FullName }}
+                        {{ ucwords($results->FullName) }}
                     @endforeach  
                 </div>
                 <div class="colpdf" data-label="Content Adviser:">{{ $paper->ContentAdviser }}</div>
                 <div class="colpdf" data-label="Date Completed:">{{ $paper->DateCompleted }}</div>
                 <div class="colpdf" data-label="Key Words:">
-                    @foreach($keyword as $keywords)
+                @foreach($keyword as $keywords)
+                        @if($loop->last)
                         {{$keywords->tag_name}}
+                        @else
+                        {{$keywords->tag_name}},
+                        @endif
                     @endforeach
                 </div>
 
@@ -34,7 +38,7 @@
                 <div class="pdfbtnCont">
                     <button class="pdfBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">Back</button>
                     <button class="pdfBtn redBtn" id="modalOneBtn">Update</button>
-                    <button class="pdfBtn redBtn" id="modalTwoBtn">Delete</button>
+                    <button class="pdfBtn redBtn" id="modalTwoBtn" onclick="showModal();">Delete</button>
                 </div>
                 @endif
 
@@ -44,6 +48,7 @@
                     <button class="pdfBtn redBtn" id="modalOneBtn">Update</button>
                 </div>
                 @endif
+                <i>*Last modified by: '@'{{$paper->modified_by}}, At {{$paper->updated_at}}</i>
             </li>
 
             <div id="modalOne" class="modal">

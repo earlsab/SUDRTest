@@ -104,11 +104,18 @@
 		<label class="infoLabel">Content Advisor</label>
 	</div>
 
+	<br>
+
+	Input Keywords:
+	<div class="mb-3">
+        <input class="form-control" type="text" data-role="tagsinput" name="tags">
+    </div>
+
 @csrf
 	<div class="addPDF">
 		<input class="redBtn" value="{{$paper->file}}" name='file' type="file" accept="application/pdf" >
 	</div>
-
+	<input type="hidden" name="modified_by" value="{{Auth::user()->UserName}}">
 	<br>
 
 	<input type="button" value="Submit" class="redBtn" id="btnPrompt">
@@ -119,6 +126,10 @@
 		<br>
 		<button class="redBtn" type="submit">Yes</button>
 	</p>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+
 	<script>
 
 		document.getElementById('dupeBtn').onclick = duplicate;

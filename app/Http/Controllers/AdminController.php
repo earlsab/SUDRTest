@@ -26,11 +26,11 @@ class AdminController extends Controller
         $PT = PaperType::all();
         $paper = Papers::all();
 
-        $result_weekly = (new StatsController)->stats_weekly();
+
         $result_monthly = (new StatsController)->stats_monthly();
         $result_yearly = (new StatsController)->stats_yearly();
 
-        return view('admin.adminpage',compact('College','PT','paper', 'result_weekly', 'result_monthly', 'result_yearly'));
+        return view('admin.adminpage',compact('College','PT','paper', 'result_monthly', 'result_yearly'));
     }
     
 

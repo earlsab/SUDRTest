@@ -10,19 +10,7 @@ use DB;
 
 class StatsController extends Controller
 {
-    public function stats_weekly()
-    {
-        $SDW = Carbon::now()->startOfWeek()->toDateString();
-        $LDW = Carbon::now()->endOfWeek()->toDateString();
-
-        $results_weekly = DB::table('papers')
-            ->select(DB::raw('COUNT(DateCompleted) as count'))
-            ->whereBetween(DB::raw('DATE(DateCompleted)'), [$SDW, $LDW])
-            ->value('count');
-        
-            return $results_weekly;
-    }
-
+   
     public function stats_monthly()
     {
         $SDM = Carbon::now()->startOfMonth()->toDateString();

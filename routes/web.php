@@ -55,6 +55,7 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/MyProfile', [MyProfileController::class, 'index'])->name('MyProfile');
     Route::get('/Papers', [MyPapersController::class, 'index'])->name('Papers');
     Route::get('/Filter', [MyPapersController::class, 'filter'])->name('FilterResults');
+    Route::get('/KeywordSearch', [MyPapersController::class, 'keysearch'])->name('KeywordSearch');
     Route::get('/Category/PaperType', [CategoriesController::class, 'papertype'])->name('PaperType');
     Route::get('/Category/Colleges', [CategoriesController::class, 'college'])->name('Colleges');
     Route::get('/MyBookmarks', [BookmarkController::class, 'index'])->name('MyBookmarks');

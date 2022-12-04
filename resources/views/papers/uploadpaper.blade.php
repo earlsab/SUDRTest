@@ -69,7 +69,7 @@
 
 @csrf
 	<div class="addPDF">
-		<input class="redBtn" name='file' type="file" accept="application/pdf" >
+		<input class="redBtn" name='file' type="file" accept="application/pdf" required>
 	</div>
 
 	<br>
