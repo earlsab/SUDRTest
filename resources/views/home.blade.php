@@ -17,8 +17,9 @@
 			<input type="text" placeholder="Search for Paper Titles, Paper Types or Authors..." name="term">
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
+		<br>
 		<div>
-			<a class="keyLink" onclick="location.href='{{route('KeywordSearch')}}'">Search by keywords -></a>
+			<a class="redBtn" onclick="location.href='{{route('KeywordSearch')}}'">Search by keyword</a>
 		</div>
 	</div>
 </div>

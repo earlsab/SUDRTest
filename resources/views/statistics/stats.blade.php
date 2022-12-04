@@ -6,7 +6,7 @@
     <div class="">
 
         <li class="paperinfoHeader">
-            Comparison of number of papers among Collegs
+            Comparison of number of papers among Colleges
         </li>
 
         <li class="pdfpaperInfo">
@@ -15,20 +15,36 @@
 
             <br>
 
-            <form>
+            <form class="dateRange" method="get" action="{{route('compareRange')}}">
                 <div class="inputdataCont">
                     <div>
                         &nbsp Range 1: &nbsp
                         <select class="inputDesign" name="Range1monthA">
-                               <option>marurary</option>
+                            <option selected disabled>Select Month</option>
+                            <?php
+                                for ($i = 0; $i < 12; $i++) {
+                                    $time = strtotime(sprintf('%d months', $i));   
+                                    $label = date('F', $time);   
+                                    $value = date('n', $time);
+                                    echo "<option value='$value'>$label</option>";
+                                }
+                            ?>
                         </select>
                         <input class="inputDesign" type="text" placeholder="year" name="Range1yearA">
                     </div>
                         
                     <div>
                         &nbsp to &nbsp
-                        <select class="inputDesign" name="Range2monthB">
-                            <option>marurary</option>
+                        <select class="inputDesign" name="Range1monthB">
+                            <option selected disabled>Select Month</option>
+                            <?php
+                                for ($i = 0; $i < 12; $i++) {
+                                    $time = strtotime(sprintf('%d months', $i));   
+                                    $label = date('F', $time);   
+                                    $value = date('n', $time);
+                                    echo "<option value='$value'>$label</option>";
+                                }
+                            ?>
                         </select>
                         <input type="text" class="inputDesign" placeholder="year" name="Range1yearB">
                     </div>
@@ -42,17 +58,33 @@
                     <div>
                         &nbsp Range 2: &nbsp
                         <select class="inputDesign" name="Range2monthA">
-                               <option>marurary</option>
+                            <option selected disabled>Select Month</option>
+                            <?php
+                                for ($i = 0; $i < 12; $i++) {
+                                    $time = strtotime(sprintf('%d months', $i));   
+                                    $label = date('F', $time);   
+                                    $value = date('n', $time);
+                                    echo "<option value='$value'>$label</option>";
+                                }
+                            ?>
                         </select>
-                        <input class="inputDesign" type="text" placeholder="year" name="Range2A">
+                        <input class="inputDesign" type="text" placeholder="year" name="Range2yearA">
                     </div>
                         
                     <div>
                         &nbsp to &nbsp
-                        <select class="inputDesign" name="Range2monthA">
-                            <option>marurary</option>
+                        <select class="inputDesign" name="Range2monthB">
+                            <option selected disabled>Select Month</option>
+                            <?php
+                                for ($i = 0; $i < 12; $i++) {
+                                    $time = strtotime(sprintf('%d months', $i));   
+                                    $label = date('F', $time);   
+                                    $value = date('n', $time);
+                                    echo "<option value='$value'>$label</option>";
+                                }
+                            ?>
                         </select>
-                        <input type="text" class="inputDesign" placeholder="year" name="Range2B">
+                        <input type="text" class="inputDesign" placeholder="year" name="Range2yearB">
                     </div>
                 </div>
                 <br>
@@ -61,73 +93,95 @@
         </li>
     </div>
 
-    <div>
+    <div class="chartCont">
         <canvas id="myChart"></canvas>
     </div>
 
     <div class="">
 
         <li class="paperinfoHeader">
-            Top 5 used keywords
+            Top 3 used keywords
         </li>
 
         <li class="pdfpaperInfo">
-            <form>
+            <form method="get" action="{{route('Top3Keywords')}}">
                 <div class="inputdataCont">
                     <div>
-                        Input Keyword:
-                        <input class="inputDesign" type="text" placeholder="Search Keyword" name="Range1yearA">
-                    </div>
-                        
-                    <div>
-                        &nbsp from &nbsp
-                        <select class="inputDesign" name="Range2monthB">
-                            <option>marurary</option>
+                        &nbsp From &nbsp
+                        <select class="inputDesign" name="keyMonth">
+                            <option selected disabled>Select Month</option>
+                            <?php
+                                for ($i = 0; $i < 12; $i++) {
+                                    $time = strtotime(sprintf('%d months', $i));   
+                                    $label = date('F', $time);   
+                                    $value = date('n', $time);
+                                    echo "<option value='$value'>$label</option>";
+                                }
+                            ?>
                         </select>
-                        <input type="text" class="inputDesign" placeholder="year" name="Range1yearB">
+                        <input type="text" class="inputDesign" placeholder="year" name="keyYear">
                     </div>
                     &nbsp&nbsp&nbsp<button class="redBtn" type="submit">Search</button>
+
                 </div>
             </form>
         </li>
     </div>
 
-    <div>
-        <canvas id="myChart"></canvas>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        var monthly = @json($result_monthly);
-        var yearly = @json($result_yearly);
+        var range1_data = @json($range1_chartdata);
+        var range2_data = @json($range2_chartdata);
 
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Month', 'Year', 'asdasda'],
+                labels: ['CAS','CBA','CCS','COE','CED','COL','CMC','CON','COPVA','DIV'
+                        ,'GRAD','ICLS','IEMS','IRS','ISL','MED','SAITE','SBE','SPAG'],
                 datasets: [{
-                    label: 'Number of Papers Uploaded',
-                    data: [monthly,yearly],
+                    label: 'Date Range 1',
+                    data: range1_data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
                     ],
                     borderWidth: 1
-                }]
+                },{
+                    label: 'Date Range 2',
+                    data: range2_data,
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                },
+                
+                ]
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+                indexAxis: 'y',
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each horizontal bar to be 2px wide
+                elements: {
+                bar: {
+                    borderWidth: 2,
+                }
+                },
+                responsive: true,
+                plugins: {
+                legend: {
+                    position: 'right',
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js Horizontal Bar Chart'
+                }
                 }
             }
         }); 

@@ -250,7 +250,6 @@ input[type=checkbox], input[type=radio]{
 }
 
 .keyLink {
-  color: #000;
   padding-top: 10px;
 }
 
@@ -1459,6 +1458,15 @@ input:checked + .uiabt, input:checked + .uicontact {
 
 .compareForm {
   display: flex;
+}
+
+
+.chartCont{
+  position: relative;
+  margin: auto;
+  height: 70vh;
+  width: 70vw;
+  overflow: auto;
 }
 
 /* STATS PAGE END */

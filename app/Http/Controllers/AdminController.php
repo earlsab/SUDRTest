@@ -26,11 +26,56 @@ class AdminController extends Controller
         $PT = PaperType::all();
         $paper = Papers::all();
 
+        $top3_keywords_names = array("");
+        $top3_keywords_count = array(0);
 
-        $result_monthly = (new StatsController)->stats_monthly();
-        $result_yearly = (new StatsController)->stats_yearly();
+        $range1_chartdata = 0;
+        $range2_chartdata = 0;
 
-        return view('admin.adminpage',compact('College','PT','paper', 'result_monthly', 'result_yearly'));
+        return view('admin.adminpage',compact('College','PT','paper', 'range1_chartdata', 'range2_chartdata', 'top3_keywords_names', 'top3_keywords_count'));
+    }
+
+    public function compareData(Request $request)
+    {
+        $College = College::all();
+        $PT = PaperType::all();
+        $paper = Papers::all();
+
+
+        $r1mA = $request->Range1monthA;
+        $r1yA = $request->Range1yearA;
+        $r1mB = $request->Range1monthB;  
+        $r1yB = $request->Range1yearB; 
+    
+        $r2mA = $request->Range2monthA; 
+        $r2yA = $request->Range2yearA;
+        $r2mB = $request->Range2monthB; 
+        $r2yB = $request->Range2yearB;
+
+        $range1_chartdata = (new StatsController)->compareRange1($r1mA, $r1yA, $r1mB, $r1yB);
+        
+        $range2_chartdata = (new StatsController)->compareRange2($r2mA, $r2yA, $r2mB, $r2yB);
+        return view('admin.adminpage',compact('College','PT','paper', 'range1_chartdata', 'range2_chartdata'));
+    }
+
+    public function filterKeywords(Request $request)
+    {
+        $College = College::all();
+        $PT = PaperType::all();
+        $paper = Papers::all();
+
+        $range1_chartdata = 0;
+        $range2_chartdata = 0;
+
+        $year = $request->keyYear; 
+        $month = $request->keyMonth; 
+
+        $top3_keywords = (new StatsController)->keywordFilter($month, $year);
+
+        $top3_keywords_names = $top3_keywords->keys();
+        $top3_keywords_count = $top3_keywords->values();
+
+        return view('admin.adminpage', compact('College', 'PT', 'paper', 'top3_keywords_names', 'top3_keywords_count', 'range1_chartdata', 'range2_chartdata'));
     }
     
 

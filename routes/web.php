@@ -47,6 +47,8 @@ Route::prefix('Admin')->middleware(['auth','isAdmin'])->group(function() {
     Route::get('/Papers', [AdminController::class, 'showAll'])->name('MyPapersAdmin');
     Route::get('/PapersMaintain', [AdminController::class, 'maintenance'])->name('MyPapersMaintain');
     Route::get('/viewPDF/{id}', [AdminController::class, 'view'])->name('AdminView');
+    Route::get('/compareRange', [AdminController::class, 'compareData'])->name('compareRange');
+    Route::get('/Top3Keywords', [AdminController::class, 'filterKeywords'])->name('Top3Keywords');
     Route::resource('paper', AdminController::class)->only(['edit', 'update', 'destroy']);
 });
 
@@ -55,6 +57,7 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/MyProfile', [MyProfileController::class, 'index'])->name('MyProfile');
     Route::get('/Papers', [MyPapersController::class, 'index'])->name('Papers');
     Route::get('/Filter', [MyPapersController::class, 'filter'])->name('FilterResults');
+    Route::get('/KeySearch', [MyPapersController::class, 'keysearch'])->name('KeySearch');
     Route::get('/KeywordSearch', [MyPapersController::class, 'keysearch'])->name('KeywordSearch');
     Route::get('/Category/PaperType', [CategoriesController::class, 'papertype'])->name('PaperType');
     Route::get('/Category/Colleges', [CategoriesController::class, 'college'])->name('Colleges');
