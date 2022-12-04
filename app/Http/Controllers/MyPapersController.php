@@ -232,6 +232,7 @@ class MyPapersController extends Controller
         
         $paper=new Papers();
 
+        
         $file=$request->file;
 
         $filename=time().'.'.$file->getClientOriginalExtension();
@@ -249,6 +250,8 @@ class MyPapersController extends Controller
             
             $paper->save();
             $paper->tag($tags);
+        
+
 
             if(count($input['Fname']) > 0){
                 for($i = 0 ; $i < count($input['Fname']) ; $i++){

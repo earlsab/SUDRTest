@@ -49,6 +49,11 @@
     <main>
         @yield('content')
     </main>
-
+	<!-- <script>
+		flatpickr('#set-date',{
+			minDate: "today",
+			dateFormat: "Y-m-d",
+		});
+	</script> -->
 </body>
 </html>
