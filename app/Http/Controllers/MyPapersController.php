@@ -7,6 +7,7 @@ use App\Models\Authors;
 use App\Models\College;
 use App\Models\Relations;
 use App\Models\PaperType;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
@@ -68,7 +69,6 @@ class MyPapersController extends Controller
             
         }]
        ])
-
         
             ->orderBy("PaperID", "desc")
             ->paginate();
@@ -130,6 +130,23 @@ class MyPapersController extends Controller
         [function($query) use ($request) {
             $count = 2;
             if (($term = $request->term)) {
+
+
+                if($request ->Author){
+            
+                    $author = DB::table('authors')
+                            ->orWhere('Fname', 'LIKE','%'. $request->Author . '%')
+                            ->orWhere('Lname', 'LIKE','%'. $request->Author . '%')->latest()->first();
+                            if($author){
+                                $requestAuthorEquals = '=';
+                                $requestAuthor = $author->paper_id;
+                            }else {
+                                $requestAuthor = null;
+                                $requestAuthorEquals = '!=';
+                            }
+                            //$requestAuthorEquals = '!=';
+                }
+
                 $keywordresult = DB::table('tagging_tagged')
                 ->orWhere('tag_name', 'LIKE','%'. $request->term . '%')->get();
                 
@@ -167,21 +184,28 @@ class MyPapersController extends Controller
         ->where('authors.paper_id', '=', $PaperID)
         ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
         ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
-        ->select(DB::raw("GROUP_CONCAT(authors.Lname,' ', authors.Fname) as Citation"))
+        ->select(DB::raw("GROUP_CONCAT(' ', substr(authors.Lname , 1 , 1),'.',' ', authors.Fname) as Citation"))
+        ->get();
+
+        $cite2 = DB::table('authors')
+        ->where('authors.paper_id', '=', $PaperID)
+        ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
+        ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
+        ->select(DB::raw("GROUP_CONCAT(' ', authors.Lname,',',' ', substr(authors.Fname , 1 , 1)) as Citation"))
         ->get();
 
         $result = DB::table('authors')
         ->where('authors.paper_id', '=', $PaperID)
         ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
         ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
-        ->select(DB::raw("GROUP_CONCAT(authors.Fname,' ', authors.Lname) as FullName"))
+        ->select(DB::raw("GROUP_CONCAT(' ', authors.Fname,' ', authors.Lname) as FullName"))
         ->get();
 
         $keyword = DB::table('tagging_tagged')
         ->where('taggable_id' , '=' , $PaperID)
         ->get();
 
-        return view('papers.viewPDF', compact('paper','result','cite','College','PT','author', 'keyword'));
+        return view('papers.viewPDF', compact('paper','result','cite','cite2','College','PT','author', 'keyword'));
     }
 
     public function create()
@@ -247,6 +271,27 @@ class MyPapersController extends Controller
 
     }
 
+    public function destroy(Papers $paper)
+    {    
+         $papers = $paper->PaperID;
+ 
+         $authorID=DB::table('authors')
+         ->where('paper_id', '=', $paper)
+         ->value('AuthorID');
+ 
+         $relation=DB::table('relations')
+         ->where('paper_ID', '=', $paper)
+         ->where('author_ID', '=', $authorID)
+         ->value('id');
+         
+         DB::table('papers')->where('PaperID', '=', $papers)->delete();
+         
+         // Authors::destroy($authorID);
+         // Relations::destroy($relation);
+         
+         return redirect()->route('AdminPage');
+    }
+
     public function update(Request $request, $PaperID)
     {
         $request->validate([
@@ -255,7 +300,6 @@ class MyPapersController extends Controller
         ]);
 
         $paper=Papers::find($PaperID);
-        
 
         $file=$request->file;
         if($request->file !== null){
@@ -268,11 +312,16 @@ class MyPapersController extends Controller
             $paper->College=$request->College;
             $paper->DateCompleted=$request->DateCompleted;
             $paper->ContentAdviser=$request->ContentAdviser;
-            
+            $paper->modified_by=$request->modified_by;
+            $input = $request->all();
+            $tags = explode(",", $request->tags);
             $paper->save();
 
+            $paper->tag($tags);
             $author=Relations::select('author_ID')
             ->where('paper_ID', $PaperID)->get();
+
+            
 
             $prevcount = Relations::where('paper_ID', $PaperID)->get()->count();
 
@@ -357,13 +406,64 @@ class MyPapersController extends Controller
         ->where('authors.paper_id', '=', $PaperID)
         ->join('relations', 'relations.author_ID', '=', 'authors.AuthorID')
         ->join('papers', 'papers.PaperID', '=', 'relations.paper_ID')
-        ->select(DB::raw("GROUP_CONCAT(authors.Fname,' ', authors.Lname) as FullName"))
+        ->select(DB::raw("GROUP_CONCAT(' ', authors.Fname,' ', authors.Lname) as FullName"))
         ->get();
 
         $keyword = DB::table('tagging_tagged')
         ->where('taggable_id' , '=' , $PaperID)
         ->get();
         return view('papers.editPDF', compact('paper','result','cite','College','PT','author','keyword'));
+    }
+
+    public function keysearch(Request $request){
+        
+        $PT = PaperType::all();
+        $College = College::all();
+        $allpaper = Papers::all();
+        $searchstr=$request->term;
+        $requestPT = null;
+        $requestCollege = null;
+        $requestCollegeEquals = '!=';
+        $requestPTEquals = '!=';
+        $notequals = "!=";
+        $null = null;
+        $requestAuthor = null;
+        $requestAuthorEquals = "!=";
+        $count = 0;
+
+        if($request -> has('College')){
+            $requestCollegeEquals = '=';
+            $requestCollege = $request->College;
+        }
+
+        if($request -> has('PaperType')){
+            $requestPTEquals = '=';
+            $requestPT = $request->PaperType;
+        }
+
+
+        $paper = Papers::where([
+
+        ['PaperID', $requestAuthorEquals, $requestAuthor],
+
+
+        [function($query) use ($request) {
+            $count = 2;
+            if (($term = $request->term)) {
+
+                $keywordresult = DB::table('tagging_tagged')
+                ->orWhere('tag_name', 'LIKE','%'. $request->term . '%')->get();
+                
+                foreach($keywordresult as $keywordresults){
+                $query->orwhere('PaperID', '=', $keywordresults -> taggable_id);
+                }
+
+            }
+        }]
+    ]);
+            $tags = Papers::all();
+        
+        return view('papers.keywordsearch', compact('paper','tags','allpaper', 'searchstr', 'College', 'PT', 'count'));
     }
  
 }
