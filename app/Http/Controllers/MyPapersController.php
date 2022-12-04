@@ -93,6 +93,7 @@ class MyPapersController extends Controller
         $null = null;
         $requestAuthor = null;
         $requestAuthorEquals = "!=";
+        $count = 0;
 
         if($request -> has('College')){
             $requestCollegeEquals = '=';
@@ -127,9 +128,8 @@ class MyPapersController extends Controller
 
 
         [function($query) use ($request) {
-
+            $count = 2;
             if (($term = $request->term)) {
-
                 $keywordresult = DB::table('tagging_tagged')
                 ->orWhere('tag_name', 'LIKE','%'. $request->term . '%')->get();
                 
@@ -148,7 +148,7 @@ class MyPapersController extends Controller
             ->paginate(5);
             $tags = Papers::all();
         
-        return view('papers.displaysearch', compact('paper','tags','allpaper', 'searchstr', 'College', 'PT'))
+        return view('papers.displaysearch', compact('paper','tags','allpaper', 'searchstr', 'College', 'PT', 'count'))
             ->with('i', (request()->input('page', 1) -1) *5);
 
     }

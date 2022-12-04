@@ -1,5 +1,6 @@
-
-<form class="updatePaperForm" action="{{ route('papers.update', $paper->PaperID) }} " method="POST" enctype="multipart/form-data">
+<form class="paperInput" action="{{ route('papers.update', $paper->PaperID) }} " method="POST" enctype="multipart/form-data">
+@csrf
+@method('PUT')
 	<div class="group">      
 		<input class="inputchecker1 inputInfo" type="text" name="PaperTitle" value="{{$paper->PaperTitle}}" required>
 		<span class="highlight"></span>
@@ -109,7 +110,6 @@
 	</div>
 
 	<br>
-	<br>
 
 	<button class="redBtn" type="submit">Submit</button>
 
@@ -130,6 +130,5 @@
 				document.getElementById("delBtn").style.display = "none";
 			}
 		}
-
 	</script>
-                        </form>
+</form>

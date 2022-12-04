@@ -111,25 +111,25 @@
 
 	<br>
 
-	<button class="redBtn" type="submit">Submit</button>
+	<input type="button" value="Submit" class="redBtn" id="btnPrompt">
 
-	@if(Session::has('message'))        
-		    <div id="modalOne" style="display:block" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="m1Close close">&times;</span>
-                    <div class="modalinfoCont">
-                        <h2>Success!</h2>
-						<br>
-                        {{Session::get('message')}}  
-                    </div>
-                </div>
-            </div>
-	 @endif
-
+	<p id="promptCont" style="display:none;">
+		Are you sure you want to submit changes?
+		<br>
+		<br>
+		<button class="redBtn" type="submit">Yes</button>
+	</p>
 	<script>
 
 		document.getElementById('dupeBtn').onclick = duplicate;
+		document.getElementById('btnPrompt').onclick = prompt;
+
+		var promptCont = document.getElementById('promptCont');
+
+		function prompt() {
+			document.getElementById('btnPrompt').style.display = "none";
+			promptCont.style.display = "block";
+		}
 
 		var i = 0;
 		var original = document.getElementById('duplicator');
@@ -144,11 +144,6 @@
 				document.getElementById("delBtn").style.display = "none";
 			}
 		}
-
-		var modalOne = document.getElementById("modalOne");
-		var m1span = document.getElementsByClassName("m1Close")[0];
-		m1span.onclick = function() {
-		modalOne.style.display = "none";
-		}
+		
 	</script>
 </form>

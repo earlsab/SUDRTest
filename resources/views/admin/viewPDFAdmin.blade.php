@@ -108,7 +108,7 @@
 
     var modalOne = document.getElementById("modalOne");
     var modalTwo = document.getElementById("modalTwo");
-    var modalThree = document.getElementById("modalTwo");
+    var modalThree = document.getElementById("modalThree");
 
     // Get the button that opens the modal
     var modalOneBtn = document.getElementById("modalOneBtn");

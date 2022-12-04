@@ -13,7 +13,7 @@
 		<div class="col col-1" data-label="Title:">{{$papers->PaperTitle}}</div>
 		<div class="col col-2" data-label="Paper Type:">{{$papers->PaperType}}</div>
 		<div class="col col-3" data-label="College:">{{$papers->College}}</div>
-		<div class="col col-4" data-label="View Link:"><button class="redBtn" onclick="location.href='{{route('AdminView', $papers->PaperID)}}'">View</button></div>
+		<div class="col col-4" data-label="View Link:"><button class="redBtn" onclick="location.href='{{route('editPDF', $papers->PaperID)}}'">View</button></div>
 	</li>	
 	@endforeach		
 </ul>

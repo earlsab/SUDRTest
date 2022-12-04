@@ -244,6 +244,11 @@ input[type=checkbox], input[type=radio]{
   width: 85%;
 }
 
+.invalid-feedback p{
+  color: #c71f37;
+  font-size: x-small;
+}
+
 /* MAIN CONTENT CONTAINER END */
 
 /* USER DASHBOARD START */
@@ -1168,7 +1173,7 @@ input:checked + .uiabt, input:checked + .uicontact {
 
   .categoryCont {
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

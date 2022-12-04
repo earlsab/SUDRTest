@@ -26,7 +26,8 @@
                             @endif
                         <div class="subcatPicker pdfbtnCont">
                             <select class="catSelect selectType" name="isAdmin">
-                                <option value="0">Regular User</option>
+                                <option selected disabled>Choose a new role</option>
+                                <option value="0">User</option>
                                 <option value="1">Admin</option>
                             </select>
                             <button class="pdfBtn redBtn" type="submit">Update</button>
