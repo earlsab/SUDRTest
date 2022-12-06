@@ -22,7 +22,9 @@ class SuperAdminController extends Controller
                 if (($term = $request->term)) {
                     $query->orWhere('UserName', 'LIKE','%'. $term . '%')
                         ->orWhere('FirstName', 'LIKE','%'. $term . '%')
-                        ->orWhere('LastName', 'LIKE','%'. $term . '%')->get();
+                        ->orWhere('LastName', 'LIKE','%'. $term . '%')
+                        ->orWhere('OrganizationName', 'LIKE','%'. $term . '%')
+                        ->orWhere('email', 'LIKE','%'. $term . '%')->get();
                 }
             }]
            ])

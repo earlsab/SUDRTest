@@ -98,7 +98,7 @@
 	</div>
 
 	<div class="group">      
-		<input class="inputchecker1 inputInfo" type="text" name="ContentAdviser" value="{{$paper->ContentAdviser}}"required>
+		<input class="inputchecker1 inputInfo" type="text" name="ContentAdviser" value="{{$paper->ContentAdviser}}">
 		<span class="highlight"></span>
 		<span class="bar"></span>
 		<label class="infoLabel">Content Advisor</label>
@@ -133,28 +133,32 @@
 	<script>
 
 		document.getElementById('dupeBtn').onclick = duplicate;
-		document.getElementById('btnPrompt').onclick = prompt;
-
-		var promptCont = document.getElementById('promptCont');
-
-		function prompt() {
-			document.getElementById('btnPrompt').style.display = "none";
-			promptCont.style.display = "block";
-		}
 
 		var i = 0;
 		var original = document.getElementById('duplicator');
+		var Fname =	document.getElementById("FirstNameInput");
+		var Lname = document.getElementById("LastNameInput");
 
 		function duplicate() {
 			document.getElementById("delBtn").style.display = "block";
 			var clone = original.cloneNode(true);
 			clone.id = "duplicate" + ++i;
+			clone.getElementsByTagName('input')[0].value = "";
+			clone.getElementsByTagName('input')[1].value = "";
 			original.parentNode.appendChild(clone);
 
 			if (original.id == 'duplicator') {
 				document.getElementById("delBtn").style.display = "none";
 			}
+
 		}
+
+		var modalOne = document.getElementById("modalOne");
+		var m1span = document.getElementsByClassName("m1Close")[0];
+		m1span.onclick = function() {
+			modalOne.style.display = "none";
+		}
+
 		
 	</script>
 </form>

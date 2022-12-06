@@ -24,6 +24,11 @@
 					<h2>{{ Auth::user()->LastName }}</h2>
 				</div>
 			</div>
+			@else
+			<div class="userName">@ {{ Auth::user()->OrganizationName }}</div>
+			<div class="fullNameBlock">
+				<h2>{{ Auth::user()->OrganizationName }}</h2>
+			</div>
 			@endif
 
 			<!--Change Password Display and Modal -->
@@ -89,11 +94,6 @@
 				<!--Displaying College -->
 					@if(Auth::user()->UserType == 'Student')
 						<div>{{ Auth::user()->college }}</div>
-					@endif
-
-				<!--Displaying if User Type is Organization -->
-					@if(Auth::user()->UserType == 'Organization')
-						<div>{{ Auth::user()->OrganizationName }}</div>
 					@endif
 					
 				<!--Displays Email-->

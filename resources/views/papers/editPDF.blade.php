@@ -22,7 +22,11 @@
                         {{ ucwords($results->FullName) }}
                     @endforeach  
                 </div>
+                @if($paper->ContentAdviser == '')
+                <div class="colpdf" data-label="Content Adviser:">None</div>
+                @else
                 <div class="colpdf" data-label="Content Adviser:">{{ $paper->ContentAdviser }}</div>
+                @endif
                 <div class="colpdf" data-label="Date Completed:">{{ $paper->DateCompleted }}</div>
                 <div class="colpdf" data-label="Key Words:">
                 @foreach($keyword as $keywords)

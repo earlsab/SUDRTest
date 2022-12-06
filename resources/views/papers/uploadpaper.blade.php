@@ -99,11 +99,15 @@
 
 		var i = 0;
 		var original = document.getElementById('duplicator');
+		var Fname =	document.getElementById("FirstNameInput");
+		var Lname = document.getElementById("LastNameInput");
 
 		function duplicate() {
 			document.getElementById("delBtn").style.display = "block";
 			var clone = original.cloneNode(true);
 			clone.id = "duplicate" + ++i;
+			clone.getElementsByTagName('input')[0].value = "";
+			clone.getElementsByTagName('input')[1].value = "";
 			original.parentNode.appendChild(clone);
 
 			if (original.id == 'duplicator') {

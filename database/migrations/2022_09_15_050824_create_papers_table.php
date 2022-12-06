@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('PaperID');
             $table->string('PaperTitle');
             $table->string('PaperType');
-            $table->string('ContentAdviser');
+            $table->string('ContentAdviser')->nullable();
             $table->string('College')->nullable();
             $table->string('file');
             $table->date('DateCompleted')->nullable();

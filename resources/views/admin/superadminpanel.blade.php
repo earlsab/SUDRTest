@@ -21,12 +21,7 @@
 					<form class="subcatPicker pdfbtnCont" action="{{ route('Changes.store') }} " method="POST">
 					@csrf
 						<input type="text" class="catSelect selectType" placeholder="Add College" name="CollegeName">
-						<button class="pdfBtn redBtn">Add</button>
-					</form>
-
-					<form class="subcatPicker pdfbtnCont" action="{{ route('Changes.store') }} " method="POST">
-					@csrf
-						<input type="text" class="catSelect selectType" placeholder="College Abbreviation for the Added College" name="CollegeAbbr">
+						<input type="text" class="catSelect selectType" placeholder="Add Abbreviation" name="CollegeAbbr">
 						<button class="pdfBtn redBtn">Add</button>
 					</form>
 
@@ -47,6 +42,7 @@
 						<li class="tableHeader">
 							<div class="col col-1">Last Name</div>
 							<div class="col col-2">First Name</div>
+							<div class="col col-2">Organization Name</div>
 							<div class="col col-3">Email</div>
 							<div class="col col-4">College</div>
 							<div class="col col-5">Role Change</div>
@@ -55,6 +51,7 @@
 						<li class="tablepaperInfo">
 							<div class="col col-1" data-label="Last Name:">{{$users->LastName}}</div>
 							<div class="col col-2" data-label="First Name:">{{$users->FirstName}}</div>
+							<div class="col col-2" data-label="Organization Name:">{{$users->OrganizationName}}</div>
 							<div class="col col-3" data-label="Email:">{{$users->email}}</div>
 							<div class="col col-4" data-label="College:">{{$users->college}}</div>
 							<div class="col col-5" data-label="Role Change:"><button class="redBtn" onclick="location.href='{{route('Roles', $users->UserID)}}'">Add</button></div>
