@@ -30,8 +30,6 @@ class MyPapersController extends Controller
         $count = 0;
         $allpaper = Papers::all();
 
-        
-
         $paper = Papers::where([
         ['PaperTitle', '!=', Null],
         [function($query) use ($request) {

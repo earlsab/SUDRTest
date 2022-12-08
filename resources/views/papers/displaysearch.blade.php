@@ -49,7 +49,7 @@
 					</li>
 				</form>
 				<div class="d-flex justify-content-center">
-					{{ $paper->links() }}
+					{{ $paper->appends(array('term' => $searchstr))->links() }}
 				</div>
             </div>
 
