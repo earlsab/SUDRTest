@@ -76,7 +76,7 @@
 
 		<select class="selectType" name="College">
 			<option  disabled="disabled" selected hidden>Select College</option>
-			@foreach($College as $Colleges)
+			@foreach($College->sortBy('CollegeName') as $Colleges)
 				@if($Colleges->CollegeAbbr == $paper->College)
 				<option value="{{$Colleges->CollegeAbbr}}" selected>{{$Colleges->CollegeName}}</option>
 				@else
@@ -87,7 +87,7 @@
 
 		<select class="selectType" name="PaperType">
 			<option selected="true" disabled="disabled" hidden>Select Paper Type</option>
-			@foreach($PT as $PaperType)
+			@foreach($PT->sortBy('PaperTypeName') as $PaperType)
 				@if($PaperType->PaperTypeName == $paper->PaperType)
 				<option value="{{$PaperType->PaperTypeName}}" selected>{{$PaperType->PaperTypeName}}</option>
 				@else
