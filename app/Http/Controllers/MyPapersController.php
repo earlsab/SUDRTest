@@ -9,6 +9,9 @@ use App\Models\Relations;
 use App\Models\PaperType;
 use App\Models\User;
 
+use \Conner\Tagging\Model\Tagged;
+use \Conner\Tagging\Taggable;
+
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Storage;
@@ -302,6 +305,8 @@ class MyPapersController extends Controller
             'PaperType' => 'required',
         ]);
 
+        $input = $request->all();
+
         $paper=Papers::find($PaperID);
 
         $file=$request->file;
@@ -316,19 +321,21 @@ class MyPapersController extends Controller
             $paper->DateCompleted=$request->DateCompleted;
             $paper->ContentAdviser=$request->ContentAdviser;
             $paper->modified_by=$request->modified_by;
-            $input = $request->all();
-            $tags = explode(",", $request->tags);
+
             $paper->save();
 
-            $paper->tag($tags);
+            $tags = Tagged::select('id')
+                ->where('taggable_id', $PaperID)->get();
+
+            $tags = explode(",", $request->tags);
+
+            $paper->retag($tags);
+
+        
             $author=Relations::select('author_ID')
             ->where('paper_ID', $PaperID)->get();
 
-            
-
             $prevcount = Relations::where('paper_ID', $PaperID)->get()->count();
-
-            $input = $request->all();
             $newcount = count($input['Fname']);
 
             if($newcount < $prevcount){
