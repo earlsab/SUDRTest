@@ -94,7 +94,7 @@
                                     {{ucwords($cites->Citation)}}
                                 @endforeach
                                 
-                            .&nbsp({{$paper->DateCompleted}}). &nbsp<i>{{$paper->PaperTitle}}</i>. &nbsp Silliman University, Dumaguete City. &nbsp [sudr.online]
+                            .&nbsp({{$paper->DateCompleted}}). &nbsp<i>{{$paper->PaperTitle}}</i>. &nbsp Silliman University, Dumaguete City.
                             </div>
 						</li>
 
@@ -109,7 +109,7 @@
                                 {{ucwords($cites->Citation)}}
                             @endforeach
                             
-                            .&nbsp<i>{{$paper->PaperTitle}}</i>, &nbsp Silliman University, &nbsp ({{$paper->DateCompleted}}), &nbsp [sudr.online]
+                            .&nbsp<i>{{$paper->PaperTitle}}</i>, &nbsp Silliman University, Dumaguete City, &nbsp ({{$paper->DateCompleted}}).
                             </div>
 						</li>
 
@@ -124,7 +124,7 @@
                                 {{ucwords($cites->Citation)}}
                             @endforeach
                             
-                            ."{{$paper->PaperTitle}}". &nbsp Available: [sudr.online]. &nbsp  ({{ date('Y-m-d') }}) 
+                            ."{{$paper->PaperTitle}}". &nbsp Silliman University, Dumaguete City. &nbsp  ({{ date('Y-m-d') }})
                             </div>
 						</li>
                     </div>
