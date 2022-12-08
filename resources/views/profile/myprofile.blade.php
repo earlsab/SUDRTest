@@ -34,6 +34,17 @@
 			<!--Change Password Display and Modal -->
 			<div class="changePwBlock">
 					<button class="redBtn" id="modalBtn">Change Password</button>
+		
+					@if(Auth::user()->isAdmin == '2')
+					<br>
+					<br>
+						<button class="dashBtn redBtn" onclick="location.href='{{route('SuperAdminPage')}}'">Admin Dashboard</button>
+					@endif
+					@if(Auth::user()->isAdmin == '1')
+					<br>
+					<br>
+						<button class="dashBtn redBtn" onclick="location.href='{{route('AdminPage')}}'">Admin Dashboard</button>
+					@endif
 			</div>
 
 			<div id="myModal" class="modal">
@@ -82,12 +93,6 @@
 			<!--Admin and User Views -->
 			<div class="colEmailBlock">
 				<div class="userTypeBlock">
-					@if(Auth::user()->isAdmin == '2')
-						<button class="nodesignBtn" onclick="location.href='{{route('SuperAdminPage')}}'"><i class="fa-solid fa-star"></i></button>
-					@endif
-					@if(Auth::user()->isAdmin == '1')
-						<button class="nodesignBtn" onclick="location.href='{{route('AdminPage')}}'"><i class="fa-solid fa-star"></i></button>
-					@endif
 					<div>{{ Auth::user()->UserType }}</div>
 				</div>
 

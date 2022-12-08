@@ -64,7 +64,7 @@ class RegisterController extends Controller
             
             'email' => ['required', 'string', 'email', 'unique:users', 'regex:/(.*)@su.edu.ph/i'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ],['email.regex' => 'Email must be a silliman email']);
+        ],['email.regex' => 'Email must be a Silliman email']);
     }
     /**
      * Create a new user instance after a valid registration.

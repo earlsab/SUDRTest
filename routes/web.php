@@ -38,7 +38,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('SuperAdmin')->middleware(['auth','isAdmin'])->group(function() {
     Route::get('/Page', [SuperAdminController::class, 'index'])->name('SuperAdminPage');
     Route::get('/Roles/{id}', [SuperAdminController::class, 'roles'])->name('Roles');
-    Route::resource('Changes', SuperAdminController::class)->only(['store','update']);
+    Route::post('/StorePT', [SuperAdminController::class, 'storePaperType'])->name('StorePT');
+    Route::post('/StoreCol', [SuperAdminController::class, 'storeCollege'])->name('StoreCol');
+    Route::resource('Changes', SuperAdminController::class)->only(['update']);
 });
 
 /* Admin Route Handles Everything in the CRUD except for adding */

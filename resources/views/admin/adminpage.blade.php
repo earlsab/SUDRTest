@@ -26,6 +26,11 @@
 
 			<div class="changePwBlock">
 					<button class="redBtn" id="modalBtn">Change Password</button>
+					@if(Auth::user()->isAdmin == '1')
+					<br>
+					<br>
+					<button class="dashBtn redBtn" onclick="location.href='{{route('MyProfile')}}'">User Dashboard</button>
+					@endif
 			</div>
 
 			<div id="myModal" class="modal">
@@ -70,11 +75,6 @@
 
 			<div class="colEmailBlock">
 				<div class="userTypeBlock">
-					@if(Auth::user()->isAdmin == '1')
-					
-					<button class="nodesignBtn" onclick="location.href='{{route('MyProfile')}}'"><i class="fa-solid fa-star"></i></button>
-					
-					@endif
 					<div>{{ Auth::user()->UserType }}</div>
 				</div>
 				

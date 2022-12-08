@@ -96,9 +96,8 @@
         </div>
 
         <div class="pdfdisplayCard">
-
-            <iframe class="pdfFrame" src="/assets/{{$paper->file}}#toolbar=0"></iframe>
-
+            <div class="embed-cover"></div>
+            <embed  class="pdfFrame" src="/assets/{{$paper->file}}#toolbar=0">
         </div>
 
     </div>

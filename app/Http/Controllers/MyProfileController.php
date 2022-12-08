@@ -26,7 +26,10 @@ class MyProfileController extends Controller
         $paper = Papers::all();
         $bm = Bookmarks::all();
 
-        return view('profile.myprofile', compact('College','PT','paper','bm'));
+        $bookmark_details = DB::table('bookmarks')
+            ->join('papers', 'bookmarks.paper_id','=', 'papers.PaperID')->get();
+
+        return view('profile.myprofile', compact('College','PT','paper','bm', 'bookmark_details'));
     }
 
     public function changepass()

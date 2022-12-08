@@ -94,7 +94,7 @@
                                     {{ucwords($cites->Citation)}}
                                 @endforeach
                                 
-                            .&nbsp({{$paper->DateCompleted}}). &nbsp<i>{{$paper->PaperTitle}}</i>. &nbsp Silliman University. &nbsp [sudr.online]
+                            .&nbsp({{$paper->DateCompleted}}). &nbsp<i>{{$paper->PaperTitle}}</i>. &nbsp Silliman University, Dumaguete City. &nbsp [sudr.online]
                             </div>
 						</li>
 
@@ -135,10 +135,10 @@
         </div>
 
         <div class="pdfdisplayCard">
-
-            <iframe  class="pdfFrame" src="/assets/{{$paper->file}}#toolbar=0"></iframe>
-
+            <div class="embed-cover"></div>
+            <embed  class="pdfFrame" src="/assets/{{$paper->file}}#toolbar=0">
         </div>
+
 
     </div>
 

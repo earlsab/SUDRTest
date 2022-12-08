@@ -197,6 +197,10 @@ input[type=checkbox], input[type=radio]{
   cursor: pointer;
 }
 
+.dashBtn {
+  border-radius: 20px;
+}
+
 .nodesignBtn {
   background-color: transparent;
   border: none;
@@ -332,6 +336,7 @@ input[type=checkbox], input[type=radio]{
 #profView:checked ~ .changePwBlock,
 #profView:checked ~ .colEmailBlock{
   display: flex;
+  flex-direction: column;
 }
 
   /* USER PROFILE CARD START */
@@ -744,7 +749,7 @@ input[type=checkbox], input[type=radio]{
 }
 
 .col-1 {
-  flex-basis: 50%;
+  flex-basis: 45%;
 }
 .col-2 {
   flex-basis: 20%;
@@ -988,6 +993,37 @@ input[type=checkbox], input[type=radio]{
   width: 70%;
   padding: 20px;
 }
+
+.afterSearch {
+  display: flex;
+  width: 50%;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.afterSearch input[type=text] {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #c71f37;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  
+}
+
+.afterSearch button {
+  width: 10%;
+  padding: 5px;
+  float: left;
+  background: #c71f37;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  color: white;
+  border: 1px solid #c71f37;
+  border-left: none;
+  cursor: pointer;
+}
+
 
 .searchForm input[type=text] {
   display: block;
@@ -1353,6 +1389,15 @@ input:checked + .uiabt, input:checked + .uicontact {
   margin-top: 30px;
   margin-bottom: 30px;
   border: 1px solid black;
+}
+
+.embed-cover {
+  position: absolute;
+  height: 118vh;
+  width: 60%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
 }
 
 @media (max-width: 768px) {

@@ -5,7 +5,12 @@
     <div class="viewPDFCont">
 		<br>
 		<br>
- 
+		<form class="afterSearch" action="{{ route('Papers') }}" method="GET" role="search" >
+			Search Again: &nbsp
+			<input type="text" value="{{$searchstr}}" name="term">
+			<button type="submit"><i class="fa fa-search"></i></button>
+		</form>
+
         <div class="pdfinfoDisplay">
 
             <div class="pdfinfoCard">

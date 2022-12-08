@@ -53,16 +53,24 @@ class SuperAdminController extends Controller
         return redirect()->route('SuperAdminPage');
     }
 
-    public function store(Request $request)
+    public function storePaperType(Request $request)
     {
         $PT = new PaperType();
-        $College = new College();
 
         $PT->PaperTypeName=$request->PaperTypeName;
+
+        $PT->save();
+        return redirect()->back();
+    }
+
+    public function storeCollege(Request $request)
+    {
+        $College = new College();
+
+
         $College->CollegeName=$request->CollegeName;
         $College->CollegeAbbr=$request->CollegeAbbr;
 
-        $PT->save();
         $College->save();
 
         return redirect()->back();

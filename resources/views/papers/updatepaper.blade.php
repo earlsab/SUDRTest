@@ -108,7 +108,15 @@
 
 	Input Keywords:
 	<div class="mb-3">
-        <input class="form-control" type="text" data-role="tagsinput" name="tags">
+		<input class="form-control" type="text" value="
+			@foreach($keyword as $keywords)
+				@if($loop->last)
+					{{$keywords->tag_name}}
+				@else
+					{{$keywords->tag_name}},
+				@endif
+			@endforeach"
+			data-role="tagsinput" name="tags">
     </div>
 
 @csrf
@@ -121,6 +129,7 @@
 	<input type="button" value="Submit" class="redBtn" id="btnPrompt">
 
 	<p id="promptCont" style="display:none;">
+		<br>
 		Are you sure you want to submit changes?
 		<br>
 		<br>
@@ -157,6 +166,13 @@
 		var m1span = document.getElementsByClassName("m1Close")[0];
 		m1span.onclick = function() {
 			modalOne.style.display = "none";
+		}
+
+		var btnPrompt = document.getElementById("btnPrompt");
+		var promptCont = document.getElementById("promptCont");
+
+		btnPrompt.onclick = function() {
+			promptCont.style.display = "block";
 		}
 
 		

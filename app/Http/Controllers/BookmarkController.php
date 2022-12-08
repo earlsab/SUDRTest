@@ -17,12 +17,13 @@ class BookmarkController extends Controller
     public function index()
     {
         $bm = Bookmarks::all();
-        $paper = Papers::all();
+        
+        // $paper = DB::table('bookmarks')
+        // ->where($bm->paper_id, '=', 'PaperID')->get();
 
         $bookmark_details = DB::table('bookmarks')
-            ->leftJoin('papers', 'bookmarks.paper_id','=', 'papers.PaperID')
-            ->get();
-            
+            ->join('papers', 'bookmarks.paper_id','=', 'papers.PaperID')->get();
+
         return view('papers.mybookmarks', compact('bm', 'bookmark_details'));
     }
 

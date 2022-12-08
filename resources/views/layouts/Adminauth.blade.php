@@ -17,7 +17,7 @@
 <header>
 <nav class="navbar">
 	<!-- LOGO -->
-	<div><a href="index.html" title="Silliman University Digital Repository"><img class="logoimg" src="/img/SUDRLogo.png"></a></div>
+	<div><a href="{{ route('home') }}" title="Silliman University Digital Repository"><img class="logoimg" src="/img/SUDRLogo.png"></a></div>
 	<!-- NAVIGATION MENU -->
 	<ul class="nav-links">
 	    <!-- HAMBURGER MENU -->
