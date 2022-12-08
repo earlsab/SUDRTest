@@ -171,7 +171,7 @@ class MyPapersController extends Controller
             $tags = Papers::all();
         
         return view('papers.displaysearch', compact('paper','tags','allpaper', 'searchstr', 'College', 'PT', 'count'))
-            ->with('i', (request()->input('searchstr', 1) -1) *5);
+            ->with('i', (request()->input('page', 1) -1) *5);
 
     }
 
