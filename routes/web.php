@@ -11,9 +11,6 @@ use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CategoriesController;
 
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +27,6 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-
 /* Home Page Route */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -61,8 +57,6 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
     Route::get('/Filter', [MyPapersController::class, 'filter'])->name('FilterResults');
     Route::get('/KeySearch', [MyPapersController::class, 'keysearch'])->name('KeySearch');
     Route::get('/KeywordSearch', [MyPapersController::class, 'keysearch'])->name('KeywordSearch');
-    Route::get('/Category/PaperType', [CategoriesController::class, 'papertype'])->name('PaperType');
-    Route::get('/Category/Colleges', [CategoriesController::class, 'college'])->name('Colleges');
     Route::get('/MyBookmarks', [BookmarkController::class, 'index'])->name('MyBookmarks');
     Route::get('/viewPDF/{id}', [MyPapersController::class, 'view'])->name('viewPDF');
     Route::get('/editPDF/{id}', [MyPapersController::class, 'editPDF'])->name('editPDF');
@@ -73,10 +67,3 @@ Route::prefix('User')->middleware(['auth'])->group(function(){
 Route::get('/ChangePass', [MyProfileController::class, 'changepass'])->name('ChangePass');
 Route::post('/ChangePassword', [MyProfileController::class, 'updatepassword'])->name('passupdate');
 Route::post('/Bookmarked', [BookmarkController::class, 'store'])->name('Bookmarks');
-
-
-
-
-
-
-

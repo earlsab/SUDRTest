@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('ContentAdviser')->nullable();
             $table->string('College')->nullable();
             $table->string('file');
+            $table->string('modified_by')->nullable();
             $table->date('DateCompleted')->nullable();
             $table->unsignedBigInteger('UploaderUserID');
             $table->foreign('UploaderUserID')->references('UserID')->on('users');

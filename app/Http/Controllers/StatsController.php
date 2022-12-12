@@ -35,8 +35,6 @@ class StatsController extends Controller
         return $range1_chartdata;
     }
 
-
-
     public function compareRange2($range2monthA, $range2yearA, $range2monthB, $range2yearB)
     {
         $range2_monthA = $range2monthA;
@@ -98,6 +96,4 @@ class StatsController extends Controller
 
             return $top3_keywords;
         } 
-        
-
 }

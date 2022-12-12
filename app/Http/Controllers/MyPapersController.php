@@ -48,7 +48,6 @@ class MyPapersController extends Controller
                         ->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
                         ->orWhere('PaperType', 'LIKE','%'. $term . '%')
                         ->orWhere('College', 'LIKE','%'. $term . '%')
-                        //->orWhere('ContentAdviser', 'LIKE','%'. $term . '%')
                         ->get();
                 }
 
@@ -57,19 +56,14 @@ class MyPapersController extends Controller
                     ->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
                     ->orWhere('PaperType', 'LIKE','%'. $term . '%')
                     ->orWhere('College', 'LIKE','%'. $term . '%')
-                    //->orWhere('ContentAdviser', 'LIKE','%'. $term . '%')
                     ->get();
                 }
 
                 $query->orWhere('PaperTitle', 'LIKE','%'. $term . '%')
                     ->orWhere('PaperType', 'LIKE','%'. $term . '%')
                     ->orWhere('College', 'LIKE','%'. $term . '%')
-                    //->orWhere('ContentAdviser', 'LIKE','%'. $term . '%')
-                    ->get();
-                
-                 
-            }
-            
+                    ->get();    
+            }  
         }]
        ])
         
@@ -120,7 +114,6 @@ class MyPapersController extends Controller
                         $requestAuthor = null;
                         $requestAuthorEquals = '!=';
                     }
-                    //$requestAuthorEquals = '!=';
         }
 
         $paper = Papers::where([
@@ -147,7 +140,6 @@ class MyPapersController extends Controller
                                 $requestAuthor = null;
                                 $requestAuthorEquals = '!=';
                             }
-                            //$requestAuthorEquals = '!=';
                 }
 
                 $keywordresult = DB::table('tagging_tagged')
@@ -211,11 +203,6 @@ class MyPapersController extends Controller
         return view('papers.viewPDF', compact('paper','result','cite','cite2','College','PT','author', 'keyword'));
     }
 
-    public function create()
-    {
-        return view('papers.uploadpaper');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -234,7 +221,6 @@ class MyPapersController extends Controller
             ->value('UserID');
         
         $paper=new Papers();
-
         
         $file=$request->file;
 
@@ -253,8 +239,6 @@ class MyPapersController extends Controller
             
             $paper->save();
             $paper->tag($tags);
-        
-
 
             if(count($input['Fname']) > 0){
                 for($i = 0 ; $i < count($input['Fname']) ; $i++){
@@ -271,10 +255,7 @@ class MyPapersController extends Controller
                     $relate->save();
                 }
             }
- 
-
             return redirect()->back()->with('message','File has been uploaded.');
-
     }
 
     public function destroy(Papers $paper)
@@ -291,9 +272,6 @@ class MyPapersController extends Controller
          ->value('id');
          
          DB::table('papers')->where('PaperID', '=', $papers)->delete();
-         
-         // Authors::destroy($authorID);
-         // Relations::destroy($relation);
          
          return redirect()->route('AdminPage');
     }
@@ -370,9 +348,7 @@ class MyPapersController extends Controller
     
                 }
             }
-
-            
-            
+   
             $relate_authors = Relations::where('paper_ID', $PaperID)->get();
 
             $i = 0;
@@ -392,7 +368,6 @@ class MyPapersController extends Controller
                 }           
 
             return redirect()->back()->with('message','File has been updated.');
-
     }
 
     public function editPDF($PaperID) {
@@ -469,7 +444,4 @@ class MyPapersController extends Controller
         
         return view('papers.keywordsearch', compact('paper','tags','allpaper', 'searchstr', 'College', 'PT', 'count'));
     }
-
-    
- 
 }

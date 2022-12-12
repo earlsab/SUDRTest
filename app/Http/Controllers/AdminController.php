@@ -17,7 +17,6 @@ use DB;
 use Auth;
 
 
-
 class AdminController extends Controller
 {
     public function index()
@@ -40,7 +39,6 @@ class AdminController extends Controller
         $College = College::all();
         $PT = PaperType::all();
         $paper = Papers::all();
-
 
         $r1mA = $request->Range1monthA;
         $r1yA = $request->Range1yearA;
@@ -79,7 +77,6 @@ class AdminController extends Controller
         return view('statistics.filterstats', compact('College', 'PT', 'paper', 'top3_keywords_names', 'top3_keywords_count', 'range1_chartdata', 'range2_chartdata'));
     }
     
-
    public function showAll()
    {
         $paper=Papers::all();
@@ -180,6 +177,4 @@ class AdminController extends Controller
             $paper->update();
             return redirect()->route('AdminPage');
    }
-    
-   
 }

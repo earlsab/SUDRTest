@@ -67,7 +67,6 @@ class SuperAdminController extends Controller
     {
         $College = new College();
 
-
         $College->CollegeName=$request->CollegeName;
         $College->CollegeAbbr=$request->CollegeAbbr;
 

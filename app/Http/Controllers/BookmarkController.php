@@ -11,16 +11,11 @@ use Illuminate\Support\Facades\Validator;
 use DB;
 use Auth;
 
-
 class BookmarkController extends Controller
 {
     public function index()
     {
         $bm = Bookmarks::all();
-        
-        // $paper = DB::table('bookmarks')
-        // ->where($bm->paper_id, '=', 'PaperID')->get();
-
         $bookmark_details = DB::table('bookmarks')
             ->join('papers', 'bookmarks.paper_id','=', 'papers.PaperID')->get();
 
@@ -33,7 +28,6 @@ class BookmarkController extends Controller
             'BookmarkName' => 'required',
         ]);
 
-        
         $paper = DB::table('papers')
             ->where('PaperID', '=', $request->paper_id)
             ->value('PaperID');

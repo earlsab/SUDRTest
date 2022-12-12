@@ -7,7 +7,6 @@
 
 	<form action ="{{ route('passupdate') }}" method ="POST">
 		@csrf 
-		
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
                                     {{ session('status') }}
@@ -31,7 +30,6 @@
 			<p class="passinfo">Confirm new password:</p>
 			<input class="passinput" type="password"  name="confirmnewpass" id="ConfirmNewPasswordInput">
 		</div>
-
         
 		<div class="buttoncont">
 			<input class="buttonstyle1" type="submit">
