@@ -68,7 +68,7 @@ class MyPapersController extends Controller
        ])
         
             ->orderBy("PaperID", "desc")
-            ->paginate();
+            ->paginate(5);
             $tags = Papers::all();
         $count = $paper ->count();
         return view('papers.displaysearch', compact('paper','tags','allpaper','searchstr', 'PT', 'College', 'count'))

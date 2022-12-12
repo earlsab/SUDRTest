@@ -20,14 +20,14 @@
 
 		<select class="selectType" name="College">
 			<option selected="true" disabled="disabled">Select College</option>
-			@foreach($College as $Colleges)
+			@foreach($College->sortBy('CollegeName') as $Colleges)
 			<option value="{{$Colleges->CollegeAbbr}}">{{$Colleges->CollegeName}}</option>
 			@endforeach
 		</select>
 
 		<select class="selectType" name="PaperType">
 			<option selected="true" disabled="disabled">Select Paper Type</option>
-			@foreach($PT as $PaperType)
+			@foreach($PT->sortBy('PaperTypeName') as $PaperType)
 			<option value="{{$PaperType->PaperTypeName}}">{{$PaperType->PaperTypeName}}</option>
 			@endforeach
 		</select>
@@ -38,7 +38,7 @@
 	</div>
 
 	<div class="mb-3">
-        <input class="form-control" type="text" data-role="tagsinput" name="tags">
+        <input class="form-control" type="text" data-role="tagsinput" name="tags" required>
     </div>
 
 	<div class="authHeadingCont">

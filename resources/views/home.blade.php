@@ -15,6 +15,7 @@
 		@endif
 		<form class="searchForm" action="{{ route('Papers') }}" method="GET" role="search" >
 			<input type="text" placeholder="Search..." name="term">
+			<input type="hidden" placeholder="Search" value="1" name="page">
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
 		<br>
