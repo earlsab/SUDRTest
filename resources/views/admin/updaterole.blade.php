@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.Adminauth')
 @section('content')
 
 	<div class="categorypageCont viewPDFCont">

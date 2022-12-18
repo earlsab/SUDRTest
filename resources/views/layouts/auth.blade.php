@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>SU Digital Repository Login Page</title>
-	<link rel="stylesheet" type="text/css" href="/css/superadmin.css">
+	<link rel="stylesheet" type="text/css" href="/css/auth.css">
 	<script src="https://kit.fontawesome.com/6299020e6b.js" crossorigin="anonymous"></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
@@ -26,12 +26,8 @@
 
 	    <!-- NAVIGATION MENUS -->
 	    <div class="menu">
-		<li><a href="{{ route('logout') }}"  
-					onclick="event.preventDefault();
-						document.getElementById('logout-form').submit();">LOGOUT</a>
-			<form id="logout-form" action="{{ route('logout') }}" method="POST">
-											@csrf
-				</form></li>
+			<li><button class="topBtn" id="modalOneBtn">FAQ</button></li>
+			<li><button class="topBtn" id="modalTwoBtn">ABOUT</button></li> 
 	    </div>
 	</ul>
 </nav>
