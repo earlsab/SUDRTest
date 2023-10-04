@@ -1,4 +1,4 @@
-Silliman University Digital Repository
+(Unofficial) Silliman University Digital Repository
 Forked from: https://github.com/Dyn0fficial/SUDRTest
 
 Need for install:
